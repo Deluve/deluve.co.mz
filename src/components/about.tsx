@@ -4,25 +4,24 @@ import Image from "next/image";
 
 const ourPrinciples = [
   {
-    title: "Creativity with Purpose",
+    title: "Creative Innovation",
     description:
-      "Our designs aren’t just pretty; they’re built to solve problems and make an impact.",
+      "We push boundaries with innovative solutions that transform ideas into impactful digital experiences.",
   },
   {
-    title: "Collaboration is Key",
+    title: "Collaborative Excellence",
     description:
-      "We work with you, not just for you. Great ideas come from teamwork.",
-  },
-
-  {
-    title: "Honest & Transparent",
-    description:
-      "No confusing jargon or hidden fees. Just clear communication and real results.",
+      "Great results come from teamwork. We partner closely with clients to deliver solutions that exceed expectations.",
   },
   {
-    title: "Details Matter",
+    title: "Efficient Delivery",
     description:
-      "The little things make a big difference. We sweat the small stuff, so you don’t have to.",
+      "We optimize processes and leverage cutting-edge technology to deliver high-quality solutions faster and more cost-effectively.",
+  },
+  {
+    title: "Results-Driven",
+    description:
+      "Every project is measured by its impact. We focus on outcomes that drive real business value and growth.",
   },
 ];
 
@@ -38,11 +37,9 @@ export default function ContentSection() {
           </ScrollView>
           <ScrollView>
             <p>
-              Deluve was born from a simple idea—great design should do
-              more than just look good; it should make an impact. What started
-              as a passion for creativity turned into a full-fledged design
-              agency dedicated to helping brands tell their stories, connect
-              with audiences, and stand out in a crowded world.
+              At Deluve, we believe that great design and technology can transform businesses and create meaningful connections with users. Our team of passionate creatives and developers work together to bring innovative ideas to life.
+
+              We focus on creating digital solutions that not only look stunning but also drive real business results. From concept to launch, we're with you every step of the way.
             </p>
           </ScrollView>
         </div>

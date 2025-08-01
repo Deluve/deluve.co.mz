@@ -7,6 +7,28 @@ import { TextEffect } from "@/components/motion-primitives/text-effect";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
 import LogoCloud from "@/components/sections/home/logo-cloud";
 
+// Custom CSS animations
+const customStyles = `
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+  }
+  
+  @keyframes glow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-glow { animation: glow 4s ease-in-out infinite; }
+  .animate-shimmer { animation: shimmer 3s linear infinite; }
+`;
+
 const transitionVariants = {
   item: {
     hidden: {
@@ -60,29 +82,40 @@ export default function HeroSection() {
               }}
               className="absolute inset-0 -z-20"
             >
-              <div className="h-screen xl:h-auto absolute inset-2 -z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  preload="auto"
-                  className="size-full -scale-x-100 object-cover opacity-50 invert-0 dark:opacity-35 dark:invert "
-                >
-                  <source src="/hero-light.mp4" type="video/mp4" />
-                </video>
-              </div>
+                             <div className="h-screen xl:h-auto absolute inset-2 -z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
+                 <style dangerouslySetInnerHTML={{ __html: customStyles }} />
+                 <div className="relative w-full h-full">
+                   {/* Animated section only at bottom */}
+                   <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-blue-500/30 via-purple-500/20 to-transparent dark:from-blue-600/20 dark:via-purple-600/15 dark:to-transparent">
+                     {/* Floating orbs only in bottom section */}
+                     <div className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-blue-400/30 dark:bg-blue-500/20 rounded-full blur-xl animate-float"></div>
+                     <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-purple-400/30 dark:bg-purple-500/20 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
+                     <div className="absolute bottom-1/2 left-1/3 w-28 h-28 bg-indigo-400/30 dark:bg-indigo-500/20 rounded-full blur-xl animate-float" style={{ animationDelay: '4s' }}></div>
+                     
+                     {/* Additional floating elements */}
+                     <div className="absolute bottom-1/3 right-1/3 w-16 h-16 bg-cyan-400/20 dark:bg-cyan-500/15 rounded-full blur-lg animate-float" style={{ animationDelay: '1s' }}></div>
+                     <div className="absolute bottom-1/4 right-1/4 w-20 h-20 bg-pink-400/20 dark:bg-pink-500/15 rounded-full blur-lg animate-float" style={{ animationDelay: '3s' }}></div>
+                     
+                     {/* Shimmer effect only in bottom */}
+                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
+                   </div>
+                   
+                   {/* Subtle gradient overlay for smooth transition */}
+                   <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/20 to-transparent dark:from-black/40 dark:to-transparent"></div>
+                 </div>
+               </div>
             </AnimatedGroup>
 
             <div className="absolute inset-0 -z-10 size-full "></div>
             <div className="mx-auto max-w-7xl px-6">
               <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
-                { <AnimatedGroup variants={transitionVariants}>
+                {<AnimatedGroup variants={transitionVariants}>
                   <Link
                     href="#link"
                     className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-zinc-950/5 transition-colors duration-300 dark:border-t-white/5 dark:shadow-zinc-950"
                   >
                     <span className="text-foreground text-sm">
-                      Introducing Support for AI Models
+                      Startup Innovation Studio
                     </span>
                     <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
 
@@ -97,7 +130,7 @@ export default function HeroSection() {
                       </div>
                     </div>
                   </Link>
-                </AnimatedGroup> }
+                </AnimatedGroup>}
 
                 <TextEffect
                   preset="fade-in-blur"
@@ -105,7 +138,10 @@ export default function HeroSection() {
                   as="h1"
                   className="mt-8 text-balance text-5xl md:text-7xl lg:mt-16 xl:text-[5.25rem] font-semibold"
                 >
-                  Designs That Captivate, Brands That Shine.
+                  We create
+                  digital
+                  experiences
+                  that matter
                 </TextEffect>
                 <TextEffect
                   per="line"
@@ -115,9 +151,7 @@ export default function HeroSection() {
                   as="p"
                   className="mx-auto mt-8 max-w-2xl text-balance text-lg"
                 >
-                  Deluve, we blend creativity and strategy to craft
-                  stunning websites, striking visuals, and unforgettable brand
-                  experiences that set you apart.
+                  Deluve is a creative startup studio that transforms ideas into innovative digital solutions and memorable experiences.
                 </TextEffect>
 
                 <AnimatedGroup
@@ -144,8 +178,7 @@ export default function HeroSection() {
                       className="rounded-xl px-5 text-base"
                     >
                       <Link
-                        href="https://github.com/haramishra/lume-studio-next"
-                        target="_black"
+                        href="#portfolio"
                       >
                         <svg
                           className="size-6"
@@ -154,10 +187,10 @@ export default function HeroSection() {
                         >
                           <path
                             fill="currentColor"
-                            d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"
+                            d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
                           />
                         </svg>
-                        <span className="text-nowrap">Github</span>
+                        <span className="text-nowrap">View Projects</span>
                       </Link>
                     </Button>
                   </div>
@@ -168,9 +201,9 @@ export default function HeroSection() {
                     variant="ghost"
                     className="h-10.5 rounded-xl px-5"
                   >
-                    <Link href="">
-                      <span className="text-nowrap">Message Us</span>
-                    </Link>
+                                         <Link href="#contact">
+                       <span className="text-nowrap">Get Quote</span>
+                     </Link>
                   </Button>
                 </AnimatedGroup>
               </div>

@@ -1,10 +1,18 @@
+import React from "react";
 import { CustomCursorElement } from "@/components/custom-cursor-element";
 import { InView } from "@/components/motion-primitives/in-view";
 import { ScrollView, ScrollViewStaggerWrapper } from "@/components/scroll-view";
 import { Badge } from "@/components/ui/badge";
 import { SERVICES_LIST } from "@/content/services";
-import Image from "next/image";
+import { Code, Smartphone, Bot, Zap } from "lucide-react";
 import Link from "next/link";
+
+const iconMap = {
+  Code: Code,
+  Smartphone: Smartphone,
+  Bot: Bot,
+  Zap: Zap,
+};
 
 export default function ServicesSection2() {
   return (
@@ -13,15 +21,17 @@ export default function ServicesSection2() {
         <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center">
           <ScrollView>
             <h2 className="text-4xl font-medium lg:text-5xl">
-              Design That Works for You
+            Discover the ideal solution for you
             </h2>
           </ScrollView>
           <ScrollView delay={0.2}>
             <p>
-              At Deluve, we create designs that are more than just visually
-              appealing. They&apos;re built to solve problems, connect with
-              audience, and drive results. <br /> Whether you’re starting fresh
-              or refining your existing identity, <br /> we’ve got you covered.
+              At Deluve, we specialize in digital transformation that goes beyond
+              just technology implementation. We help businesses evolve their
+              digital presence, optimize processes, and create meaningful
+              connections with their audience. <br /> Whether you're starting
+              your digital journey or accelerating your existing transformation,
+              <br /> we've got you covered.
             </p>
           </ScrollView>
         </div>
@@ -101,16 +111,19 @@ export default function ServicesSection2() {
                         }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                       >
-                        <Link href={service.url}>
-                          <Image
-                            src={service.img}
-                            alt={service.name}
-                            height="480"
-                            width="720"
-                            loading="lazy"
-                            className=" object-cover object-top  transition-all duration-500 w-full  aspect-[16/9]"
-                          />
-                        </Link>
+                                                 <Link href={service.url}>
+                           <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900/50 dark:via-blue-950/30 dark:to-indigo-950/30 border border-slate-200/60 dark:border-slate-700/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-500/10">
+                             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                             <div className="relative flex items-center justify-center w-full aspect-[16/9] p-8">
+                               <div className="flex items-center justify-center w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-400/10 dark:to-indigo-400/10 border border-blue-200/30 dark:border-blue-700/30 transition-all duration-300 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-500/20 group-hover:to-indigo-500/20">
+                                 {React.createElement(iconMap[service.icon as keyof typeof iconMap], {
+                                   className: "w-10 h-10 md:w-12 md:h-12 text-blue-600 dark:text-blue-400 transition-all duration-300 group-hover:text-blue-700 dark:group-hover:text-blue-300",
+                                   strokeWidth: 1.5,
+                                 })}
+                               </div>
+                             </div>
+                           </div>
+                         </Link>
                       </InView>
                     </CustomCursorElement>
                   </div>
