@@ -32,27 +32,17 @@ export default function FeaturesSection() {
                 <li>
                   <Link href="#link" className="hover:text-accent-foreground">
                     <Mail className="size-5 mr-2 inline" />
-                    <span>contact@company.com</span>
+                    <span>digital@deluve.co.mz</span>
                   </Link>
                 </li>
-                <li>
-                  <Link href="#link" className="hover:text-accent-foreground">
-                    <PhoneCall className="size-5 mr-2 inline" />
-                    <span>+1 555-555-5555</span>
-                  </Link>
-                </li>
+                
                 <li>
                   <Link href="#link" className="hover:text-accent-foreground">
                     <MapPin className="size-5 mr-2 inline" />
-                    <span>123 Main St, Anytown USA</span>
+                    <span>Avenida Julius Nyerere, Maputo, Mozambique</span>
                   </Link>
                 </li>
-                <li>
-                  <Link href="#link" className="hover:text-accent-foreground">
-                    <MapPin className="size-5 mr-2 inline" />
-                    <span>123 Main St, Anytown UK</span>
-                  </Link>
-                </li>
+                
               </ul>
             </ScrollView>
           </div>

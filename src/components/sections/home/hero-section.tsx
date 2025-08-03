@@ -82,28 +82,17 @@ export default function HeroSection() {
               }}
               className="absolute inset-0 -z-20"
             >
-                             <div className="h-screen xl:h-auto absolute inset-2 -z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
-                 <style dangerouslySetInnerHTML={{ __html: customStyles }} />
-                 <div className="relative w-full h-full">
-                   {/* Animated section only at bottom */}
-                   <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-blue-500/30 via-purple-500/20 to-transparent dark:from-blue-600/20 dark:via-purple-600/15 dark:to-transparent">
-                     {/* Floating orbs only in bottom section */}
-                     <div className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-blue-400/30 dark:bg-blue-500/20 rounded-full blur-xl animate-float"></div>
-                     <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-purple-400/30 dark:bg-purple-500/20 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
-                     <div className="absolute bottom-1/2 left-1/3 w-28 h-28 bg-indigo-400/30 dark:bg-indigo-500/20 rounded-full blur-xl animate-float" style={{ animationDelay: '4s' }}></div>
-                     
-                     {/* Additional floating elements */}
-                     <div className="absolute bottom-1/3 right-1/3 w-16 h-16 bg-cyan-400/20 dark:bg-cyan-500/15 rounded-full blur-lg animate-float" style={{ animationDelay: '1s' }}></div>
-                     <div className="absolute bottom-1/4 right-1/4 w-20 h-20 bg-pink-400/20 dark:bg-pink-500/15 rounded-full blur-lg animate-float" style={{ animationDelay: '3s' }}></div>
-                     
-                     {/* Shimmer effect only in bottom */}
-                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-shimmer"></div>
-                   </div>
-                   
-                   {/* Subtle gradient overlay for smooth transition */}
-                   <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/20 to-transparent dark:from-black/40 dark:to-transparent"></div>
-                 </div>
-               </div>
+              <div className="h-screen xl:h-auto absolute inset-2 -z-10 overflow-hidden rounded-3xl border border-black/10 lg:aspect-video lg:rounded-[3rem] dark:border-white/5">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  preload="auto"
+                  className="size-full -scale-x-100 object-cover opacity-30 invert-0 dark:opacity-20 dark:invert "
+                >
+                  <source src="/hero-light.mp4" type="video/mp4" />
+                </video>
+              </div>
             </AnimatedGroup>
 
             <div className="absolute inset-0 -z-10 size-full "></div>
@@ -222,7 +211,7 @@ export default function HeroSection() {
               ...transitionVariants,
             }}
           >
-            <div className="relative -mr-56 mt-8 overflow-hidden px-2 sm:mr-0 sm:mt-12 md:mt-20">
+            <div className="relative mt-8 sm:mt-12 md:mt-20">
               <LogoCloud />
             </div>
           </AnimatedGroup>

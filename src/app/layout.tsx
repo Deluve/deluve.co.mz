@@ -4,6 +4,7 @@ import "./globals.css";
 import "devicon/devicon.min.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { HeroHeader } from "@/components/header";
+import { LanguageProvider } from "@/contexts/language-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,8 +37,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <HeroHeader />
-          {children}
+          <LanguageProvider>
+            <HeroHeader />
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
