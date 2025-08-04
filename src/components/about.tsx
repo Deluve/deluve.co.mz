@@ -1,34 +1,36 @@
-"use client";
-import { Circle, Cpu, Lock, Sparkles, Zap, Users, Target, Clock, TrendingUp, Award, Rocket, Shield, Heart } from "lucide-react";
-import { ScrollView } from "./scroll-view";
-import Image from "next/image";
-import { useLanguage } from "@/contexts/language-context";
+"use client"
+import { Award, Rocket, Shield, Heart, ArrowRight } from "lucide-react"
+import { ScrollView } from "./scroll-view"
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/contexts/language-context"
 
 const whyChooseUs = [
   {
     icon: Rocket,
-    titleKey: 'why.fast',
-    descriptionKey: 'why.fastDesc',
+    titleKey: "why.fast",
+    descriptionKey: "why.fastDesc",
   },
   {
     icon: Award,
-    titleKey: 'why.results',
-    descriptionKey: 'why.resultsDesc',
+    titleKey: "why.results",
+    descriptionKey: "why.resultsDesc",
   },
   {
     icon: Heart,
-    titleKey: 'why.support',
-    descriptionKey: 'why.supportDesc',
+    titleKey: "why.support",
+    descriptionKey: "why.supportDesc",
   },
   {
     icon: Shield,
-    titleKey: 'why.quality',
-    descriptionKey: 'why.qualityDesc',
+    titleKey: "why.quality",
+    descriptionKey: "why.qualityDesc",
   },
-];
+]
 
 export default function ContentSection() {
-  const { t } = useLanguage();
+  const { t } = useLanguage()
 
   return (
     <section className="py-12 md:py-20 bg-gradient-to-b from-background to-muted/20" id="about">
@@ -37,23 +39,23 @@ export default function ContentSection() {
         <div className="mx-auto max-w-4xl text-center mb-8 md:mb-12">
           <ScrollView>
             <div className="inline-flex items-center rounded-full border px-4 py-2 text-sm mb-6">
-              <span className="text-muted-foreground">{t('about.badge')}</span>
+              <span className="text-muted-foreground">{t("about.badge")}</span>
             </div>
           </ScrollView>
           <ScrollView delay={0.1}>
             <h2 className="text-balance text-4xl font-semibold lg:text-6xl mb-6">
-              {t('about.title').split('Digital Excellence').map((part, index) => (
-                <span key={index}>
-                  {part}
-                  {index === 0 && <span className="text-primary"> Digital Excellence</span>}
-                </span>
-              ))}
+              {t("about.title")
+                .split("Digital Excellence")
+                .map((part, index) => (
+                  <span key={index}>
+                    {part}
+                    {index === 0 && <span className="text-primary"> Digital Excellence</span>}
+                  </span>
+                ))}
             </h2>
           </ScrollView>
           <ScrollView delay={0.2}>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              {t('about.description')}
-            </p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">{t("about.description")}</p>
           </ScrollView>
         </div>
 
@@ -78,24 +80,30 @@ export default function ContentSection() {
           <ScrollView delay={0.1}>
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-semibold mb-4">
-                  {t('about.subtitle')}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t('about.subdescription')}
-                </p>
+                <h3 className="text-2xl font-semibold mb-4">{t("about.subtitle")}</h3>
+                <p className="text-muted-foreground leading-relaxed">{t("about.subdescription")}</p>
               </div>
 
               {/* Stats */}
               <div className="grid grid-cols-2 gap-6 pt-6">
                 <div className="text-center p-4 rounded-lg bg-muted/50">
                   <div className="text-2xl font-bold text-primary mb-1">50+</div>
-                  <div className="text-sm text-muted-foreground">{t('about.projects')}</div>
+                  <div className="text-sm text-muted-foreground">{t("about.projects")}</div>
                 </div>
                 <div className="text-center p-4 rounded-lg bg-muted/50">
                   <div className="text-2xl font-bold text-primary mb-1">3+</div>
-                  <div className="text-sm text-muted-foreground">{t('about.experience')}</div>
+                  <div className="text-sm text-muted-foreground">{t("about.experience")}</div>
                 </div>
+              </div>
+
+              {/* Learn More Button */}
+              <div className="pt-4">
+                <Button asChild size="lg" className="group">
+                  <Link href="/about">
+                    {t("about.learnMore") || "Saiba Mais Sobre Nós"}
+                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </ScrollView>
@@ -105,19 +113,16 @@ export default function ContentSection() {
         <div className="mx-auto max-w-6xl">
           <ScrollView>
             <div className="text-center mb-6">
-              <h3 className="text-3xl font-semibold mb-4">{t('about.whyChooseUs')}</h3>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                {t('about.whyChooseUsDesc')}
-              </p>
+              <h3 className="text-3xl font-semibold mb-4">{t("about.whyChooseUs")}</h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto">{t("about.whyChooseUsDesc")}</p>
             </div>
           </ScrollView>
-
           <ScrollView delay={0.1}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {whyChooseUs.map((item, index) => {
-                const IconComponent = item.icon;
+                const IconComponent = item.icon
                 return (
-                  <div 
+                  <div
                     key={index}
                     className="group p-6 rounded-xl border bg-card hover:bg-muted/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                   >
@@ -129,16 +134,14 @@ export default function ContentSection() {
                         {t(item.titleKey)}
                       </h4>
                     </div>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
-                      {t(item.descriptionKey)}
-                    </p>
+                    <p className="text-muted-foreground leading-relaxed text-sm">{t(item.descriptionKey)}</p>
                   </div>
-                );
+                )
               })}
             </div>
           </ScrollView>
         </div>
       </div>
     </section>
-  );
+  )
 }
