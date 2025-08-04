@@ -31,7 +31,7 @@ export default function FooterSection() {
                   href="mailto:contato@deluve.co.mz"
                   className="text-muted-foreground hover:text-primary transition-colors text-sm"
                 >
-                  contato@deluve.co.mz
+                  digital@deluve.co.mz
                 </Link>
                 <Link
                   href="tel:+258841234567"
