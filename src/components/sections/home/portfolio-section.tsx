@@ -10,8 +10,8 @@ export default function PortfolioSection() {
       className="py-16 md:py-32 bg-gradient-to-b from-muted/20 to-background"
       id="portfolio"
     >
-      <div className="mx-auto max-w-7xl px-6">
-        {/* Header Section */}
+      <div className="mx-auto max-w-5xl space-y-12 px-6">
+      {/* Header Section */}
         <div className="mx-auto max-w-4xl text-center mb-16 md:mb-24">
           <ScrollView>
             <div className="inline-flex items-center rounded-full border px-4 py-2 text-sm mb-6">
@@ -20,7 +20,7 @@ export default function PortfolioSection() {
           </ScrollView>
           <ScrollView delay={0.1}>
             <h2 className="text-balance text-4xl font-semibold lg:text-6xl mb-6">
-              Our Latest
+              Latest
               <span className="text-primary"> Projects</span>
             </h2>
           </ScrollView>
@@ -35,13 +35,14 @@ export default function PortfolioSection() {
 
         {/* Portfolio Grid */}
         <ScrollView delay={0.1}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mb-20">
-            {PORTFOLIO_CONTENT.map((item, index) => (
-              <div key={index} className={index % 2 === 1 ? "md:mt-20" : ""}>
-                <PortfolioCard card={item} />
-              </div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+          {PORTFOLIO_CONTENT.map((item, index) => (
+            <div key={index} className={index % 2 === 1 ? "md:mt-20" : ""}>
+              <PortfolioCard card={item} />
+            </div>
+          ))}
+        </div>
+
         </ScrollView>
 
         {/* CTA Section */}
