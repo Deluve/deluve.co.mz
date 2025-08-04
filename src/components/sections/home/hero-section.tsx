@@ -190,9 +190,9 @@ export default function HeroSection() {
                     variant="ghost"
                     className="h-10.5 rounded-xl px-5"
                   >
-                                         <Link href="#contact">
-                       <span className="text-nowrap">Get Quote</span>
-                     </Link>
+                    <Link href="/get-quote">
+                      <span className="text-nowrap">Get Quote</span>
+                    </Link>
                   </Button>
                 </AnimatedGroup>
               </div>

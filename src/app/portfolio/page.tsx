@@ -206,7 +206,7 @@ export default function PortfolioPage() {
               Let's collaborate to bring your vision to life. We're here to help you create something extraordinary.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href="/#contact">
+              <Link href="/get-quote">
                 <Button size="lg" className="px-10 py-4 bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 font-semibold rounded-xl text-lg hover:scale-105">
                   Get in touch
                 </Button>
