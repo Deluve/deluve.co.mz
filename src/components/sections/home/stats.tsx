@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function StatsSection() {
   return (
-    <section className="py-12 md:py-20" id="stats">
+    <section className="py-6 md:py-14" id="stats">
       <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
         <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center">
           <ScrollView>

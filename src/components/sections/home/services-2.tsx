@@ -1,6 +1,4 @@
 import React from "react";
-import { CustomCursorElement } from "@/components/custom-cursor-element";
-import { InView } from "@/components/motion-primitives/in-view";
 import { ScrollView } from "@/components/scroll-view";
 import { SERVICES_LIST } from "@/content/services";
 import { Code, Smartphone, Bot, Zap, ArrowRight, CheckCircle } from "lucide-react";
@@ -15,7 +13,7 @@ const iconMap = {
 
 export default function ServicesSection2() {
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-b from-background via-muted/20 to-background" id="services">
+    <section className="py-12 md:py-20 bg-gradient-to-b from-background via-muted/20 to-background" id="services">
       <div className="mx-auto max-w-6xl px-6">
         {/* Header Section */}
         <div className="mx-auto max-w-3xl text-center mb-16">

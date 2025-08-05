@@ -10,7 +10,7 @@ import { ScrollView } from "./scroll-view";
 
 export default function FeaturesSection() {
   return (
-    <section className="py-16 md:py-32 bg-gray-50 dark:bg-transparent">
+    <section className="py-8 md:py-16 bg-gray-50 dark:bg-transparent">
       <div className="mx-auto max-w-6xl px-6">
         <div className="grid items-center gap-12 md:grid-cols-2 md:gap-12 lg:grid-cols-5 lg:gap-24">
           <div className="lg:col-span-2">
@@ -32,7 +32,7 @@ export default function FeaturesSection() {
                 <li>
                   <Link href="#link" className="hover:text-blue-500 transition-colors">
                     <Mail className="size-5 mr-2 inline" />
-                    <span>digital@deluve.co.mz</span>
+                    <span>deluve.solutions@gmail.com</span>
                   </Link>
                 </li>
                 

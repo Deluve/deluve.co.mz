@@ -4,7 +4,7 @@ import { ScrollView } from "./scroll-view";
 
 export default function Testimonials() {
   return (
-    <section className="py-16 md:py-32" id="testimonials">
+    <section className="py-8 md:py-16" id="testimonials">
       <div className="mx-auto max-w-6xl space-y-8 px-6 md:space-y-16">
         <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12">
           <ScrollView>

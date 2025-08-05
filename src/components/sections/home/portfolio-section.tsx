@@ -7,7 +7,7 @@ import { ScrollView } from "@/components/scroll-view";
 export default function PortfolioSection() {
   return (
     <section
-      className="py-16 md:py-32 bg-gradient-to-b from-muted/20 to-background"
+      className="py-12 md:py-20 bg-gradient-to-b from-muted/20 to-background"
       id="portfolio"
     >
       <div className="mx-auto max-w-5xl space-y-12 px-6">

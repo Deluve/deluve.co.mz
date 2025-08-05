@@ -7,7 +7,7 @@ export default function LogoCloud() {
         <div className="flex flex-col items-center md:flex-row">
           <div className="mb-6 md:mb-0 md:max-w-44 md:border-r md:pr-6">
             <p className="text-center md:text-end text-sm text-muted-foreground">
-              Powering the best teams
+              Powering the best technologies
             </p>
           </div>
           <div className="relative w-full md:w-[calc(100%-11rem)]">

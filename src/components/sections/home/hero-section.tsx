@@ -132,15 +132,7 @@ export default function HeroSection() {
 
          
 
-         <ElegantShape
-           delay={0.6}
-           width={200}
-           height={60}
-           rotate={20}
-                       gradient="from-cyan-400/[0.4]"
-           className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
-         />
-
+      
          
       </div>
 
