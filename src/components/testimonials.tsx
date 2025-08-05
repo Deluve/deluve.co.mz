@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ScrollView } from "./scroll-view";
+import { ScrollView } from "@/components/scroll-view";
+import Image from "next/image";
 
 export default function Testimonials() {
   return (
@@ -25,12 +26,12 @@ export default function Testimonials() {
           <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-rows-2">
             <Card className="grid grid-rows-[auto_1fr] gap-8 sm:col-span-2 sm:p-6 lg:row-span-2">
               <CardHeader>
-                <img
+                <Image
                   className="h-6 w-fit dark:invert"
                   src="https://html.tailus.io/blocks/customers/nike.svg"
                   alt="Nike Logo"
-                  height="24"
-                  width="auto"
+                  height={24}
+                  width={100}
                 />
               </CardHeader>
               <CardContent>

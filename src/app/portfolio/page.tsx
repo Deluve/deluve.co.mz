@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollView } from "@/components/scroll-view";
 import Link from "next/link";
+import Image from "next/image";
 
 // Dados expandidos do portfólio baseados na imagem
 const PORTFOLIO_PROJECTS = [
@@ -141,10 +142,11 @@ export default function PortfolioPage() {
                   <CardContent className="p-0">
                     {/* Project Image */}
                     <div className="relative aspect-[4/3] bg-muted overflow-hidden">
-                      <img
+                      <Image
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
@@ -203,7 +205,7 @@ export default function PortfolioPage() {
           <div className="text-center py-20 border-t border-muted/30">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">Ready to start your project?</h2>
             <p className="text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-              Let's collaborate to bring your vision to life. We're here to help you create something extraordinary.
+              Let&apos;s collaborate to bring your vision to life. We&apos;re here to help you create something extraordinary.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href="/get-quote">

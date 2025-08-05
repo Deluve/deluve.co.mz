@@ -105,7 +105,7 @@ export default function ServicesSection2() {
                 Ready to Transform Your Business?
               </h3>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                Let's discuss how we can help you achieve your digital goals and create 
+                Let&apos;s discuss how we can help you achieve your digital goals and create 
                 innovative solutions that drive real results.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
