@@ -33,7 +33,7 @@ export default function StatsSection() {
               }}
               className="space-y-4"
             >
-              <div className="text-5xl font-bold">+120</div>
+              <div className="text-5xl font-bold text-blue-500">+120</div>
               <p>Projects Launched</p>
             </motion.div>
             <motion.div
@@ -47,7 +47,7 @@ export default function StatsSection() {
               }}
               className="space-y-4"
             >
-              <div className="text-5xl font-bold">40%</div>
+              <div className="text-5xl font-bold text-blue-500">40%</div>
               <p>Average Client Growth</p>
             </motion.div>
             <motion.div
@@ -61,7 +61,7 @@ export default function StatsSection() {
               }}
               className="space-y-4"
             >
-              <div className="text-5xl font-bold">5+</div>
+              <div className="text-5xl font-bold text-blue-500">5+</div>
               <p>Years in the Game</p>
             </motion.div>
           </div>

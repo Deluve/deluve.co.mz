@@ -49,7 +49,7 @@ export default function TeamSection() {
       id="team"
     >
       <div className="mx-auto max-w-5xl border-t px-6">
-        <span className="text-caption -ml-6 -mt-3.5 block w-max bg-gray-50 px-6 dark:bg-gray-950">
+        <span className="text-caption -ml-6 -mt-3.5 block w-max bg-gray-50 px-6 dark:bg-gray-950 text-blue-500">
           Team
         </span>
         <ScrollView>

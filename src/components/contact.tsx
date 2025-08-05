@@ -30,14 +30,14 @@ export default function FeaturesSection() {
             <ScrollView delay={0.2}>
               <ul className="mt-8 divide-y border-y *:flex *:items-center *:gap-3 *:py-3">
                 <li>
-                  <Link href="#link" className="hover:text-accent-foreground">
+                  <Link href="#link" className="hover:text-blue-500 transition-colors">
                     <Mail className="size-5 mr-2 inline" />
                     <span>digital@deluve.co.mz</span>
                   </Link>
                 </li>
                 
                 <li>
-                  <Link href="#link" className="hover:text-accent-foreground">
+                  <Link href="#link" className="hover:text-blue-500 transition-colors">
                     <MapPin className="size-5 mr-2 inline" />
                     <span>Avenida Julius Nyerere, Maputo, Mozambique</span>
                   </Link>
@@ -113,7 +113,7 @@ export default function FeaturesSection() {
                     <Textarea id="msg" rows={3} />
                   </div>
 
-                  <Button>Submit</Button>
+                  <Button className="bg-blue-500 hover:bg-blue-600 text-white">Submit</Button>
                 </form>
               </Card>
             </ScrollView>

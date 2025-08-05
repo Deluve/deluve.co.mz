@@ -49,7 +49,7 @@ export default function ContentSection() {
                 .map((part, index) => (
                   <span key={index}>
                     {part}
-                    {index === 0 && <span className="text-primary"> Digital Excellence</span>}
+                    {index === 0 && <span className="text-blue-400"> Digital Excellence</span>}
                   </span>
                 ))}
             </h2>
@@ -64,7 +64,7 @@ export default function ContentSection() {
           {/* Left Column - Image */}
           <ScrollView>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-2xl blur-3xl"></div>
               <Image
                 className="relative rounded-2xl object-cover aspect-[4/3] w-full shadow-2xl"
                 src="/images/office.jpeg"
@@ -87,11 +87,11 @@ export default function ContentSection() {
               {/* Stats */}
               <div className="grid grid-cols-2 gap-6 pt-6">
                 <div className="text-center p-4 rounded-lg bg-muted/50">
-                  <div className="text-2xl font-bold text-primary mb-1">50+</div>
+                  <div className="text-2xl font-bold text-blue-500 mb-1">50+</div>
                   <div className="text-sm text-muted-foreground">{t("about.projects")}</div>
                 </div>
                 <div className="text-center p-4 rounded-lg bg-muted/50">
-                  <div className="text-2xl font-bold text-primary mb-1">3+</div>
+                  <div className="text-2xl font-bold text-blue-500 mb-1">3+</div>
                   <div className="text-sm text-muted-foreground">{t("about.experience")}</div>
                 </div>
               </div>
@@ -100,7 +100,7 @@ export default function ContentSection() {
               <div className="pt-4">
                 <Button asChild size="lg" className="group">
                   <Link href="/about">
-                    {t("about.learnMore") || "Saiba Mais Sobre Nós"}
+                    {"Saiba Mais Sobre Nós"}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
@@ -127,10 +127,10 @@ export default function ContentSection() {
                     className="group p-6 rounded-xl border bg-card hover:bg-muted/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                   >
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                        <IconComponent className="size-5 text-primary" />
+                      <div className="p-2 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
+                        <IconComponent className="size-5 text-blue-500" />
                       </div>
-                      <h4 className="font-semibold text-lg group-hover:text-primary transition-colors">
+                      <h4 className="font-semibold text-lg group-hover:text-blue-500 transition-colors">
                         {t(item.titleKey)}
                       </h4>
                     </div>
