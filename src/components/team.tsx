@@ -46,11 +46,14 @@ const members = [
 export default function TeamSection() {
   return (
     <section
-      className="bg-gray-50 py-16 md:py-32 dark:bg-transparent"
+      className="relative py-16 md:py-32 bg-gradient-to-b from-blue-500/[0.02] to-background overflow-hidden"
       id="team"
     >
-      <div className="mx-auto max-w-5xl border-t px-6">
-        <span className="text-caption -ml-6 -mt-3.5 block w-max bg-gray-50 px-6 dark:bg-gray-950 text-blue-500">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.03] via-transparent to-blue-600/[0.02] blur-3xl" />
+      
+      <div className="relative z-10 mx-auto max-w-5xl border-t border-blue-500/20 px-6">
+        <span className="text-caption -ml-6 -mt-3.5 block w-max bg-background px-6 text-blue-400 border border-blue-500/20 rounded-t-lg">
           Team
         </span>
         <ScrollView>
@@ -60,7 +63,7 @@ export default function TeamSection() {
             </div>
 
             <div className="mt-6 sm:mt-0">
-              <p>
+              <p className="text-muted-foreground">
                 During the working process, we perform regular fitting with the
                 client because he is the only person who can feel whether a new
                 suit fits or not.
@@ -83,19 +86,22 @@ export default function TeamSection() {
                       },
                     }}
                   >
-                    <Image
-                      className="h-96 w-full rounded-md object-cover object-top grayscale transition-all duration-500 hover:grayscale-0 group-hover:h-[22.5rem] group-hover:rounded-xl"
-                      src={member.avatar}
-                      alt="team member"
-                      width={826}
-                      height={1239}
-                    />
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-blue-600/10 rounded-md blur-sm group-hover:blur-md transition-all duration-500"></div>
+                      <Image
+                        className="relative h-96 w-full rounded-md object-cover object-top grayscale transition-all duration-500 hover:grayscale-0 group-hover:h-[22.5rem] group-hover:rounded-xl border border-blue-500/20 group-hover:border-blue-400/30"
+                        src={member.avatar}
+                        alt="team member"
+                        width={826}
+                        height={1239}
+                      />
+                    </div>
                     <div className="px-2 pt-2 sm:pb-0 sm:pt-4">
                       <div className="flex justify-between">
                         <h3 className="text-title text-base font-medium transition-all duration-500 group-hover:tracking-wider">
                           {member.name}
                         </h3>
-                        <span className="text-xs">_0{index + 1}</span>
+                        <span className="text-xs text-blue-400">_0{index + 1}</span>
                       </div>
                       <div className="mt-1 flex items-center justify-between">
                         <span className="text-muted-foreground inline-block translate-y-6 text-sm opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
@@ -103,10 +109,10 @@ export default function TeamSection() {
                         </span>
                         <Link
                           href={member.link}
-                          className="group-hover:text-primary-600 dark:group-hover:text-primary-400 inline-block translate-y-8 text-sm tracking-wide opacity-0 transition-all duration-500 hover:underline group-hover:translate-y-0 group-hover:opacity-100"
+                          className="group-hover:text-blue-400 inline-block translate-y-8 text-sm tracking-wide opacity-0 transition-all duration-500 hover:underline group-hover:translate-y-0 group-hover:opacity-100 relative"
                         >
-                          {" "}
                           Linktree
+                          <div className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/40 via-blue-300/60 to-blue-400/40 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
                         </Link>
                       </div>
                     </div>

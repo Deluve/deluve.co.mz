@@ -61,30 +61,33 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background pt-20 lg:pt-24">
       {/* Header */}
-      <section className="py-12 md:py-20 bg-gradient-to-b from-primary/5 to-background">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative py-12 md:py-20 bg-gradient-to-b from-blue-500/[0.05] via-background to-background overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.1] via-transparent to-blue-600/[0.05] blur-3xl" />
+        
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <ScrollView>
               <div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                  About <span className="text-primary">Deluve</span>
+                  About <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500">Deluve</span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed mb-8">
                   We are a company passionate about technology and innovation, dedicated to transforming ideas into
                   digital solutions that make a difference in the business world.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
-                    <Users className="h-4 w-4 text-primary" />
-                    <span className="text-sm font-medium">Specialized Team</span>
+                  <div className="flex items-center gap-2 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
+                    <Users className="h-4 w-4 text-blue-400" />
+                    <span className="text-sm font-medium text-blue-300">Specialized Team</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
-                    <Globe className="h-4 w-4 text-primary" />
-                    <span className="text-sm font-medium">Global Reach</span>
+                  <div className="flex items-center gap-2 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
+                    <Globe className="h-4 w-4 text-blue-400" />
+                    <span className="text-sm font-medium text-blue-300">Global Reach</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
-                    <Award className="h-4 w-4 text-primary" />
-                    <span className="text-sm font-medium">Premium Quality</span>
+                  <div className="flex items-center gap-2 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
+                    <Award className="h-4 w-4 text-blue-400" />
+                    <span className="text-sm font-medium text-blue-300">Premium Quality</span>
                   </div>
                 </div>
               </div>
@@ -102,9 +105,9 @@ export default function AboutPage() {
                   }}
                 >
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-3xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-600/20 rounded-2xl blur-3xl"></div>
                     <Image
-                      className="relative rounded-2xl object-cover aspect-[4/3] w-full shadow-2xl grayscale transition-all duration-500 hover:grayscale-0 group-hover:rounded-xl"
+                      className="relative rounded-2xl object-cover aspect-[4/3] w-full shadow-2xl grayscale transition-all duration-500 hover:grayscale-0 group-hover:rounded-xl border border-blue-500/20"
                       src="/images/team-work.jpg"
                       alt="Deluve team working together"
                       height="600"
@@ -123,11 +126,11 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid md:grid-cols-2 gap-12">
             <ScrollView>
-              <Card className="h-full">
+              <Card className="h-full border-blue-500/20 hover:border-blue-400/30 transition-colors">
                 <CardContent className="p-8">
                   <div className="mb-6">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <Target className="h-6 w-6 text-primary" />
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 border border-blue-500/20">
+                      <Target className="h-6 w-6 text-blue-400" />
                     </div>
                     <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
                   </div>
@@ -140,11 +143,11 @@ export default function AboutPage() {
               </Card>
             </ScrollView>
             <ScrollView delay={0.1}>
-              <Card className="h-full">
+              <Card className="h-full border-blue-500/20 hover:border-blue-400/30 transition-colors">
                 <CardContent className="p-8">
                   <div className="mb-6">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <TrendingUp className="h-6 w-6 text-primary" />
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 border border-blue-500/20">
+                      <TrendingUp className="h-6 w-6 text-blue-400" />
                     </div>
                     <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
                   </div>
@@ -161,8 +164,11 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-12 md:py-20 bg-muted/20">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="relative py-12 md:py-20 bg-gradient-to-b from-blue-500/[0.03] to-background overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-blue-600/[0.03] blur-3xl" />
+        
+        <div className="relative z-10 mx-auto max-w-7xl px-6">
           <ScrollView>
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
@@ -174,10 +180,10 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {companyValues.map((value, index) => (
               <ScrollView key={index} delay={index * 0.1}>
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full hover:shadow-lg transition-all duration-300 border-blue-500/20 hover:border-blue-400/30 hover:bg-blue-500/[0.02]">
                   <CardContent className="p-6">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <value.icon className="h-6 w-6 text-primary" />
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 border border-blue-500/20">
+                      <value.icon className="h-6 w-6 text-blue-400" />
                     </div>
                     <h3 className="font-semibold mb-3">{value.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
@@ -203,14 +209,14 @@ export default function AboutPage() {
               <ScrollView key={index} delay={index * 0.1}>
                 <div className="flex gap-6 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-blue-500/25">
                       {item.year.slice(-2)}
                     </div>
                   </div>
                   <div className="flex-1">
-                    <div className="bg-card border rounded-lg p-6">
+                    <div className="bg-card border border-blue-500/20 rounded-lg p-6 hover:border-blue-400/30 transition-colors">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-sm font-medium text-primary">{item.year}</span>
+                        <span className="text-sm font-medium text-blue-400">{item.year}</span>
                       </div>
                       <h3 className="font-semibold mb-2">{item.title}</h3>
                       <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
@@ -227,18 +233,21 @@ export default function AboutPage() {
       <TeamSection />
 
       {/* CTA */}
-      <section className="py-12 md:py-20 bg-primary/5">
-        <div className="mx-auto max-w-4xl px-6 text-center">
+      <section className="relative py-12 md:py-20 bg-gradient-to-b from-blue-500/[0.05] to-background overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.08] via-transparent to-blue-600/[0.05] blur-3xl" />
+        
+        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           <ScrollView>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to transform your idea into reality?</h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
               Contact us and discover how we can help your company reach new heights through technology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="bg-blue-500 hover:bg-blue-600 text-white border-blue-500/20 hover:border-blue-400/30">
                 <Link href="/#contact">Contact Us</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild className="border-blue-500/20 hover:border-blue-400/30 hover:bg-blue-500/10 text-blue-400 hover:text-blue-300">
                 <Link href="/#services">Our Services</Link>
               </Button>
             </div>
