@@ -76,6 +76,19 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  
+  /* Blue color palette for Deluve Solutions */
+  --blue-50: oklch(0.98 0.005 240);
+  --blue-100: oklch(0.95 0.01 240);
+  --blue-200: oklch(0.9 0.015 240);
+  --blue-300: oklch(0.8 0.02 240);
+  --blue-400: oklch(0.7 0.025 240);
+  --blue-500: oklch(0.6 0.03 240);
+  --blue-600: oklch(0.5 0.035 240);
+  --blue-700: oklch(0.4 0.04 240);
+  --blue-800: oklch(0.3 0.045 240);
+  --blue-900: oklch(0.2 0.05 240);
+  --blue-950: oklch(0.1 0.055 240);
 }
 
 .dark {
@@ -110,6 +123,19 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  
+  /* Blue color palette for Deluve Solutions - Dark theme */
+  --blue-50: oklch(0.1 0.005 240);
+  --blue-100: oklch(0.15 0.01 240);
+  --blue-200: oklch(0.2 0.015 240);
+  --blue-300: oklch(0.25 0.02 240);
+  --blue-400: oklch(0.3 0.025 240);
+  --blue-500: oklch(0.4 0.03 240);
+  --blue-600: oklch(0.5 0.035 240);
+  --blue-700: oklch(0.6 0.04 240);
+  --blue-800: oklch(0.7 0.045 240);
+  --blue-900: oklch(0.8 0.05 240);
+  --blue-950: oklch(0.9 0.055 240);
 }
 
 @layer base {
@@ -118,5 +144,36 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Blue color utilities for Deluve Solutions */
+  .text-blue-primary {
+    color: var(--blue-500);
+  }
+  
+  .bg-blue-primary {
+    background-color: var(--blue-500);
+  }
+  
+  .border-blue-primary {
+    border-color: var(--blue-500);
+  }
+  
+  .hover\:text-blue-primary:hover {
+    color: var(--blue-600);
+  }
+  
+  .hover\:bg-blue-primary:hover {
+    background-color: var(--blue-600);
+  }
+  
+  .focus\:border-blue-primary:focus {
+    border-color: var(--blue-500);
+  }
+  
+  .focus\:ring-blue-primary:focus {
+    --tw-ring-color: var(--blue-500);
   }
 }
