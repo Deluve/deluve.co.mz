@@ -7,7 +7,7 @@ import { ScrollView } from "@/components/scroll-view";
 export default function PortfolioSection() {
   return (
     <section
-      className="py-16 md:py-32 bg-gradient-to-b from-muted/20 to-background"
+      className="py-12 md:py-20 bg-gradient-to-b from-muted/20 to-background"
       id="portfolio"
     >
       <div className="mx-auto max-w-5xl space-y-12 px-6">
@@ -21,7 +21,7 @@ export default function PortfolioSection() {
           <ScrollView delay={0.1}>
             <h2 className="text-balance text-4xl font-semibold lg:text-6xl mb-6">
               Latest
-              <span className="text-primary"> Projects</span>
+              <span className="text-blue-400"> Projects</span>
             </h2>
           </ScrollView>
           <ScrollView delay={0.2}>
@@ -50,7 +50,7 @@ export default function PortfolioSection() {
           <div className="text-center">
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors group"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transition-colors group"
             >
               Explore All Projects
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

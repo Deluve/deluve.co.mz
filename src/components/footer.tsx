@@ -27,18 +27,20 @@ export default function FooterSection() {
                  technological solutions for your business.
                </p>
               <div className="flex flex-wrap gap-4">
-                <Link
-                  href="mailto:contato@deluve.co.mz"
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                                                 <Link
+                  href="mailto:deluve.solutions@gmail.com"
+                  className="text-muted-foreground hover:text-blue-400 transition-colors text-sm relative group"
                 >
-                  digital@deluve.co.mz
-                </Link>
-                <Link
-                  href="tel:+258841234567"
-                  className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                >
-                  +258 84 123 4567
-                </Link>
+                  <span>deluve.solutions@gmail.com</span>
+                   <div className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/40 via-blue-300/60 to-blue-400/40 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
+                 </Link>
+                                 <Link
+                   href="tel:+258841234567"
+                   className="text-muted-foreground hover:text-blue-400 transition-colors text-sm relative group"
+                 >
+                   <span>+258 84 123 4567</span>
+                   <div className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/40 via-blue-300/60 to-blue-400/40 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
+                 </Link>
               </div>
             </div>
           </ScrollView>
@@ -59,7 +61,7 @@ export default function FooterSection() {
                     >
                       <Link
                         href={link.href}
-                        className="text-muted-foreground hover:text-primary transition-colors text-sm duration-200"
+                        className="text-muted-foreground hover:text-blue-400 transition-colors text-sm duration-200"
                       >
                         {link.title}
                       </Link>

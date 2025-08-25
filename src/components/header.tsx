@@ -62,13 +62,13 @@ export const HeroHeader = () => {
                   <li key={index}>
                     <Link
                       href={item.href}
-                      className="group relative block py-2 transition-all duration-300 hover:text-primary"
+                      className="group relative block py-2 transition-all duration-300 hover:text-blue-400"
                     >
                       <span className="relative z-10 transition-all duration-300 group-hover:scale-105">
                         {t(`nav.${item.name.toLowerCase()}`)}
                       </span>
-                      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-primary/50 transition-all duration-300 ease-out group-hover:w-full"></div>
-                      <div className="absolute inset-0 bg-primary/5 rounded-lg opacity-0 transition-all duration-300 group-hover:opacity-100 scale-95 group-hover:scale-100"></div>
+                                               <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-blue-400/60 via-blue-300/80 to-blue-400/60 rounded-full transition-all duration-500 ease-out group-hover:w-full transform origin-left"></div>
+                      <div className="absolute inset-0 bg-blue-400/5 rounded-lg opacity-0 transition-all duration-300 group-hover:opacity-100 scale-95 group-hover:scale-100"></div>
                     </Link>
                   </li>
                 ))}
@@ -82,13 +82,13 @@ export const HeroHeader = () => {
                     <li key={index}>
                       <Link
                         href={item.href}
-                        className="group relative block py-2 transition-all duration-300 hover:text-primary"
+                        className="group relative block py-2 transition-all duration-300 hover:text-blue-400"
                       >
                         <span className="relative z-10 transition-all duration-300 group-hover:translate-x-2">
                           {t(`nav.${item.name.toLowerCase()}`)}
                         </span>
-                        <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-primary/50 transition-all duration-300 ease-out group-hover:w-full"></div>
-                        <div className="absolute inset-0 bg-primary/5 rounded-lg opacity-0 transition-all duration-300 group-hover:opacity-100 scale-95 group-hover:scale-100"></div>
+                        <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-blue-400/60 via-blue-300/80 to-blue-400/60 rounded-full transition-all duration-500 ease-out group-hover:w-full transform origin-left"></div>
+                        <div className="absolute inset-0 bg-blue-400/5 rounded-lg opacity-0 transition-all duration-300 group-hover:opacity-100 scale-95 group-hover:scale-100"></div>
                       </Link>
                     </li>
                   ))}
@@ -107,7 +107,7 @@ export const HeroHeader = () => {
                   <Link href="/contact" className="relative z-10 flex items-center gap-2">
                     <span>{t('header.contact')}</span>
                     <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                                         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/15 to-blue-400/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-lg"></div>
                   </Link>
                 </Button>
                 <Button
@@ -115,14 +115,14 @@ export const HeroHeader = () => {
                   size="sm"
                   variant="outline"
                   className={cn(
-                    "group relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg border-primary/20 hover:border-primary/40",
+                    "group relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg border-blue-500/20 hover:border-blue-500/40",
                     isScrolled ? "lg:inline-flex" : "hidden"
                   )}
                 >
                   <Link href="/waitlist" className="relative z-10 flex items-center gap-2">
                     <span>{t('header.waitlist')}</span>
                     <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-primary/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                                         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/8 to-blue-400/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-lg"></div>
                   </Link>
                 </Button>
                 

@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function StatsSection() {
   return (
-    <section className="py-12 md:py-20" id="stats">
+    <section className="py-6 md:py-14" id="stats">
       <div className="mx-auto max-w-5xl space-y-8 px-6 md:space-y-16">
         <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center">
           <ScrollView>
@@ -33,7 +33,7 @@ export default function StatsSection() {
               }}
               className="space-y-4"
             >
-              <div className="text-5xl font-bold">+120</div>
+              <div className="text-5xl font-bold text-blue-500">+120</div>
               <p>Projects Launched</p>
             </motion.div>
             <motion.div
@@ -47,7 +47,7 @@ export default function StatsSection() {
               }}
               className="space-y-4"
             >
-              <div className="text-5xl font-bold">40%</div>
+              <div className="text-5xl font-bold text-blue-500">40%</div>
               <p>Average Client Growth</p>
             </motion.div>
             <motion.div
@@ -61,7 +61,7 @@ export default function StatsSection() {
               }}
               className="space-y-4"
             >
-              <div className="text-5xl font-bold">5+</div>
+              <div className="text-5xl font-bold text-blue-500">5+</div>
               <p>Years in the Game</p>
             </motion.div>
           </div>
