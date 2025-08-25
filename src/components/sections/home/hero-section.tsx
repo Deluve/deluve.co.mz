@@ -108,32 +108,16 @@ export default function HeroSection() {
 
 
   return (
-         <div className="relative min-h-screen w-full flex items-start justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-32">
-             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.2] via-transparent to-blue-600/[0.15] blur-3xl" />
+    <div className="relative min-h-screen w-full flex items-start justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-32">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.2] via-transparent to-blue-600/[0.15] blur-3xl" />
 
       <div className="absolute inset-0 overflow-hidden">
-                 <ElegantShape
-           delay={0.3}
-           width={600}
-           height={140}
-           rotate={12}
-                       gradient="from-blue-400/[0.4]"
-           className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
-         />
 
-         <ElegantShape
-           delay={0.5}
-           width={500}
-           height={120}
-           rotate={-15}
-                       gradient="from-purple-400/[0.4]"
-           className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
-         />
 
-         
 
-      
-         
+
+
+
       </div>
 
       <div className="relative z-10 container mx-auto px-4 md:px-6">
@@ -145,31 +129,31 @@ export default function HeroSection() {
             className="mb-8 md:mb-12"
           >
             <AnimatedGroup variants={transitionVariants}>
-                             <Link
-                 href="#link"
-                 className="hover:bg-blue-500/10 bg-blue-500/5 group mx-auto flex w-fit items-center gap-4 rounded-full border border-blue-500/20 p-1 pl-4 shadow-md shadow-blue-500/10 transition-colors duration-300"
-               >
-                 <span className="text-white text-sm relative">
-                   Startup Innovation Studio
-                   <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/60 via-blue-300/80 to-blue-400/60 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
-                 </span>
-                 <span className="block h-4 w-0.5 border-l bg-blue-400/30"></span>
+              <Link
+                href="#link"
+                className="hover:bg-blue-500/10 bg-blue-500/5 group mx-auto flex w-fit items-center gap-4 rounded-full border border-blue-500/20 p-1 pl-4 shadow-md shadow-blue-500/10 transition-colors duration-300"
+              >
+                <span className="text-white text-sm relative">
+                  Startup Innovation Studio
+                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/60 via-blue-300/80 to-blue-400/60 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
+                </span>
+                <span className="block h-4 w-0.5 border-l bg-blue-400/30"></span>
 
-                 <div className="bg-blue-500/10 group-hover:bg-blue-500/20 size-6 overflow-hidden rounded-full duration-500">
-                   <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
-                     <span className="flex size-6">
-                       <ArrowRight className="m-auto size-3 text-blue-300" />
-                     </span>
-                     <span className="flex size-6">
-                       <ArrowRight className="m-auto size-3 text-blue-300" />
-                     </span>
-                   </div>
-                 </div>
-               </Link>
+                <div className="bg-blue-500/10 group-hover:bg-blue-500/20 size-6 overflow-hidden rounded-full duration-500">
+                  <div className="flex w-12 -translate-x-1/2 duration-500 ease-in-out group-hover:translate-x-0">
+                    <span className="flex size-6">
+                      <ArrowRight className="m-auto size-3 text-blue-300" />
+                    </span>
+                    <span className="flex size-6">
+                      <ArrowRight className="m-auto size-3 text-blue-300" />
+                    </span>
+                  </div>
+                </div>
+              </Link>
             </AnimatedGroup>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.7 }}
@@ -177,38 +161,38 @@ export default function HeroSection() {
           >
             <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
-               Lets Elevate 
+                Lets Elevate
               </span>
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
                 Your
               </span>
               <br />
-                             <span
-                 className={cn(
-                   "relative bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-white/90 to-blue-400",
-                   pacifico.className,
-                 )}
-               >
+              <span
+                className={cn(
+                  "relative bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-white/90 to-blue-400",
+                  pacifico.className,
+                )}
+              >
                 digital Vision
-                 <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent rounded-full opacity-60"></div>
-               </span>
-              
+                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent rounded-full opacity-60"></div>
+              </span>
+
             </h1>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.9 }}
-            className="mb-8 mt-12"
+            className="mb-8 mt-18"
           >
             <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
               Designs That Captivate, Brands That Shine.
-              </p>
+            </p>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.1 }}
@@ -227,32 +211,32 @@ export default function HeroSection() {
               }}
               className="flex flex-col items-center justify-center gap-2 md:flex-row"
             >
-                             <div
-                 key={1}
-                 className="bg-blue-500/10 rounded-[calc(var(--radius-xl)+0.125rem)] border border-blue-500/20 p-0.5"
-               >
-                                   <Button
-                    asChild
-                    size="lg"
-                    className="rounded-xl px-5 text-base bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-blue-400/30 backdrop-blur-sm transition-all duration-300 group/btn relative overflow-hidden"
-                  >
-                    <Link href="#portfolio" className="relative z-10 flex items-center gap-2">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-400/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                      <svg
-                        className="size-6"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill="currentColor"
-                          d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
-                        />
-                      </svg>
-                      <span className="text-nowrap">View Projects</span>
-                    </Link>
-                  </Button>
-               </div>
-                               
+              <div
+                key={1}
+                className="bg-blue-500/10 rounded-[calc(var(--radius-xl)+0.125rem)] border border-blue-500/20 p-0.5"
+              >
+                <Button
+                  asChild
+                  size="lg"
+                  className="rounded-xl px-5 text-base bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-blue-400/30 backdrop-blur-sm transition-all duration-300 group/btn relative overflow-hidden"
+                >
+                  <Link href="#portfolio" className="relative z-10 flex items-center gap-2">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-400/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                    <svg
+                      className="size-6"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
+                      />
+                    </svg>
+                    <span className="text-nowrap">View Projects</span>
+                  </Link>
+                </Button>
+              </div>
+
             </AnimatedGroup>
           </motion.div>
         </div>
@@ -272,7 +256,7 @@ export default function HeroSection() {
           },
           ...transitionVariants,
         }}
-                 className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-4xl px-4"
+                 className="absolute bottom-5 left-1/2 transform -translate-x-1/2 w-full max-w-7xl px-4"
       >
         <div className="relative">
           <LogoCloud />

@@ -78,41 +78,7 @@ export default function FeaturesSection() {
                     <Input type="email" id="email" required className="border-blue-500/20 focus:border-blue-400/40 focus:ring-blue-400/20" />
                   </div>
 
-                  {/* <div>
-                            <Label htmlFor="country">Country/Region</Label>
-                            <Select>
-                                <SelectTrigger>
-                                    <SelectValue placeholder="Select Country/Region" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="1">DR Congo</SelectItem>
-                                    <SelectItem value="2">United States</SelectItem>
-                                    <SelectItem value="3">France</SelectItem>
-                                </SelectContent>
-                            </Select>
-                        </div> */}
-
-                  {/* <div>
-                            <Label htmlFor="website">Company Website</Label>
-                            <Input type="url" id="website" />
-                            <span className="text-muted-foreground inline-block text-sm">Must start with 'https'</span>
-                        </div> */}
-
-                  {/* <div>
-                            <Label htmlFor="job">Job function</Label>
-                            <Select>
-                                <SelectTrigger>
-                                    <SelectValue placeholder="Select Job Function" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="1">Finance</SelectItem>
-                                    <SelectItem value="2">Education</SelectItem>
-                                    <SelectItem value="3">Legal</SelectItem>
-                                    <SelectItem value="4">More</SelectItem>
-                                </SelectContent>
-                            </Select>
-                        </div> */}
-
+                 
                   <div>
                     <Label htmlFor="msg">Message</Label>
                     <Textarea id="msg" rows={3} className="border-blue-500/20 focus:border-blue-400/40 focus:ring-blue-400/20" />

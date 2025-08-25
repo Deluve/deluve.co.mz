@@ -42,6 +42,7 @@ const translations = {
     'about.experience': 'Anos de Experiência',
     'about.whyChooseUs': 'Por Que Nos Escolher',
     'about.whyChooseUsDesc': 'Não acredite apenas na nossa palavra. Aqui está o que nos torna o parceiro perfeito para sua jornada de transformação digital.',
+    'about.learnMore': 'Saiba Mais Sobre Nós',
     
     // Why Choose Us
     'why.fast': 'Rápido & Eficiente',
@@ -162,6 +163,7 @@ const translations = {
     'about.experience': 'Years Experience',
     'about.whyChooseUs': 'Why Choose Us',
     'about.whyChooseUsDesc': 'Don\'t just take our word for it. Here\'s what makes us the perfect partner for your digital transformation journey.',
+    'about.learnMore': 'Learn More About Us',
     
     // Why Choose Us
     'why.fast': 'Fast & Efficient',
