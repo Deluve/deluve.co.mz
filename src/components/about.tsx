@@ -33,7 +33,7 @@ export default function ContentSection() {
   const { t } = useLanguage()
 
   return (
-    <section className="py-12 md:py-20 bg-gradient-to-b from-background to-muted/20" id="about">
+    <section className="pt-32 pb-12 md:pt-40 md:pb-20 bg-gradient-to-b from-background to-muted/20" id="about">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header Section */}
         <div className="mx-auto max-w-4xl text-center mb-8 md:mb-12">
@@ -84,23 +84,11 @@ export default function ContentSection() {
                 <p className="text-muted-foreground leading-relaxed">{t("about.subdescription")}</p>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-6 pt-6">
-                <div className="text-center p-4 rounded-lg bg-muted/50">
-                  <div className="text-2xl font-bold text-blue-500 mb-1">50+</div>
-                  <div className="text-sm text-muted-foreground">{t("about.projects")}</div>
-                </div>
-                <div className="text-center p-4 rounded-lg bg-muted/50">
-                  <div className="text-2xl font-bold text-blue-500 mb-1">3+</div>
-                  <div className="text-sm text-muted-foreground">{t("about.experience")}</div>
-                </div>
-              </div>
-
-              {/* Learn More Button */}
+              {/* Call to Action */}
               <div className="pt-4">
                 <Button asChild size="lg" className="group">
                   <Link href="/about">
-                    {"Saiba Mais Sobre Nós"}
+                    {t("about.learnMore")}
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
@@ -109,7 +97,7 @@ export default function ContentSection() {
           </ScrollView>
         </div>
 
-        {/* Why Choose Us Section - Engaging */}
+        {/* Why Choose Us Section */}
         <div className="mx-auto max-w-6xl">
           <ScrollView>
             <div className="text-center mb-6">
