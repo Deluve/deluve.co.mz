@@ -1,96 +1,127 @@
-import { Mail, MapPin, PhoneCall } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Mail, MapPin, ArrowRight } from "lucide-react"
+import { ScrollView } from "./scroll-view"
 
-import { Card } from "@/components/ui/card";
-import Link from "next/link";
-import { ScrollView } from "./scroll-view";
-
-export default function FeaturesSection() {
+export default function ContactSection() {
   return (
-    <section className="relative py-8 md:py-16 bg-gradient-to-b from-blue-500/[0.03] to-background overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-blue-600/[0.03] blur-3xl" />
-      
-      <div className="relative z-10 mx-auto max-w-6xl px-6">
-        <div className="grid items-center gap-12 md:grid-cols-2 md:gap-12 lg:grid-cols-5 lg:gap-24">
-          <div className="lg:col-span-2">
-            <div className="md:pr-6 lg:pr-0">
-              <ScrollView>
-                <h2 className="text-4xl font-semibold lg:text-5xl">
-                  Get in touch
-                </h2>
-              </ScrollView>
-              <ScrollView>
-                <p className="mt-6 text-muted-foreground">
-                  We&apos;d love to hear from you! Feel free to reach out to us
-                  for any inquiries or to schedule a call.
-                </p>
-              </ScrollView>
-            </div>
-            <ScrollView delay={0.2}>
-              <ul className="mt-8 divide-y divide-blue-500/20 border-y border-blue-500/20 *:flex *:items-center *:gap-3 *:py-3">
-                <li>
-                  <Link href="#link" className="hover:text-blue-400 transition-colors relative group">
-                    <Mail className="size-5 mr-2 inline text-blue-400" />
-                    <span>deluve.solutions@gmail.com</span>
-                    <div className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/40 via-blue-300/60 to-blue-400/40 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
-                  </Link>
-                </li>
-                
-                <li>
-                  <Link href="#link" className="hover:text-blue-400 transition-colors relative group">
-                    <MapPin className="size-5 mr-2 inline text-blue-400" />
-                    <span>Avenida Julius Nyerere, Maputo, Mozambique</span>
-                    <div className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/40 via-blue-300/60 to-blue-400/40 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
-                  </Link>
-                </li>
-                
-              </ul>
-            </ScrollView>
-          </div>
-          <div className="lg:col-span-3">
-            <ScrollView>
-              <Card className="mx-auto mt-12 max-w-lg p-8 shadow-md sm:p-16 w-full border-blue-500/20 hover:border-blue-400/30 transition-colors">
-                <div>
-                  <h3 className="text-lg font-semibold">
-                    Let&apos;s get you to the right place
-                  </h3>
-                  <p className="mt-4 text-sm text-muted-foreground">
-                    Reach out to our sales team! We&apos;re eager to learn more about
-                    how you plan to use our application.
-                  </p>
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <ScrollView>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">
+              Ready to Build Your{" "}
+              <span className="text-blue-400">Next Success?</span>
+            </h2>
+          </ScrollView>
+          <ScrollView delay={0.1}>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
+              Let&apos;s discuss your vision and turn it into a successful business. Get in touch with our team today.
+            </p>
+          </ScrollView>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Contact Form */}
+          <ScrollView delay={0.2}>
+            <div className="bg-card border border-border rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 hover:scale-[1.02]">
+              <h3 className="text-2xl font-semibold text-foreground mb-6">Send us a message</h3>
+
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">First Name</label>
+                                          <Input
+                        className="bg-background border-border text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/20"
+                        placeholder="John"
+                      />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">Last Name</label>
+                    <Input
+                      className="bg-background border-border text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/20"
+                      placeholder="Doe"
+                    />
+                  </div>
                 </div>
 
-                <form
-                  action=""
-                  className="**:[&>label]:block mt-12 space-y-6 *:space-y-3"
-                >
-                  <div>
-                    <Label htmlFor="name">Full name</Label>
-                    <Input type="text" id="name" required className="border-blue-500/20 focus:border-blue-400/40 focus:ring-blue-400/20" />
-                  </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Email</label>
+                  <Input
+                    type="email"
+                    className="bg-background border-border text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/20"
+                    placeholder="john@company.com"
+                  />
+                </div>
 
-                  <div>
-                    <Label htmlFor="email">Work Email</Label>
-                    <Input type="email" id="email" required className="border-blue-500/20 focus:border-blue-400/40 focus:ring-blue-400/20" />
-                  </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Company</label>
+                  <Input
+                    className="bg-background border-border text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/20"
+                    placeholder="Your Company"
+                  />
+                </div>
 
-                 
-                  <div>
-                    <Label htmlFor="msg">Message</Label>
-                    <Textarea id="msg" rows={3} className="border-blue-500/20 focus:border-blue-400/40 focus:ring-blue-400/20" />
-                  </div>
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">Project Details</label>
+                  <Textarea
+                    className="bg-background border-border text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/20 min-h-[120px]"
+                    placeholder="Tell us about your startup idea, goals, and timeline..."
+                  />
+                </div>
 
-                  <Button className="bg-blue-500 hover:bg-blue-600 text-white border-blue-500/20 hover:border-blue-400/30 shadow-lg shadow-blue-500/25">Submit</Button>
-                </form>
-              </Card>
-            </ScrollView>
-          </div>
+                <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 group shadow-lg shadow-blue-500/25">
+                  Send Message
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </form>
+            </div>
+          </ScrollView>
+
+          {/* Contact Info */}
+          <ScrollView delay={0.3}>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-semibold text-foreground mb-6">Get in touch</h3>
+                <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                  We&apos;re here to help you build the next big thing.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                    <Mail className="h-6 w-6 text-blue-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-foreground font-semibold mb-1">Email</h4>
+                    <p className="text-muted-foreground">digital@deluve.io</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center">
+                    <MapPin className="h-6 w-6 text-blue-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-foreground font-semibold mb-1">Location</h4>
+                    <p className="text-muted-foreground">Avenida Julius Nyerere, Maputo, Mozambique</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-border">
+                <h4 className="text-foreground font-semibold mb-4">Response Time</h4>
+                <p className="text-muted-foreground">
+                  We typically respond within 24 hours. For urgent inquiries, please email us directly.
+                </p>
+              </div>
+            </div>
+          </ScrollView>
         </div>
       </div>
     </section>
-  );
+  )
 }

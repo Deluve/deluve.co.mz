@@ -1,133 +1,112 @@
 "use client"
-import { Award, Rocket, Shield, Heart, ArrowRight } from "lucide-react"
-import { ScrollView } from "./scroll-view"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/contexts/language-context"
+import { Users, TrendingUp, Zap, Award } from "lucide-react"
+import { ScrollView } from "@/components/scroll-view"
+import { Badge } from "@/components/ui/badge"
 
-const whyChooseUs = [
-  {
-    icon: Rocket,
-    titleKey: "why.fast",
-    descriptionKey: "why.fastDesc",
-  },
-  {
-    icon: Award,
-    titleKey: "why.results",
-    descriptionKey: "why.resultsDesc",
-  },
-  {
-    icon: Heart,
-    titleKey: "why.support",
-    descriptionKey: "why.supportDesc",
-  },
-  {
-    icon: Shield,
-    titleKey: "why.quality",
-    descriptionKey: "why.qualityDesc",
-  },
-]
-
-export default function ContentSection() {
-  const { t } = useLanguage()
-
+export default function AboutSection() {
   return (
-    <section className="pt-32 pb-12 md:pt-40 md:pb-20 bg-gradient-to-b from-background to-muted/20" id="about">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background" id="about">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
-        <div className="mx-auto max-w-4xl text-center mb-8 md:mb-12">
+        <div className="text-center mb-16">
           <ScrollView>
-            <div className="inline-flex items-center rounded-full border px-4 py-2 text-sm mb-6">
-              <span className="text-muted-foreground">{t("about.badge")}</span>
-            </div>
+            <Badge variant="secondary" className="mb-4 text-sm font-medium bg-blue-500/10 text-blue-600 border-blue-500/20">
+              Est. 2023
+            </Badge>
           </ScrollView>
           <ScrollView delay={0.1}>
-            <h2 className="text-balance text-4xl font-semibold lg:text-6xl mb-6">
-              {t("about.title")
-                .split("Digital Excellence")
-                .map((part, index) => (
-                  <span key={index}>
-                    {part}
-                    {index === 0 && <span className="text-blue-400"> Digital Excellence</span>}
-                  </span>
-                ))}
+            <h2 className="text-balance text-4xl font-semibold lg:text-5xl mb-6">
+              Building Tomorrow&apos;s
+              <span className="text-blue-400"> Success Stories</span>
             </h2>
           </ScrollView>
           <ScrollView delay={0.2}>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">{t("about.description")}</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+              We transform ideas into successful companies through strategic expertise and technology.
+            </p>
           </ScrollView>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-12">
-          {/* Left Column - Image */}
-          <ScrollView>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-2xl blur-3xl"></div>
-              <Image
-                className="relative rounded-2xl object-cover aspect-[4/3] w-full shadow-2xl"
-                src="/images/office.jpeg"
-                alt="Deluve team working together"
-                height="600"
-                width="800"
-                loading="lazy"
-              />
-            </div>
-          </ScrollView>
-
-          {/* Right Column - Content */}
-          <ScrollView delay={0.1}>
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl font-semibold mb-4">{t("about.subtitle")}</h3>
-                <p className="text-muted-foreground leading-relaxed">{t("about.subdescription")}</p>
-              </div>
-
-              {/* Call to Action */}
-              <div className="pt-4">
-                <Button asChild size="lg" className="group">
-                  <Link href="/about">
-                    {t("about.learnMore")}
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </ScrollView>
-        </div>
-
-        {/* Why Choose Us Section */}
-        <div className="mx-auto max-w-6xl">
-          <ScrollView>
-            <div className="text-center mb-6">
-              <h3 className="text-3xl font-semibold mb-4">{t("about.whyChooseUs")}</h3>
-              <p className="text-muted-foreground max-w-2xl mx-auto">{t("about.whyChooseUsDesc")}</p>
-            </div>
-          </ScrollView>
-          <ScrollView delay={0.1}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {whyChooseUs.map((item, index) => {
-                const IconComponent = item.icon
-                return (
-                  <div
-                    key={index}
-                    className="group p-6 rounded-xl border bg-card hover:bg-muted/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                  >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
-                        <IconComponent className="size-5 text-blue-500" />
-                      </div>
-                      <h4 className="font-semibold text-lg group-hover:text-blue-500 transition-colors">
-                        {t(item.titleKey)}
-                      </h4>
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed text-sm">{t(item.descriptionKey)}</p>
+        {/* Core Values Grid */}
+        <div className="mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <ScrollView delay={0.1}>
+              <div className="group">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 transition-colors">
+                    <TrendingUp className="w-6 h-6 text-blue-500" />
                   </div>
-                )
-              })}
+                  <div>
+                    <h3 className="text-foreground font-semibold text-xl mb-2">Strategic Vision</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      We don&apos;t just build products—we architect sustainable business models that scale and dominate
+                      markets.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollView>
+
+            <ScrollView delay={0.2}>
+              <div className="group">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 transition-colors">
+                    <Zap className="w-6 h-6 text-blue-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-foreground font-semibold text-xl mb-2">Execution Excellence</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      From concept to market leadership, we deliver with precision, speed, and unwavering quality
+                      standards.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollView>
+
+            <ScrollView delay={0.3}>
+              <div className="group">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/20 transition-colors">
+                    <Users className="w-6 h-6 text-blue-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-foreground font-semibold text-xl mb-2">Partnership Commitment</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Your success defines our success. We&apos;re invested partners, not just service providers.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </ScrollView>
+          </div>
+        </div>
+
+        {/* Foundation Values */}
+        <div className="border-t border-border pt-16">
+          <ScrollView>
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-foreground mb-4">Our Foundation</h3>
+              <p className="text-muted-foreground text-lg">The principles that drive exceptional outcomes</p>
             </div>
           </ScrollView>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: "Excellence", desc: "Uncompromising quality in every deliverable" },
+              { title: "Innovation", desc: "Pioneering solutions that create competitive advantages" },
+              { title: "Integrity", desc: "Transparent partnerships built on trust" },
+              { title: "Impact", desc: "Measurable results that transform businesses" },
+            ].map((value, index) => (
+              <ScrollView key={value.title} delay={index * 0.1}>
+                <div className="text-center group">
+                  <div className="w-2 h-16 bg-gradient-to-b from-blue-500 to-blue-600 mx-auto mb-6 rounded-full group-hover:scale-110 transition-transform"></div>
+                  <h4 className="text-foreground font-semibold text-lg mb-3">{value.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{value.desc}</p>
+                </div>
+              </ScrollView>
+            ))}
+          </div>
         </div>
       </div>
     </section>

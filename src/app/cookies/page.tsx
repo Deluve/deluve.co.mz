@@ -260,10 +260,10 @@ export default function CookiePolicyPage() {
                       <p className="text-muted-foreground">
                         <strong>Email:</strong>{" "}
                         <a 
-                          href="mailto:deluve.solutions@gmail.com" 
+                          href="mailto:digital@deluve.io" 
                           className="text-blue-400 hover:text-blue-300 hover:underline transition-colors"
                         >
-                          deluve.solutions@gmail.com
+                          digital@deluve.io
                         </a>
                       </p>
                       <p className="text-muted-foreground">

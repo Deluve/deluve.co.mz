@@ -14,14 +14,12 @@ export default function StatsSection() {
           </ScrollView>
           <ScrollView delay={0.2}>
             <p>
-              At Deluve, we don’t just make things look good — we create
-              thoughtful design experiences that help businesses grow, connect
-              with their audience, and stand out in a crowded digital world.
+              At Deluve, we create thoughtful design experiences that help businesses grow and stand out.
             </p>
           </ScrollView>
         </div>
         <ScrollView stagger delay={0.04}>
-          <div className="grid gap-12 divide-y *:text-center md:grid-cols-3 md:gap-2 md:divide-x md:divide-y-0">
+          <div className="grid gap-12 divide-y *:text-center md:grid-cols-2 lg:grid-cols-4 md:gap-2 md:divide-x md:divide-y-0">
             <motion.div
               variants={{
                 hidden: { opacity: 0, scale: 0.8, filter: "blur(10px)" },
@@ -33,8 +31,8 @@ export default function StatsSection() {
               }}
               className="space-y-4"
             >
-              <div className="text-5xl font-bold text-blue-500">+120</div>
-              <p>Projects Launched</p>
+              <div className="text-5xl font-bold text-blue-500">15+</div>
+              <p>Projects Delivered</p>
             </motion.div>
             <motion.div
               variants={{
@@ -47,8 +45,8 @@ export default function StatsSection() {
               }}
               className="space-y-4"
             >
-              <div className="text-5xl font-bold text-blue-500">40%</div>
-              <p>Average Client Growth</p>
+              <div className="text-5xl font-bold text-blue-500">60%</div>
+              <p>Process Automation</p>
             </motion.div>
             <motion.div
               variants={{
@@ -61,8 +59,22 @@ export default function StatsSection() {
               }}
               className="space-y-4"
             >
-              <div className="text-5xl font-bold text-blue-500">5+</div>
-              <p>Years in the Game</p>
+              <div className="text-5xl font-bold text-blue-500">100%</div>
+              <p>Client Satisfaction</p>
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, scale: 0.8, filter: "blur(10px)" },
+                visible: {
+                  opacity: 1,
+                  scale: 1,
+                  filter: "blur(0px)",
+                },
+              }}
+              className="space-y-4"
+            >
+              <div className="text-5xl font-bold text-blue-500">24/7</div>
+              <p>Support Available</p>
             </motion.div>
           </div>
         </ScrollView>

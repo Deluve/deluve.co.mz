@@ -161,7 +161,7 @@ export default function HeroSection() {
           >
             <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
-                Lets Elevate
+                Streamline
               </span>
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
@@ -174,7 +174,7 @@ export default function HeroSection() {
                   pacifico.className,
                 )}
               >
-                digital Vision
+                Digital Journey
                 <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent rounded-full opacity-60"></div>
               </span>
 
@@ -187,8 +187,8 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.9 }}
             className="mb-8 mt-18"
           >
-            <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-              Designs That Captivate, Brands That Shine.
+            <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
+              Transform your ideas into <span className="text-blue-400 font-semibold">powerful digital experiences</span> with <span className="text-blue-400 font-semibold">60% faster delivery</span> and cutting-edge automation solutions.
             </p>
           </motion.div>
 
@@ -232,7 +232,7 @@ export default function HeroSection() {
                         d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"
                       />
                     </svg>
-                    <span className="text-nowrap">View Projects</span>
+                    <span className="text-nowrap">Boost Efficiency</span>
                   </Link>
                 </Button>
               </div>
