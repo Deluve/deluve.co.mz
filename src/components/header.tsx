@@ -104,7 +104,7 @@ export const HeroHeader = () => {
                     isScrolled && "lg:hidden"
                   )}
                 >
-                  <Link href="/contact" className="relative z-10 flex items-center gap-2">
+                  <Link href="/get-quote" className="relative z-10 flex items-center gap-2">
                     <span>{t('header.contact')}</span>
                     <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
                                          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/15 to-blue-400/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-lg"></div>
@@ -119,8 +119,8 @@ export const HeroHeader = () => {
                     isScrolled ? "lg:inline-flex" : "hidden"
                   )}
                 >
-                  <Link href="/waitlist" className="relative z-10 flex items-center gap-2">
-                    <span>{t('header.waitlist')}</span>
+                  <Link href="/portfolio" className="relative z-10 flex items-center gap-2">
+                    <span>{t('header.portfolio')}</span>
                     <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
                                          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/8 to-blue-400/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-lg"></div>
                   </Link>

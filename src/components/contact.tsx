@@ -6,7 +6,7 @@ import { ScrollView } from "./scroll-view"
 
 export default function ContactSection() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background" id="contact">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">

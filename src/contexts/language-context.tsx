@@ -24,6 +24,7 @@ const translations = {
     
     // Header
     'header.contact': 'Contate-nos',
+    'header.portfolio': 'Ver Portfólio',
     'header.waitlist': 'Lista de Espera',
     
     // Hero
@@ -145,6 +146,7 @@ const translations = {
     
     // Header
     'header.contact': 'Contact Us',
+    'header.portfolio': 'View Portfolio',
     'header.waitlist': 'Join Waitlist',
     
     // Hero

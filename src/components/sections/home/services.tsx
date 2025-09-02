@@ -169,15 +169,7 @@ export default function ServicesSection2() {
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
                   </Link>
-                  <Link href="/portfolio">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="border-border hover:bg-muted bg-transparent transition-all duration-300 hover:border-blue-500/50 hover:scale-105"
-                    >
-                      View Portfolio
-                    </Button>
-                  </Link>
+                  
                 </div>
               </CardContent>
             </Card>

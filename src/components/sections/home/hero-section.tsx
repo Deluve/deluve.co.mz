@@ -220,7 +220,7 @@ export default function HeroSection() {
                   size="lg"
                   className="rounded-xl px-5 text-base bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-blue-400/30 backdrop-blur-sm transition-all duration-300 group/btn relative overflow-hidden"
                 >
-                  <Link href="#portfolio" className="relative z-10 flex items-center gap-2">
+                  <Link href="/get-quote" className="relative z-10 flex items-center gap-2">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-400/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                     <svg
                       className="size-6"
