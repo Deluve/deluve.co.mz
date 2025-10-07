@@ -155,7 +155,7 @@ export default function GetQuotePage() {
                 type="text"
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
-                className="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700"
+                className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
                 placeholder="John Doe"
               />
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
@@ -170,7 +170,7 @@ export default function GetQuotePage() {
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
-                className="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700"
+                className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
                 placeholder="john@company.com"
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
@@ -186,7 +186,7 @@ export default function GetQuotePage() {
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
-                  className="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700"
+                  className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
                   placeholder="+1 (555) 123-4567"
                 />
               </div>
@@ -200,7 +200,7 @@ export default function GetQuotePage() {
                   type="text"
                   value={formData.position}
                   onChange={(e) => handleInputChange("position", e.target.value)}
-                  className="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700"
+                  className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
                   placeholder="CEO, CTO, Manager..."
                 />
               </div>
@@ -215,7 +215,7 @@ export default function GetQuotePage() {
                 type="text"
                 value={formData.company}
                 onChange={(e) => handleInputChange("company", e.target.value)}
-                className="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700"
+                className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
                 placeholder="Your Company Inc."
               />
               {errors.company && <p className="text-red-500 text-sm mt-1">{errors.company}</p>}
@@ -230,7 +230,7 @@ export default function GetQuotePage() {
                 type="url"
                 value={formData.website}
                 onChange={(e) => handleInputChange("website", e.target.value)}
-                className="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700"
+                className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
                 placeholder="https://yourcompany.com"
               />
             </div>
@@ -245,7 +245,7 @@ export default function GetQuotePage() {
                 Primary Project Type *
               </Label>
               <Select value={formData.projectType} onValueChange={(value) => handleInputChange("projectType", value)}>
-                <SelectTrigger className="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700">
+                <SelectTrigger className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10">
                   <SelectValue placeholder="Select your main project type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -311,7 +311,7 @@ export default function GetQuotePage() {
                   Project Budget Range
                 </Label>
                 <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
-                  <SelectTrigger className="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700">
+                  <SelectTrigger className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10">
                     <SelectValue placeholder="Select budget range" />
                   </SelectTrigger>
                   <SelectContent>
@@ -330,7 +330,7 @@ export default function GetQuotePage() {
                   Desired Timeline
                 </Label>
                 <Select value={formData.timeline} onValueChange={(value) => handleInputChange("timeline", value)}>
-                  <SelectTrigger className="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700">
+                  <SelectTrigger className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10">
                     <SelectValue placeholder="Select timeline" />
                   </SelectTrigger>
                   <SelectContent>
@@ -354,7 +354,7 @@ export default function GetQuotePage() {
                 value={formData.description}
                 onChange={(e) => handleInputChange("description", e.target.value)}
                 placeholder="Please describe your project in detail..."
-                className="min-h-[150px] bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700"
+                className="min-h-[150px] bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
               />
               <div className="flex justify-between items-center mt-2">
                 {errors.description && <p className="text-red-500 text-sm">{errors.description}</p>}
@@ -377,7 +377,7 @@ export default function GetQuotePage() {
                   value={formData.targetAudience}
                   onChange={(e) => handleInputChange("targetAudience", e.target.value)}
                   placeholder="Who is your target audience?"
-                  className="min-h-[100px] bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700"
+                  className="min-h-[100px] bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
                 />
               </div>
 
@@ -390,7 +390,7 @@ export default function GetQuotePage() {
                   value={formData.goals}
                   onChange={(e) => handleInputChange("goals", e.target.value)}
                   placeholder="What do you want to achieve?"
-                  className="min-h-[100px] bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700"
+                  className="min-h-[100px] bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
                 />
               </div>
             </div>
@@ -404,7 +404,7 @@ export default function GetQuotePage() {
                 value={formData.competitorWebsites}
                 onChange={(e) => handleInputChange("competitorWebsites", e.target.value)}
                 placeholder="Share URLs of websites you like..."
-                className="min-h-[80px] bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700"
+                className="min-h-[80px] bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
               />
             </div>
 
@@ -417,7 +417,7 @@ export default function GetQuotePage() {
                   value={formData.preferredContact}
                   onValueChange={(value) => handleInputChange("preferredContact", value)}
                 >
-                  <SelectTrigger className="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700">
+                  <SelectTrigger className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10">
                     <SelectValue placeholder="How should we contact you?" />
                   </SelectTrigger>
                   <SelectContent>
@@ -434,7 +434,7 @@ export default function GetQuotePage() {
                   How did you hear about us?
                 </Label>
                 <Select value={formData.hearAboutUs} onValueChange={(value) => handleInputChange("hearAboutUs", value)}>
-                  <SelectTrigger className="bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700">
+                  <SelectTrigger className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10">
                     <SelectValue placeholder="Select source" />
                   </SelectTrigger>
                   <SelectContent>
@@ -556,7 +556,7 @@ export default function GetQuotePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Left Sidebar - Steps */}
             <div className="lg:col-span-4">
-              <div className="bg-card rounded-2xl border border-blue-500/20 hover:border-blue-400/30 transition-colors p-6 sticky top-6">
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-blue-500/10 hover:border-blue-400/20 transition-colors p-6 sticky top-6">
                 <div className="space-y-4">
                   {steps.map((step) => (
                     <div key={step.number} className="flex items-center gap-4">
@@ -586,7 +586,7 @@ export default function GetQuotePage() {
                   ))}
                 </div>
 
-                <div className="mt-8 pt-8 border-t border-blue-500/20">
+                <div className="mt-8 pt-8 border-t border-blue-500/10">
                   <h3 className="font-semibold text-foreground mb-4">About Your Quote</h3>
                   <p className="text-sm text-muted-foreground">
                     Fill out this form to help us understand your project requirements. The more details you provide, the more accurate our proposal will be.
@@ -597,7 +597,7 @@ export default function GetQuotePage() {
 
             {/* Right Content - Form */}
             <div className="lg:col-span-8">
-              <Card className="border-blue-500/20 hover:border-blue-400/30 transition-colors shadow-xl bg-card">
+              <Card className="border-blue-500/10 hover:border-blue-400/20 transition-colors shadow-xl bg-card/50 backdrop-blur-sm">
                 <CardContent className="p-8 md:p-12">
                   <div className="mb-8">
                     <h2 className="text-2xl font-bold text-foreground mb-2">
@@ -614,13 +614,13 @@ export default function GetQuotePage() {
                   <form onSubmit={handleSubmit}>
                     {renderStepContent()}
 
-                    <div className="flex justify-between mt-10 pt-8 border-t border-blue-500/20">
+                    <div className="flex justify-between mt-10 pt-8 border-t border-blue-500/10">
                       <Button
                         type="button"
                         variant="outline"
                         onClick={() => setCurrentStep((prev) => Math.max(prev - 1, 1))}
                         disabled={currentStep === 1}
-                        className="border-blue-500/20 hover:border-blue-400/30 hover:bg-blue-500/10 text-blue-400 hover:text-blue-300"
+                        className="border-blue-500/10 hover:border-blue-400/20 hover:bg-blue-500/5 text-blue-400 hover:text-blue-300"
                       >
                         Back
                       </Button>
