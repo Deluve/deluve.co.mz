@@ -20,7 +20,7 @@ const services: Service[] = [
     icon: <Code className="h-8 w-8 text-blue-500" />,
     title: "Custom Software Development",
     description: "We create cutting-edge websites and web applications that engage users and drive results.",
-    features: ["User Engagement", "Conversion Optimization", "Scalable Solutions", "Performance Boost"],
+    features: ["User Engagement", "Growth Optimization", "Scalable Solutions", "Performance Boost"],
     popular: true,
     url: "#",
   },
@@ -49,7 +49,7 @@ const services: Service[] = [
     icon: <Globe className="h-8 w-8 text-blue-500" />,
     title: "Infrastructure Support",
     description: "Comprehensive infrastructure support and maintenance to ensure your systems run smoothly.",
-    features: ["24/7 Monitoring", "System Maintenance", "Performance Optimization", "Technical Support"],
+    features: ["24/7 Monitoring", "System Maintenance", "Performance Boost", "Technical Support"],
     url: "#",
   },
   {
@@ -63,8 +63,8 @@ const services: Service[] = [
 
 export default function ServicesSection2() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background" id="services">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-12  md:py-20 bg-gradient-to-b from-muted/20 to-background" id="portfolio">
+      <div className="mx-auto max-w-5xl space-y-12 px-6">
         {/* Header Section */}
         <div className="text-center mb-16">
           <ScrollView>
@@ -86,11 +86,11 @@ export default function ServicesSection2() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <ScrollView key={index} delay={index * 0.1}>
               <Card
-                className="group relative overflow-hidden border-border hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer"
+                className="group relative overflow-hidden border-border hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 hover:scale-[1.02] cursor-pointer min-h-[400px]"
               >
                 {service.popular && (
                   <div className="absolute top-4 right-4">
@@ -116,12 +116,12 @@ export default function ServicesSection2() {
 
                 <CardContent className="pt-0">
                   <div className="space-y-4">
-                    <div className="flex flex-wrap gap-2">
+                    <div className="grid grid-cols-2 gap-1.5">
                       {service.features.map((feature, featureIndex) => (
                         <Badge
                           key={featureIndex}
                           variant="secondary"
-                          className="text-xs bg-muted hover:bg-muted/80 transition-all duration-300 group-hover:bg-blue-500/10 group-hover:text-blue-500 group-hover:scale-105"
+                          className="text-xs bg-muted hover:bg-muted/80 transition-all duration-300 group-hover:bg-blue-500/10 group-hover:text-blue-500 group-hover:scale-105 w-full h-8 flex items-center justify-center text-center"
                           style={{ transitionDelay: `${featureIndex * 50}ms` }}
                         >
                           {feature}

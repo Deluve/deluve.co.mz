@@ -23,7 +23,7 @@ export default function PortfolioCard({
               <Image
                 className=" w-full grayscale-25 hover:grayscale-0 rounded-md object-cover object-top  transition-all duration-500  "
                 height="480"
-                width="720"
+                width="730"
                 src={card.img}
                 alt={card.name}
               />

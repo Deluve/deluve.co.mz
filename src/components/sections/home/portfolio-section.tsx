@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { ScrollView } from "@/components/scroll-view"
 import { useState, useRef, useEffect } from "react"
+import { Badge } from "@/components/ui/badge"
 
 export default function PortfolioSection() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -30,11 +31,14 @@ export default function PortfolioSection() {
       <div className="mx-auto max-w-5xl space-y-12 px-6">
         {/* Header Section */}
         <div className="mx-auto max-w-4xl text-center mb-16 md:mb-24">
+         
           <ScrollView>
-            <div className="inline-flex items-center rounded-full border px-4 py-2 text-sm mb-6">
-              <span className="text-muted-foreground">Our Case Studies</span>
-            </div>
+            <Badge variant="secondary" className="mb-4 text-sm font-medium bg-blue-500/10 text-blue-600 border-blue-500/20">
+            Our Case Studies
+            </Badge>
           </ScrollView>
+
+
           <ScrollView delay={0.1}>
             <h2 className="text-balance text-4xl font-semibold lg:text-6xl mb-6">
               Latest
