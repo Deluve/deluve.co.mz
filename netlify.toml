@@ -1,5 +1,5 @@
 [build]
-command = "pnpm build"
+command = "if command -v pnpm >/dev/null 2>&1; then pnpm build; else npx -y pnpm@9.3.0 install --frozen-lockfile && npx -y pnpm@9.3.0 build; fi"
 
 [build.environment]
 NODE_VERSION = "20"
