@@ -15,7 +15,7 @@ export default function PortfolioCard({
   return (
     <div>
       <CustomCursorElement
-        cursor={<div className="text-zinc-950 text-lg font-medium">View</div>}
+        cursor={<div className="text-blue-500 text-lg font-medium">View</div>}
       >
         <ScrollView>
           <div className="group hover:scale-105 transition-all duration-500 ">
@@ -23,7 +23,7 @@ export default function PortfolioCard({
               <Image
                 className=" w-full grayscale-25 hover:grayscale-0 rounded-md object-cover object-top  transition-all duration-500  "
                 height="480"
-                width="720"
+                width="730"
                 src={card.img}
                 alt={card.name}
               />
