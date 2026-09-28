@@ -4,7 +4,8 @@ import PortfolioSection from "@/components/sections/home/portfolio-section";
 import ServicesSection2 from "@/components/sections/home/services";
 import StatsSection from "@/components/sections/home/stats";
 import WhyChooseUsAndProcess from "@/components/sections/home/why-choose-us";
-import Testimonials from "@/components/testimonials";
+import FAQSection from "@/components/sections/home/faq";
+import Testimonials from "../components/testimonials";
 import FooterSection from "@/components/footer";
 import ContactSection from "@/components/contact";
 
@@ -19,6 +20,7 @@ export default function Home() {
       <AboutUsSection />
      
       <StatsSection />
+      <Testimonials />
       <ContactSection />
       <FooterSection />
     </main>

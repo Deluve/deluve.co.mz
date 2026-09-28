@@ -26,7 +26,7 @@ export default function TermsOfServicePage() {
               })}
             </p>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              These Terms of Service govern your use of Deluve Solutions' website and services. By accessing or using our services, you agree to be bound by these terms.
+              These Terms of Service govern your use of Deluve Solutions&apos; website and services. By accessing or using our services, you agree to be bound by these terms.
             </p>
           </motion.div>
 
@@ -78,7 +78,7 @@ export default function TermsOfServicePage() {
                       1. Acceptance of Terms
                     </h2>
                     <p className="text-muted-foreground mb-4">
-                      By accessing and using the services provided by Deluve Solutions ("we," "us," or "our"), you accept and agree to be bound by the terms and provision of this agreement.
+                      By accessing and using the services provided by Deluve Solutions (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), you accept and agree to be bound by the terms and provision of this agreement.
                     </p>
                     <p className="text-muted-foreground mb-4">
                       If you do not agree to abide by the above, please do not use this service.

@@ -108,8 +108,8 @@ export default function HeroSection() {
 
 
   return (
-    <div className="relative min-h-screen w-full flex items-start justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-32">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.2] via-transparent to-blue-600/[0.15] blur-3xl" />
+    <div className="relative min-h-screen w-full flex items-start justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 pt-32">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.08] via-transparent to-blue-600/[0.05] blur-3xl" />
 
       <div className="absolute inset-0 overflow-hidden">
 
@@ -131,9 +131,9 @@ export default function HeroSection() {
             <AnimatedGroup variants={transitionVariants}>
               <Link
                 href="#link"
-                className="hover:bg-blue-500/10 bg-blue-500/5 group mx-auto flex w-fit items-center gap-4 rounded-full border border-blue-500/20 p-1 pl-4 shadow-md shadow-blue-500/10 transition-colors duration-300"
+                className="hover:bg-blue-500/10 bg-blue-500/5 group mx-auto flex w-fit items-center gap-4 rounded-full border border-blue-200 p-1 pl-4 shadow-md shadow-blue-500/10 transition-colors duration-300"
               >
-                <span className="text-white text-sm relative">
+                <span className="text-slate-700 text-sm relative">
                   Startup Innovation Studio
                   <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/60 via-blue-300/80 to-blue-400/60 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
                 </span>
@@ -159,23 +159,23 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.7 }}
             className="mb-8"
           >
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight text-slate-900">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-slate-900 to-slate-700">
                 Streamline
               </span>
               <br />
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-slate-900 to-slate-700">
                 Your
               </span>
               <br />
               <span
                 className={cn(
-                  "relative bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-white/90 to-blue-400",
+                  "relative bg-clip-text text-transparent bg-gradient-to-r from-blue-700 via-blue-500 to-blue-800",
                   pacifico.className,
                 )}
               >
                 Digital Journey
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent rounded-full opacity-60"></div>
+                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent rounded-full opacity-60"></div>
               </span>
 
             </h1>
@@ -187,8 +187,8 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.9 }}
             className="mb-8 mt-18"
           >
-            <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
-              Transform your ideas into <span className="text-blue-400 font-semibold">powerful digital experiences</span> with <span className="text-blue-400 font-semibold">60% faster delivery</span> and cutting-edge automation solutions.
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-light tracking-wide max-w-2xl mx-auto px-4">
+              Transform your ideas into <span className="text-blue-700 font-semibold">powerful digital experiences</span> with <span className="text-blue-700 font-semibold">60% faster delivery</span> and cutting-edge automation solutions.
             </p>
           </motion.div>
 
@@ -218,7 +218,7 @@ export default function HeroSection() {
                 <Button
                   asChild
                   size="lg"
-                  className="rounded-xl px-5 text-base bg-white/10 hover:bg-white/20 text-white border border-white/20 hover:border-blue-400/30 backdrop-blur-sm transition-all duration-300 group/btn relative overflow-hidden"
+                  className="rounded-xl px-5 text-base bg-slate-900 hover:bg-slate-800 text-white border border-slate-900/10 hover:border-blue-300 backdrop-blur-sm transition-all duration-300 group/btn relative overflow-hidden"
                 >
                   <Link href="/get-quote" className="relative z-10 flex items-center gap-2">
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-blue-400/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
@@ -242,7 +242,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/70 pointer-events-none" />
 
       <AnimatedGroup
         variants={{

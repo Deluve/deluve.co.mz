@@ -61,8 +61,8 @@ export default function WhyChooseUsAndProcess() {
         <div className="text-center mb-16">
           <ScrollView>
             <Badge variant="secondary" className="mb-4 text-sm font-medium bg-blue-500/10 text-blue-600 border-blue-500/20">
-              Why Choose Us
-            </Badge>
+              Why Deluve 
+            </Badge> 
           </ScrollView>
           <ScrollView delay={0.1}>
             <h2 className="text-balance text-4xl font-semibold lg:text-5xl mb-6">

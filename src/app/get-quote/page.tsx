@@ -117,21 +117,21 @@ export default function GetQuotePage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-black dark:via-slate-950 dark:to-black flex items-center justify-center px-6">
-        <Card className="max-w-md w-full border-blue-500/20 hover:border-blue-400/30 transition-colors shadow-2xl bg-card">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 flex items-center justify-center px-6">
+        <Card className="max-w-md w-full border-slate-200 hover:border-blue-300 transition-colors shadow-2xl bg-card">
           <CardContent className="p-8 text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-400/20">
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-400/20">
               <CheckCircle className="w-8 h-8 text-white" />
             </div>
             <h1 className="text-2xl font-bold mb-3 text-foreground">Quote Request Received!</h1>
             <p className="text-muted-foreground mb-6 text-sm">
-              Thank you for your interest. We'll review your project details and get back to you within 24 hours.
+              Thank you for your interest. We&apos;ll review your project details and get back to you within 24 hours.
             </p>
             <div className="space-y-3">
-              <Button asChild className="w-full bg-blue-500 hover:bg-blue-600 text-white shadow-lg shadow-blue-400/20">
+              <Button asChild className="w-full bg-blue-700 hover:bg-blue-800 text-white shadow-lg shadow-blue-400/20">
                 <Link href="/">Back to Homepage</Link>
               </Button>
-              <Button asChild variant="outline" className="w-full border-blue-500/20 hover:border-blue-400/30 hover:bg-blue-500/10 text-blue-400 hover:text-blue-300">
+              <Button asChild variant="outline" className="w-full border-slate-200 hover:border-blue-300 hover:bg-blue-500/10 text-blue-700 hover:text-blue-800">
                 <Link href="/portfolio">View Our Work</Link>
               </Button>
             </div>

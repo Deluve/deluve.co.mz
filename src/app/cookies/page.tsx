@@ -76,7 +76,7 @@ export default function CookiePolicyPage() {
                       Cookies are small text files that are placed on your device (computer, tablet, or mobile phone) when you visit a website. They are widely used to make websites work more efficiently and to provide information to website owners.
                     </p>
                     <p className="text-muted-foreground mb-4">
-                      Cookies can be "persistent" or "session" cookies. Persistent cookies remain on your device when you go offline, while session cookies are deleted as soon as you close your web browser.
+                      Cookies can be &quot;persistent&quot; or &quot;session&quot; cookies. Persistent cookies remain on your device when you go offline, while session cookies are deleted as soon as you close your web browser.
                     </p>
                     <p className="text-muted-foreground">
                       We use both persistent and session cookies to provide you with a better experience on our website.
@@ -240,7 +240,7 @@ export default function CookiePolicyPage() {
                       We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons.
                     </p>
                     <p className="text-muted-foreground mb-4">
-                      When we make changes to this policy, we will update the "Effective as of" date at the top of this page and notify you of any material changes.
+                      When we make changes to this policy, we will update the &quot;Effective as of&quot; date at the top of this page and notify you of any material changes.
                     </p>
                     <p className="text-muted-foreground">
                       We encourage you to review this Cookie Policy periodically to stay informed about how we use cookies.

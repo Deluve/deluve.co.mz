@@ -31,7 +31,7 @@ export const HeroHeader = () => {
           className={cn(
             "mx-auto mt-2 max-w-6xl px-6 transition-all duration-500 ease-out lg:px-12",
             isScrolled &&
-              "bg-background/80 max-w-4xl rounded-2xl border backdrop-blur-xl shadow-lg lg:px-5"
+              "bg-white/90 max-w-4xl rounded-2xl border border-slate-200 backdrop-blur-xl shadow-lg shadow-slate-200/60 lg:px-5"
           )}
         >
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
@@ -62,7 +62,7 @@ export const HeroHeader = () => {
                   <li key={index}>
                     <Link
                       href={item.href}
-                      className="group relative block py-2 transition-all duration-300 hover:text-blue-400"
+                      className="group relative block py-2 transition-all duration-300 hover:text-blue-700"
                     >
                       <span className="relative z-10 transition-all duration-300 group-hover:scale-105">
                         {t(`nav.${item.name.toLowerCase()}`)}
@@ -82,7 +82,7 @@ export const HeroHeader = () => {
                     <li key={index}>
                       <Link
                         href={item.href}
-                        className="group relative block py-2 transition-all duration-300 hover:text-blue-400"
+                        className="group relative block py-2 transition-all duration-300 hover:text-blue-700"
                       >
                         <span className="relative z-10 transition-all duration-300 group-hover:translate-x-2">
                           {t(`nav.${item.name.toLowerCase()}`)}
@@ -115,7 +115,7 @@ export const HeroHeader = () => {
                   size="sm"
                   variant="outline"
                   className={cn(
-                    "group relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg border-blue-500/20 hover:border-blue-500/40",
+                    "group relative overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg border-slate-200 hover:border-blue-300",
                     isScrolled ? "lg:inline-flex" : "hidden"
                   )}
                 >

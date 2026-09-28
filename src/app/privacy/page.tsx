@@ -77,13 +77,13 @@ export default function PrivacyPolicyPage() {
                       1. Scope of this Privacy Policy
                     </h2>
                     <p className="text-muted-foreground mb-4">
-                      This Privacy Policy relates to information collected by Deluve Solutions through your use of our website, services, features, and when you otherwise interact with us (collectively referred to as the "Deluve Services").
+                      This Privacy Policy relates to information collected by Deluve Solutions through your use of our website, services, features, and when you otherwise interact with us (collectively referred to as the &quot;Deluve Services&quot;).
                     </p>
                     <p className="text-muted-foreground mb-4">
                       <strong>If you do not agree to our use of your personal data in line with this policy, please do not use the Deluve Services.</strong>
                     </p>
                     <p className="text-muted-foreground">
-                      This Privacy Policy is incorporated into and governed by our Terms of Use. Any capitalized words we use in this Privacy Policy that we haven't defined here will have the same meaning that they're given in our Terms of Use.
+                      This Privacy Policy is incorporated into and governed by our Terms of Use. Any capitalized words we use in this Privacy Policy that we haven&apos;t defined here will have the same meaning that they&apos;re given in our Terms of Use.
                     </p>
                   </section>
                 </ScrollView>

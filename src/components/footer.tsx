@@ -7,7 +7,7 @@ import { FOOTER_LINKS } from "@/content/footer";
 
 export default function FooterSection() {
   return (
-    <footer className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t">
+    <footer className="bg-slate-50/95 backdrop-blur supports-[backdrop-filter]:bg-slate-50/80 border-t border-slate-200">
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-12">

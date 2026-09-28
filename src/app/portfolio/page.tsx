@@ -136,7 +136,7 @@ export default function PortfolioPage() {
               {filteredProjects.map((project, index) => (
                 <Card 
                   key={project.id} 
-                  className="group hover:shadow-2xl transition-all duration-500 border-0 bg-muted/30 dark:bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden hover:-translate-y-2"
+                  className="group hover:shadow-2xl transition-all duration-500 border border-slate-200 bg-white backdrop-blur-sm rounded-2xl overflow-hidden hover:-translate-y-2 shadow-sm"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CardContent className="p-0">
@@ -148,7 +148,7 @@ export default function PortfolioPage() {
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
 
                     {/* Project Info */}
@@ -202,7 +202,7 @@ export default function PortfolioPage() {
 
         {/* Call to Action Section */}
         <ScrollView delay={0.3}>
-          <div className="text-center py-20 border-t border-muted/30">
+          <div className="text-center py-20 border-t border-slate-200">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">Ready to start your project?</h2>
             <p className="text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
               Let&apos;s collaborate to bring your vision to life. We&apos;re here to help you create something extraordinary.

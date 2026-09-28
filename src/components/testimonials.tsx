@@ -1,310 +1,218 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+"use client";
+
+import { motion } from "motion/react";
+import { Quote, Star } from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Card, CardContent } from "@/components/ui/card";
 import { ScrollView } from "@/components/scroll-view";
-import { InfiniteSlider } from "@/components/motion-primitives/infinite-slider";
-import Image from "next/image";
+
+const testimonials = [
+  {
+    name: "Maria Santos",
+    role: "Operations Manager",
+    company: "TechFlow",
+    initials: "MS",
+    quote:
+      "Deluve helped us simplify operations and cut manual work dramatically. Their process was clear, fast, and focused on measurable results.",
+    rating: 5,
+    featured: true,
+  },
+  {
+    name: "Carlos Mendes",
+    role: "Marketing Director",
+    company: "InnovateCo",
+    initials: "CM",
+    quote:
+      "The new website gave us a more professional presence and improved conversion from day one. The quality of the execution stood out.",
+    rating: 5,
+  },
+  {
+    name: "Ana Silva",
+    role: "Founder",
+    company: "StartupHub",
+    initials: "AS",
+    quote:
+      "Their team understood our goals quickly and delivered a solution that felt tailored to our business, not just another template.",
+    rating: 5,
+  },
+  {
+    name: "João Costa",
+    role: "CTO",
+    company: "DigitalSolutions",
+    initials: "JC",
+    quote:
+      "The automation work reduced repetitive tasks and gave our team better visibility into key operations. Strong technical execution.",
+    rating: 5,
+  },
+];
 
 export default function Testimonials() {
   return (
-    <section className="py-8 md:py-16" id="testimonials">
-      <div className="mx-auto max-w-6xl space-y-8 px-6 md:space-y-16">
-        <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12">
-          <ScrollView>
-            <h2 className="text-4xl font-medium lg:text-5xl">
-              Trusted by businesses, loved by clients
-            </h2>
-          </ScrollView>
-          <ScrollView delay={0.2}>
-            <p>
-              Our clients trust us to deliver exceptional digital experiences that drive results. 
-              Here&apos;s what they have to say about working with Deluve.
-            </p>
-          </ScrollView>
+    <section id="testimonials" className="relative overflow-hidden bg-background py-10 md:py-24">
+      <div className="pointer-events-none absolute inset-0">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="absolute -left-20 top-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl"
+        />
+        <motion.div
+          initial={{ opacity: 0, scale: 1.05 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay: 0.1 }}
+          className="absolute -bottom-24 right-0 h-80 w-80 rounded-full bg-primary/5 blur-3xl"
+        />
+      </div>
+
+      <div className="container mx-auto relative px-6">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-4">
+            <ScrollView>
+              <span className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
+                Testimonials
+              </span>
+              <h2 className="mt-4 text-3xl font-semibold leading-[1.1] text-balance text-foreground md:text-5xl lg:text-6xl">
+                Trusted by teams that need <span className="text-blue-700">results</span>
+              </h2>
+              <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground md:mt-6">
+                Deluve works with growing companies and established organizations that need dependable execution, clean communication, and measurable outcomes.
+              </p>
+            </ScrollView>
+
+            <ScrollView delay={0.15}>
+              <div className="mt-6 rounded-2xl border border-blue-500/15 bg-blue-500/5 p-5 shadow-sm md:mt-8 md:p-6">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 md:h-12 md:w-12">
+                    <Quote className="h-5 w-5 text-blue-700 md:h-6 md:w-6" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">Average client rating</p>
+                    <div className="mt-1 flex items-center gap-1 text-blue-700">
+                      <Star className="h-4 w-4 fill-current" />
+                      <Star className="h-4 w-4 fill-current" />
+                      <Star className="h-4 w-4 fill-current" />
+                      <Star className="h-4 w-4 fill-current" />
+                      <Star className="h-4 w-4 fill-current" />
+                    </div>
+                  </div>
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  Consistent delivery, responsive communication, and solutions built around business goals.
+                </p>
+              </div>
+            </ScrollView>
+          </div>
+
+          <div className="lg:col-span-8">
+            <div className="md:hidden">
+              <div className="flex gap-4 overflow-x-auto pb-2 pr-6 snap-x snap-mandatory scrollbar-hide">
+                {testimonials.map((testimonial, index) => (
+                  <ScrollView key={testimonial.name} delay={index * 0.05}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      whileHover={{ y: -2 }}
+                      className="w-[82vw] max-w-sm snap-start"
+                    >
+                      <Card
+                        className={`group relative overflow-hidden border border-slate-200 bg-card shadow-sm transition-all duration-300 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10 ${
+                          testimonial.featured ? "bg-blue-50/40" : ""
+                        }`}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/8 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                        <CardContent className={testimonial.featured ? "p-6" : "p-5"}>
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="flex items-center gap-3">
+                              <Avatar className="h-11 w-11 border border-blue-500/15">
+                                <AvatarFallback className="bg-blue-500/10 text-xs font-semibold text-blue-700">
+                                  {testimonial.initials}
+                                </AvatarFallback>
+                              </Avatar>
+                              <div>
+                                <p className="text-sm font-semibold text-foreground">{testimonial.name}</p>
+                                <p className="text-xs text-muted-foreground">
+                                  {testimonial.role} · {testimonial.company}
+                                </p>
+                              </div>
+                            </div>
+                            <Quote className="h-5 w-5 text-blue-700/40" />
+                          </div>
+
+                          <div className="mt-4 flex items-center gap-1 text-blue-700">
+                            {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
+                              <Star key={starIndex} className="h-4 w-4 fill-current" />
+                            ))}
+                          </div>
+
+                          <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                            {testimonial.quote}
+                          </blockquote>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
+                  </ScrollView>
+                ))}
+              </div>
+            </div>
+
+            <div className="hidden md:grid gap-6 md:grid-cols-2">
+              {testimonials.map((testimonial, index) => (
+                <ScrollView key={testimonial.name} delay={index * 0.08}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -4 }}
+                    className={testimonial.featured ? "md:col-span-2" : ""}
+                  >
+                    <Card
+                      className={`group relative overflow-hidden border border-slate-200 bg-card shadow-sm transition-all duration-300 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10 ${
+                        testimonial.featured ? "bg-blue-50/40" : ""
+                      }`}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/8 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                      <CardContent className={testimonial.featured ? "p-8 md:p-10" : "p-6"}>
+                        <div className="flex items-start justify-between gap-4">
+                          <div className="flex items-center gap-4">
+                            <Avatar className="h-12 w-12 border border-blue-500/15">
+                              <AvatarFallback className="bg-blue-500/10 text-sm font-semibold text-blue-700">
+                                {testimonial.initials}
+                              </AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <p className="text-sm font-semibold text-foreground">{testimonial.name}</p>
+                              <p className="text-xs text-muted-foreground">
+                                {testimonial.role} · {testimonial.company}
+                              </p>
+                            </div>
+                          </div>
+                          <Quote className="h-6 w-6 text-blue-700/40" />
+                        </div>
+
+                        <div className="mt-5 flex items-center gap-1 text-blue-700">
+                          {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
+                            <Star key={starIndex} className="h-4 w-4 fill-current" />
+                          ))}
+                        </div>
+
+                        <blockquote
+                          className={`mt-5 leading-relaxed text-muted-foreground ${
+                            testimonial.featured ? "text-lg md:text-xl" : "text-sm"
+                          }`}
+                        >
+                          {testimonial.quote}
+                        </blockquote>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </ScrollView>
+              ))}
+            </div>
+          </div>
         </div>
-
-        <ScrollView delay={0.3}>
-          {/* Mobile Carousel */}
-          <div className="block md:hidden">
-            <InfiniteSlider speed={30} gap={16} className="py-4">
-              <Card className="w-80 flex-shrink-0">
-                <CardHeader>
-                  <Image
-                    className="h-6 w-fit dark:invert"
-                    src="https://html.tailus.io/blocks/customers/nike.svg"
-                    alt="Nike Logo"
-                    height={24}
-                    width={100}
-                  />
-                </CardHeader>
-                <CardContent>
-                  <blockquote className="grid grid-rows-[1fr_auto] gap-6">
-                                      <p className="text-lg font-medium">
-                    Deluve transformed our business with their automation solutions. 
-                    The 60% efficiency gain they delivered exceeded our expectations 
-                    and their 24/7 support is unmatched.
-                  </p>
-
-                    <div className="grid grid-cols-[auto_1fr] items-center gap-3">
-                      <Avatar className="size-12">
-                        <AvatarImage
-                          src="https://tailus.io/images/reviews/shekinah.webp"
-                          alt="Shekinah Tshiokufila"
-                          height="400"
-                          width="400"
-                          loading="lazy"
-                        />
-                        <AvatarFallback>ST</AvatarFallback>
-                      </Avatar>
-
-                      <div>
-                        <cite className="text-sm font-medium">
-                          Shekinah Tshiokufila
-                        </cite>
-                        <span className="text-muted-foreground block text-sm">
-                          Software Ingineer
-                        </span>
-                      </div>
-                    </div>
-                  </blockquote>
-                </CardContent>
-              </Card>
-
-              <Card className="w-80 flex-shrink-0">
-                <CardContent className="pt-6">
-                  <blockquote className="grid grid-rows-[1fr_auto] gap-6">
-                                      <p className="text-lg font-medium">
-                    The website Deluve designed for us increased our online conversions by 40%. 
-                    Their attention to detail and modern design approach is exceptional.
-                  </p>
-
-                    <div className="grid grid-cols-[auto_1fr] items-center gap-3">
-                      <Avatar className="size-12">
-                        <AvatarImage
-                          src="https://tailus.io/images/reviews/jonathan.webp"
-                          alt="Jonathan Yombo"
-                          height="400"
-                          width="400"
-                          loading="lazy"
-                        />
-                        <AvatarFallback>JY</AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <cite className="text-sm font-medium">
-                          Jonathan Yombo
-                        </cite>
-                        <span className="text-muted-foreground block text-sm">
-                          Software Ingineer
-                        </span>
-                      </div>
-                    </div>
-                  </blockquote>
-                </CardContent>
-              </Card>
-
-              <Card className="w-80 flex-shrink-0">
-                <CardContent className="pt-6">
-                  <blockquote className="grid grid-rows-[1fr_auto] gap-6">
-                    <p>
-                      Great work on tailfolio template. This is one of the best
-                      personal website that I have seen so far!
-                    </p>
-
-                    <div className="grid items-center gap-3 [grid-template-columns:auto_1fr]">
-                      <Avatar className="size-12">
-                        <AvatarImage
-                          src="https://tailus.io/images/reviews/yucel.webp"
-                          alt="Yucel Faruksahan"
-                          height="400"
-                          width="400"
-                          loading="lazy"
-                        />
-                        <AvatarFallback>YF</AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <cite className="text-sm font-medium">
-                          Yucel Faruksahan
-                        </cite>
-                        <span className="text-muted-foreground block text-sm">
-                          Creator, Tailkits
-                        </span>
-                      </div>
-                    </div>
-                  </blockquote>
-                </CardContent>
-              </Card>
-
-              <Card className="w-80 flex-shrink-0">
-                <CardContent className="pt-6">
-                  <blockquote className="grid grid-rows-[1fr_auto] gap-6">
-                    <p>
-                      Great work on tailfolio template. This is one of the best
-                      personal website that I have seen so far!
-                    </p>
-
-                    <div className="grid grid-cols-[auto_1fr] gap-3">
-                      <Avatar className="size-12">
-                        <AvatarImage
-                          src="https://tailus.io/images/reviews/rodrigo.webp"
-                          alt="Rodrigo Aguilar"
-                          height="400"
-                          width="400"
-                          loading="lazy"
-                        />
-                        <AvatarFallback>RA</AvatarFallback>
-                      </Avatar>
-                      <div>
-                        <p className="text-sm font-medium">Rodrigo Aguilar</p>
-                        <span className="text-muted-foreground block text-sm">
-                          Creator, TailwindAwesome
-                        </span>
-                      </div>
-                    </div>
-                  </blockquote>
-                </CardContent>
-              </Card>
-            </InfiniteSlider>
-          </div>
-
-          {/* Desktop Grid Layout */}
-          <div className="hidden md:grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-rows-2">
-            <Card className="grid grid-rows-[auto_1fr] gap-8 sm:col-span-2 sm:p-6 lg:row-span-2">
-              <CardHeader>
-                <Image
-                  className="h-6 w-fit dark:invert"
-                  src="https://html.tailus.io/blocks/customers/nike.svg"
-                  alt="Nike Logo"
-                  height={24}
-                  width={100}
-                />
-              </CardHeader>
-              <CardContent>
-                <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                  <p className="text-xl font-medium">
-                    Tailus has transformed the way I develop web applications.
-                    Their extensive collection of UI components, blocks, and
-                    templates has significantly accelerated my workflow. The
-                    flexibility to customize every aspect allows me to create
-                    unique user experiences. Tailus is a game-changer for modern
-                    web development
-                  </p>
-
-                  <div className="grid grid-cols-[auto_1fr] items-center gap-3">
-                    <Avatar className="size-12">
-                      <AvatarImage
-                        src="https://tailus.io/images/reviews/shekinah.webp"
-                        alt="Shekinah Tshiokufila"
-                        height="400"
-                        width="400"
-                        loading="lazy"
-                      />
-                      <AvatarFallback>ST</AvatarFallback>
-                    </Avatar>
-
-                    <div>
-                      <cite className="text-sm font-medium">
-                        Maria Santos
-                      </cite>
-                      <span className="text-muted-foreground block text-sm">
-                        Operations Manager, TechFlow
-                      </span>
-                    </div>
-                  </div>
-                </blockquote>
-              </CardContent>
-            </Card>
-            <Card className="md:col-span-2">
-              <CardContent className="h-full pt-6">
-                <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                  <p className="text-xl font-medium">
-                    The website Deluve designed for us increased our online conversions by 40%. 
-                    Their attention to detail and modern design approach is exceptional.
-                  </p>
-
-                  <div className="grid grid-cols-[auto_1fr] items-center gap-3">
-                    <Avatar className="size-12">
-                      <AvatarImage
-                        src="https://tailus.io/images/reviews/jonathan.webp"
-                        alt="Jonathan Yombo"
-                        height="400"
-                        width="400"
-                        loading="lazy"
-                      />
-                      <AvatarFallback>JY</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <cite className="text-sm font-medium">
-                        Carlos Mendes
-                      </cite>
-                      <span className="text-muted-foreground block text-sm">
-                        Marketing Director, InnovateCo
-                      </span>
-                    </div>
-                  </div>
-                </blockquote>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="h-full pt-6">
-                <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                  <p>
-                    Working with Deluve was a game-changer for our startup. Their custom software 
-                    development helped us launch 3 weeks ahead of schedule.
-                  </p>
-
-                  <div className="grid items-center gap-3 [grid-template-columns:auto_1fr]">
-                    <Avatar className="size-12">
-                      <AvatarImage
-                        src="https://tailus.io/images/reviews/yucel.webp"
-                        alt="Yucel Faruksahan"
-                        height="400"
-                        width="400"
-                        loading="lazy"
-                      />
-                      <AvatarFallback>YF</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <cite className="text-sm font-medium">
-                        Ana Silva
-                      </cite>
-                      <span className="text-muted-foreground block text-sm">
-                        CEO, StartupHub
-                      </span>
-                    </div>
-                  </div>
-                </blockquote>
-              </CardContent>
-            </Card>
-            <Card className="card variant-mixed">
-              <CardContent className="h-full pt-6">
-                <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
-                  <p>
-                    Deluve&apos;s AI chatbot solution reduced our customer service costs by 50%. 
-                    Their innovative approach to automation is truly impressive.
-                  </p>
-
-                  <div className="grid grid-cols-[auto_1fr] gap-3">
-                    <Avatar className="size-12">
-                      <AvatarImage
-                        src="https://tailus.io/images/reviews/rodrigo.webp"
-                        alt="Rodrigo Aguilar"
-                        height="400"
-                        width="400"
-                        loading="lazy"
-                      />
-                      <AvatarFallback>RA</AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="text-sm font-medium">João Costa</p>
-                      <span className="text-muted-foreground block text-sm">
-                        CTO, DigitalSolutions
-                      </span>
-                    </div>
-                  </div>
-                </blockquote>
-              </CardContent>
-            </Card>
-          </div>
-        </ScrollView>
       </div>
     </section>
   );

@@ -63,7 +63,7 @@ export default function SitemapPage() {
               Complete overview of all pages and sections on our website
             </p>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Navigate through our website structure to find exactly what you're looking for. This sitemap provides a comprehensive view of all available pages and content.
+              Navigate through our website structure to find exactly what you&apos;re looking for. This sitemap provides a comprehensive view of all available pages and content.
             </p>
           </motion.div>
 
@@ -184,10 +184,10 @@ export default function SitemapPage() {
           <ScrollView delay={0.7}>
             <div className="mt-16 bg-gradient-to-b from-blue-500/[0.02] to-background p-8 rounded-lg border border-blue-500/20">
               <h2 className="text-2xl font-semibold text-foreground mb-6 text-center">
-                Can't Find What You're Looking For?
+                Can&apos;t Find What You&apos;re Looking For?
               </h2>
               <p className="text-muted-foreground text-center mb-8 max-w-2xl mx-auto">
-                If you can't find the information you need in our sitemap, feel free to contact us directly. We're here to help you navigate our services and find the perfect solution for your needs.
+                If you can&apos;t find the information you need in our sitemap, feel free to contact us directly. We&apos;re here to help you navigate our services and find the perfect solution for your needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
