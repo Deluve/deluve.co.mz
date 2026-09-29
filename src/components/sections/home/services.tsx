@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import { Code, Cloud, Cog, BarChart3, Database, ArrowUpRight } from "lucide-react";
 
 const services = [
@@ -81,6 +82,38 @@ export default function ServicesSection2() {
             <p className="text-sm leading-relaxed text-muted-foreground">
               End-to-end solutions for every stage of your technology journey.
             </p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="mb-10 overflow-hidden rounded-[2rem] border border-blue-500/15 bg-card shadow-sm"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-5">
+            <div className="relative min-h-[280px] lg:col-span-3">
+              <Image
+                src="/images/team_collab.png"
+                alt="Creative work and product delivery"
+                fill
+                className="object-cover"
+                priority={false}
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/40 to-transparent" />
+            </div>
+            <div className="flex flex-col justify-center gap-4 p-6 md:p-8 lg:col-span-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
+                Visual narrative
+              </p>
+              <h3 className="text-2xl font-semibold leading-tight text-foreground md:text-3xl">
+                We pair service clarity with real product imagery.
+              </h3>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                The result feels closer to a premium startup studio than a standard agency brochure, while keeping the layout fast and focused.
+              </p>
+            </div>
           </div>
         </motion.div>
 

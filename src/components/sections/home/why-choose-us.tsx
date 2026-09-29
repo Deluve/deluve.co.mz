@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { CheckCircle, Users, TrendingUp, Award, Search, Code, Rocket } from "lucide-react"
 import { ScrollView } from "@/components/scroll-view"
 import { Badge } from "@/components/ui/badge"
@@ -6,24 +7,19 @@ import { Button } from "@/components/ui/button"
 export default function WhyChooseUsAndProcess() {
   const reasons = [
     {
-      icon: <Award className="h-8 w-8 text-blue-500" />,
+      icon: <Award className="h-6 w-6 text-blue-500" />,
       title: "Quality Guaranteed",
-      description: "100% client satisfaction with every project delivered",
+      description: "Quality standards that keep every deliverable sharp and consistent.",
     },
     {
-      icon: <Users className="h-8 w-8 text-blue-500" />,
+      icon: <Users className="h-6 w-6 text-blue-500" />,
       title: "Expert Design Team",
-      description: "Skilled designers and developers focused on your success",
+      description: "A compact team that moves quickly and stays close to the work.",
     },
     {
-      icon: <TrendingUp className="h-8 w-8 text-blue-500" />,
+      icon: <TrendingUp className="h-6 w-6 text-blue-500" />,
       title: "Efficient Solutions",
-      description: "60% faster delivery with cutting-edge automation",
-    },
-    {
-      icon: <CheckCircle className="h-8 w-8 text-blue-500" />,
-      title: "24/7 Support",
-      description: "Round-the-clock assistance for all your needs",
+      description: "Lean delivery, fewer handoffs, and a strong bias toward momentum.",
     },
   ]
 
@@ -57,84 +53,98 @@ export default function WhyChooseUsAndProcess() {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background" id="why-choose-us">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Why Choose Us Section */}
-        <div className="text-center mb-16">
-          <ScrollView>
-            <Badge variant="secondary" className="mb-4 text-sm font-medium bg-blue-500/10 text-blue-600 border-blue-500/20">
-              Why Deluve 
-            </Badge> 
-          </ScrollView>
-          <ScrollView delay={0.1}>
-            <h2 className="text-balance text-4xl font-semibold lg:text-5xl mb-6">
-              Transformative
-              <span className="text-blue-400"> Solutions</span>
-            </h2>
-          </ScrollView>
-          <ScrollView delay={0.2}>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              We transform innovative ideas into thriving businesses with proven methodologies and expert execution.
-            </p>
-          </ScrollView>
-        </div>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch mb-14">
+          <div className="order-2 lg:order-1 lg:col-span-5">
+            <ScrollView>
+              <Badge variant="secondary" className="mb-4 text-sm font-medium bg-blue-500/10 text-blue-600 border-blue-500/20">
+                Why Deluve
+              </Badge>
+            </ScrollView>
+            <ScrollView delay={0.1}>
+              <h2 className="text-balance text-4xl font-semibold lg:text-5xl mb-6">
+                Transformative Solutions, delivered with a simple process.
+              </h2>
+            </ScrollView>
+            <ScrollView delay={0.2}>
+              <p className="text-xl text-muted-foreground max-w-3xl text-pretty">
+                We keep the work lean: a focused team, clear communication, and a delivery style that avoids noise.
+              </p>
+            </ScrollView>
 
-        {/* Reasons Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          {reasons.map((reason, index) => (
-            <ScrollView key={index} delay={index * 0.1}>
-              <div className="flex items-start gap-4 p-6 rounded-xl border bg-card hover:bg-muted/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="p-3 rounded-lg bg-blue-500/10 group-hover:bg-blue-500/20 transition-colors">
-                  {reason.icon}
+            <ScrollView delay={0.25}>
+              <div className="mt-8 space-y-4">
+                {reasons.map((reason) => (
+                  <div key={reason.title} className="flex items-start gap-4">
+                    <div className="mt-0.5 rounded-xl bg-blue-500/10 p-2 ring-1 ring-blue-500/10">
+                      {reason.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground">{reason.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{reason.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ScrollView>
+          </div>
+
+          <div className="order-1 lg:order-2 lg:col-span-7">
+            <ScrollView delay={0.15}>
+              <div className="relative min-h-[540px] overflow-hidden rounded-[2.25rem] border border-border bg-card shadow-xl">
+                <div className="absolute inset-0">
+                  <Image
+                    src="/images/get_together.jpg"
+                    alt="Team celebrating a project milestone"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-background/90 via-background/45 to-transparent" />
                 </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-2">{reason.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{reason.description}</p>
+                <div className="absolute left-5 top-5 max-w-xs rounded-2xl border border-white/10 bg-background/85 p-4 backdrop-blur-md md:left-6 md:top-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-600">
+                    Team momentum
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground">
+                    A bigger visual presence helps the section feel closer to a studio story than a list of claims.
+                  </p>
                 </div>
               </div>
             </ScrollView>
-          ))}
+          </div>
         </div>
 
-        {/* Horizontal Divider */}
-        <div className="relative mb-20">
-          <div className="w-full border-t border-muted-foreground/20"></div>
-        </div>
+        <div className="mt-10 border-t border-border pt-10">
+          <div className="mb-10">
+            <ScrollView delay={0.05}>
+              <h3 className="text-3xl font-semibold text-foreground mb-4">
+                How we work
+              </h3>
+            </ScrollView>
+            <ScrollView delay={0.1}>
+              <p className="text-lg text-muted-foreground max-w-2xl">
+                Four steps, but presented as a clean sequence instead of four separate cards.
+              </p>
+            </ScrollView>
+          </div>
 
-        {/* Our Process Section */}
-        <div className="text-center mb-16">
-          <ScrollView delay={0.1}>
-            <h2 className="text-balance text-4xl font-semibold lg:text-5xl mb-6">
-              Streamlined
-              <span className="text-blue-400"> Methodology</span>
-            </h2>
-          </ScrollView>
-          <ScrollView delay={0.2}>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              A proven 4-step methodology that transforms concepts into scalable, successful businesses.
-            </p>
-          </ScrollView>
-        </div>
-
-        {/* Process Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {steps.map((step, index) => (
-            <ScrollView key={index} delay={index * 0.1}>
-              <div className="text-center group">
-                <div className="relative mb-6">
-                  <div className="w-16 h-16 mx-auto rounded-full bg-blue-500/10 border-2 border-blue-500/30 flex items-center justify-center group-hover:border-blue-400 group-hover:bg-blue-500/20 transition-all duration-300">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            {steps.map((step, index) => (
+              <ScrollView key={index} delay={index * 0.08}>
+                <div className="flex items-start gap-4 rounded-2xl border border-border bg-card px-5 py-5 shadow-sm">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-500/10 ring-1 ring-blue-500/10">
                     {step.icon}
                   </div>
-                  <div className="absolute -top-2 -right-2 w-7 h-7 bg-blue-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
-                    {step.number}
+                  <div className="min-w-0 flex-1">
+                    <div className="mb-2 flex items-center gap-3">
+                      <span className="text-sm font-semibold text-blue-500">{step.number}</span>
+                      <h4 className="font-semibold text-foreground">{step.title}</h4>
+                    </div>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
                   </div>
                 </div>
-
-                <div>
-                  <h3 className="font-semibold text-foreground mb-3">{step.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-                </div>
-              </div>
-            </ScrollView>
-          ))}
+              </ScrollView>
+            ))}
+          </div>
         </div>
 
         {/* CTA Section */}
