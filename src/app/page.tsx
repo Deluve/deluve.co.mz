@@ -2,7 +2,6 @@ import AboutUsSection from "@/components/sections/home/about-section";
 import HeroSection from "@/components/sections/home/hero-section";
 import PortfolioSection from "@/components/sections/home/portfolio-section";
 import ServicesSection2 from "@/components/sections/home/services";
-import StatsSection from "@/components/sections/home/stats";
 import WhyChooseUsAndProcess from "@/components/sections/home/why-choose-us";
 import FAQSection from "@/components/sections/home/faq";
 import Testimonials from "../components/testimonials";
@@ -18,8 +17,6 @@ export default function Home() {
       <ServicesSection2 />
       <PortfolioSection />
       <AboutUsSection />
-     
-      <StatsSection />
       <Testimonials />
       <ContactSection />
       <FooterSection />
