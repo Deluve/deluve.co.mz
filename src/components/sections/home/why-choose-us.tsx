@@ -51,7 +51,7 @@ export default function WhyChooseUsAndProcess() {
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background" id="why-choose-us">
+    <section className="py-10 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background" id="why-choose-us">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch mb-14">
           <div className="order-2 lg:order-1 lg:col-span-5">
@@ -98,14 +98,14 @@ export default function WhyChooseUsAndProcess() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-background/90 via-background/45 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#1e293b]/18 via-[#f4f0e7]/6 to-transparent" />
                 </div>
                 <div className="absolute left-5 top-5 max-w-xs rounded-2xl border border-white/10 bg-background/85 p-4 backdrop-blur-md md:left-6 md:top-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-blue-600">
-                    Team momentum
+                    Digital atmosphere
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-foreground">
-                    A bigger visual presence helps the section feel closer to a studio story than a list of claims.
+                    Modern tools, shared knowledge, and a collaborative way of building.
                   </p>
                 </div>
               </div>
@@ -149,7 +149,7 @@ export default function WhyChooseUsAndProcess() {
 
         {/* CTA Section */}
         <ScrollView delay={0.3}>
-          <div className="text-center">
+          <div className="mt-16 text-center">
             <Button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
               Start Your Journey
             </Button>

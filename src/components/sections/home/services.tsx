@@ -90,10 +90,10 @@ export default function ServicesSection2() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.05 }}
-          className="mb-10 overflow-hidden rounded-[2rem] border border-blue-500/15 bg-card shadow-sm"
+          className="mb-16 overflow-hidden rounded-[2rem] border border-blue-500/15 bg-card shadow-sm"
         >
           <div className="grid grid-cols-1 lg:grid-cols-5">
-            <div className="relative min-h-[280px] lg:col-span-3">
+            <div className="relative min-h-[320px] lg:col-span-3">
               <Image
                 src="/images/team_collab.png"
                 alt="Creative work and product delivery"
@@ -101,7 +101,8 @@ export default function ServicesSection2() {
                 className="object-cover"
                 priority={false}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-background/85 via-background/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/10 via-transparent to-transparent" />
+              <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background/80 to-transparent" />
             </div>
             <div className="flex flex-col justify-center gap-4 p-6 md:p-8 lg:col-span-2">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">

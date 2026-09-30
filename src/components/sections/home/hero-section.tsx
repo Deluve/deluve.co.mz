@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
-import LogoCloud from "@/components/sections/home/logo-cloud";
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -108,7 +107,7 @@ export default function HeroSection() {
 
 
   return (
-    <div className="relative min-h-screen w-full flex items-start justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 pt-32">
+    <div className="relative min-h-fit md:min-h-screen w-full flex items-start justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50 pt-24 md:pt-32 pb-8 md:pb-16">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.08] via-transparent to-blue-600/[0.05] blur-3xl" />
 
       <div className="absolute inset-0 overflow-hidden">
@@ -243,25 +242,6 @@ export default function HeroSection() {
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/70 pointer-events-none" />
-
-      <AnimatedGroup
-        variants={{
-          container: {
-            visible: {
-              transition: {
-                staggerChildren: 0.05,
-                delayChildren: 0.85,
-              },
-            },
-          },
-          ...transitionVariants,
-        }}
-                 className="absolute bottom-5 left-1/2 transform -translate-x-1/2 w-full max-w-7xl px-4"
-      >
-        <div className="relative">
-          <LogoCloud />
-        </div>
-      </AnimatedGroup>
     </div>
   );
 }
