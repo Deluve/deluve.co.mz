@@ -107,15 +107,15 @@ export default function Testimonials() {
 
           <div className="lg:col-span-8">
             <div className="md:hidden">
-              <div className="flex gap-4 overflow-x-auto pb-2 pr-6 snap-x snap-mandatory scrollbar-hide">
-                {testimonials.map((testimonial, index) => (
+              <div className="grid gap-3 pb-2">
+                {testimonials.slice(0, 2).map((testimonial, index) => (
                   <ScrollView key={testimonial.name} delay={index * 0.05}>
                     <motion.div
                       initial={{ opacity: 0, y: 16 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       whileHover={{ y: -2 }}
-                      className="w-[82vw] max-w-sm snap-start"
+                      className="w-full"
                     >
                       <Card
                         className={`group relative overflow-hidden border border-slate-200 bg-card shadow-sm transition-all duration-300 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-500/10 ${
@@ -123,31 +123,31 @@ export default function Testimonials() {
                         }`}
                       >
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/8 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                        <CardContent className={testimonial.featured ? "p-6" : "p-5"}>
+                        <CardContent className={testimonial.featured ? "p-5" : "p-4"}>
                           <div className="flex items-start justify-between gap-4">
                             <div className="flex items-center gap-3">
-                              <Avatar className="h-11 w-11 border border-blue-500/15">
+                              <Avatar className="h-10 w-10 shrink-0 border border-blue-500/15">
                                 <AvatarFallback className="bg-blue-500/10 text-xs font-semibold text-blue-700">
                                   {testimonial.initials}
                                 </AvatarFallback>
                               </Avatar>
-                              <div>
+                              <div className="min-w-0">
                                 <p className="text-sm font-semibold text-foreground">{testimonial.name}</p>
                                 <p className="text-xs text-muted-foreground">
                                   {testimonial.role} · {testimonial.company}
                                 </p>
                               </div>
                             </div>
-                            <Quote className="h-5 w-5 text-blue-700/40" />
+                            <Quote className="h-5 w-5 shrink-0 text-blue-700/40" />
                           </div>
 
-                          <div className="mt-4 flex items-center gap-1 text-blue-700">
+                          <div className="mt-3 flex items-center gap-1 text-blue-700">
                             {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
-                              <Star key={starIndex} className="h-4 w-4 fill-current" />
+                              <Star key={starIndex} className="h-3.5 w-3.5 fill-current" />
                             ))}
                           </div>
 
-                          <blockquote className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                          <blockquote className="mt-3 text-sm leading-relaxed text-muted-foreground">
                             {testimonial.quote}
                           </blockquote>
                         </CardContent>
