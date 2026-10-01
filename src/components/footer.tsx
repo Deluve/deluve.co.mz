@@ -28,10 +28,10 @@ export default function FooterSection() {
                </p>
               <div className="flex flex-wrap gap-4">
                                                  <Link
-                  href="mailto:digital@deluve.io"
+                  href="mailto:digital@deluve.co"
                   className="text-muted-foreground hover:text-blue-400 transition-colors text-sm relative group"
                 >
-                  <span>digital@deluve.io</span>
+                  <span>digital@deluve.co</span>
                    <div className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/40 via-blue-300/60 to-blue-400/40 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
                  </Link>
                                  <Link

@@ -144,10 +144,10 @@ export default function SitemapPage() {
                   <p>
                     <strong>Email:</strong>{" "}
                     <a 
-                      href="mailto:digital@deluve.io" 
+                      href="mailto:digital@deluve.co" 
                       className="text-blue-400 hover:text-blue-300 hover:underline transition-colors"
                     >
-                      digital@deluve.io
+                      digital@deluve.co
                     </a>
                   </p>
                   <p>
@@ -197,7 +197,7 @@ export default function SitemapPage() {
                   Get a Quote
                 </Link>
                 <Link
-                  href="mailto:digital@deluve.io"
+                  href="mailto:digital@deluve.co"
                   className="inline-flex items-center justify-center px-6 py-3 border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white rounded-lg transition-colors duration-300"
                 >
                   Contact Us

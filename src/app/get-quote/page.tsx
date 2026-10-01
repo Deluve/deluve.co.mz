@@ -658,8 +658,8 @@ export default function GetQuotePage() {
 
                   <p className="text-center text-sm text-muted-foreground mt-6">
                     Questions? Contact us at{" "}
-                    <a href="mailto:digital@deluve.io" className="text-blue-600 hover:underline">
-                      digital@deluve.io
+                    <a href="mailto:digital@deluve.co" className="text-blue-600 hover:underline">
+                      digital@deluve.co
                     </a>{" "}
                     or call{" "}
                     <a href="tel:+258841234567" className="text-blue-600 hover:underline">

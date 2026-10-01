@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://deluve.co.mz/</loc>
+    <loc>https://deluve.co/</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://deluve.co.mz/about</loc>
+    <loc>https://deluve.co/about</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://deluve.co.mz/portfolio</loc>
+    <loc>https://deluve.co/portfolio</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://deluve.co.mz/get-quote</loc>
+    <loc>https://deluve.co/get-quote</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://deluve.co.mz/full-version</loc>
+    <loc>https://deluve.co/full-version</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://deluve.co.mz/privacy</loc>
+    <loc>https://deluve.co/privacy</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://deluve.co.mz/terms</loc>
+    <loc>https://deluve.co/terms</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://deluve.co.mz/cookies</loc>
+    <loc>https://deluve.co/cookies</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://deluve.co.mz/sitemap</loc>
+    <loc>https://deluve.co/sitemap</loc>
     <lastmod>2024-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>

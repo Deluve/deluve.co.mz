@@ -97,7 +97,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="text-foreground font-semibold mb-1">Email</h4>
-                    <p className="text-muted-foreground">digital@deluve.io</p>
+                    <p className="text-muted-foreground">digital@deluve.co</p>
                   </div>
                 </div>
 

@@ -310,10 +310,10 @@ export default function PrivacyPolicyPage() {
                       <p className="text-muted-foreground">
                         <strong>Email:</strong>{" "}
                         <a 
-                          href="mailto:digital@deluve.io" 
+                          href="mailto:digital@deluve.co" 
                           className="text-blue-400 hover:text-blue-300 hover:underline transition-colors"
                         >
-                          digital@deluve.io
+                          digital@deluve.co
                         </a>
                       </p>
                       <p className="text-muted-foreground">

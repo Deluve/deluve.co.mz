@@ -18,8 +18,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://deluve.co"),
   title: "Deluve",
   description: "Deluve is a software development company that provides software development services to businesses and organizations.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    url: "https://deluve.co",
+    title: "Deluve",
+    description:
+      "Deluve is a software development company that provides software development services to businesses and organizations.",
+    siteName: "Deluve",
+  },
 };
 
 export default function RootLayout({
