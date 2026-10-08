@@ -9,6 +9,9 @@ import {
   ShoppingCart,
   BarChart3,
   Database,
+  CalendarCheck,
+  FileText,
+  QrCode,
 } from "lucide-react";
 import { PORTFOLIO_CONTENT } from "@/content/portfolio";
 
@@ -28,45 +31,6 @@ const accentStyles = {
 
 const cases = [
   {
-    tag: "CRM",
-    accent: "blue",
-    title: "Custom CRM Platform",
-    description:
-      "End-to-end customer relationship management with pipeline automation and analytics.",
-    fullDescription:
-      "A fully custom CRM built for a sales-driven organization. Features include automated lead scoring, pipeline management with drag-and-drop stages, 360° customer profiles, and real-time analytics dashboards. The platform integrates with email, calendars, and third-party tools for a seamless workflow.",
-    status: "Live",
-    metrics: ["5x lead conversion", "360° customer view"],
-    icon: Database,
-    image: PORTFOLIO_CONTENT[0].img,
-  },
-  {
-    tag: "POS",
-    accent: "blue",
-    title: "Cloud-Based POS",
-    description:
-      "Modern point-of-sale with real-time inventory sync and multi-location support.",
-    fullDescription:
-      "A cloud-native POS system designed for retail chains operating across 50+ locations. It features real-time inventory synchronization, offline-first architecture for uninterrupted sales, multi-currency support, and advanced reporting. The system handles thousands of transactions daily with 99.9% uptime.",
-    status: "Live",
-    metrics: ["99.9% uptime", "50+ locations"],
-    icon: ShoppingCart,
-    image: PORTFOLIO_CONTENT[3].img,
-  },
-  {
-    tag: "Payments",
-    accent: "blue",
-    title: "Payment Gateway",
-    description:
-      "Unified payment processing with smart routing, fraud detection and reconciliation.",
-    fullDescription:
-      "A PCI-compliant payment gateway that unifies multiple payment methods - cards, mobile money, and bank transfers - into a single API. Features include intelligent transaction routing for optimal success rates, real-time fraud detection with ML models, and automated reconciliation across all channels.",
-    status: "Live",
-    metrics: ["3x transactions", "PCI compliant"],
-    icon: CreditCard,
-    image: PORTFOLIO_CONTENT[1].img,
-  },
-  {
     tag: "ERP",
     accent: "blue",
     title: "Enterprise ERP Suite",
@@ -77,7 +41,46 @@ const cases = [
     status: "Live",
     metrics: ["40% cost reduction", "Real-time reports"],
     icon: BarChart3,
+    image: PORTFOLIO_CONTENT[0].img,
+  },
+  {
+    tag: "Web",
+    accent: "blue",
+    title: "EventSnap",
+    description:
+      "Instant photo-sharing app for events where guests scan a QR Code to upload photos in real time.",
+    fullDescription:
+      "EventSnap is an instant photo-sharing app for events where guests scan a QR Code to upload photos in real time—no app or login needed. Built with a frictionless experience in mind, it lets organizers display a live gallery of guest photos, keeping everyone engaged throughout the event without any onboarding barriers.",
+    status: "Live",
+    metrics: ["Zero-friction uploads", "Real-time gallery"],
+    icon: QrCode,
+    image: PORTFOLIO_CONTENT[1].img,
+  },
+  {
+    tag: "AI",
+    accent: "blue",
+    title: "CVFlow",
+    description:
+      "AI-powered platform that transforms your skills and experience into ATS-friendly, professionally styled resumes.",
+    fullDescription:
+      "An AI-powered smart platform that effortlessly transforms your skills and experience into ATS-friendly, professionally styled resumes in minutes. Users simply input their background and the platform generates polished, recruiter-ready documents optimized to pass applicant tracking systems—no design skills required.",
+    status: "Live",
+    metrics: ["ATS-optimized", "Resumes in minutes"],
+    icon: FileText,
     image: PORTFOLIO_CONTENT[2].img,
+  },
+  {
+    tag: "Booking",
+    accent: "blue",
+    title: "Appointment Booking Platform",
+    description:
+      "Seamless appointment scheduling with real-time booking, rescheduling and calendar sync.",
+    fullDescription:
+      "A seamless appointment scheduling platform that lets clients book, reschedule, and manage appointments in real time, with automated reminders and calendar sync. Businesses get a clean dashboard to manage availability, reduce no-shows with smart notifications, and handle payments directly through integrated Stripe checkout.",
+    status: "Live",
+    metrics: ["Automated reminders", "Calendar sync"],
+    icon: CalendarCheck,
+    image: PORTFOLIO_CONTENT[3].img,
   },
 ];
 

@@ -59,12 +59,12 @@ export default function AboutPage() {
   const { t } = useLanguage()
 
   return (
-    <div className="min-h-screen bg-background pt-20 lg:pt-24">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <section className="relative py-12 md:py-20 bg-gradient-to-b from-blue-500/[0.05] via-background to-background overflow-hidden">
+      <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-gradient-to-b from-blue-500/[0.05] via-background to-background overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.1] via-transparent to-blue-600/[0.05] blur-3xl" />
-        
+
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <ScrollView>
@@ -167,7 +167,7 @@ export default function AboutPage() {
       <section className="relative py-12 md:py-20 bg-gradient-to-b from-blue-500/[0.03] to-background overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-blue-600/[0.03] blur-3xl" />
-        
+
         <div className="relative z-10 mx-auto max-w-7xl px-6">
           <ScrollView>
             <div className="text-center mb-12">
@@ -236,7 +236,7 @@ export default function AboutPage() {
       <section className="relative py-12 md:py-20 bg-gradient-to-b from-blue-500/[0.05] to-background overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.08] via-transparent to-blue-600/[0.05] blur-3xl" />
-        
+
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           <ScrollView>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to transform your idea into reality?</h2>

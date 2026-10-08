@@ -106,14 +106,18 @@ export default function ServicesSection2() {
             </div>
             <div className="flex flex-col justify-center gap-4 p-6 md:p-8 lg:col-span-2">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
-                Visual narrative
+                OUR EXPERTISE
               </p>
+
               <h3 className="text-2xl font-semibold leading-tight text-foreground md:text-3xl">
-                We pair service clarity with real product imagery.
+                From strategy to scale, we build what your business needs.
               </h3>
+
               <p className="text-sm leading-relaxed text-muted-foreground">
-                The result feels closer to a premium startup studio than a standard agency brochure, while keeping the layout fast and focused.
+                We don't just write code or design screens; we build comprehensive digital products. Whether you need a complete overhaul or a new feature, our team integrates seamlessly with yours to deliver high-impact results.
               </p>
+
+
             </div>
           </div>
         </motion.div>

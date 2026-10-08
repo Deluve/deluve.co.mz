@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { CheckCircle, Users, TrendingUp, Award, Search, Code, Rocket } from "lucide-react"
+import { Users, TrendingUp, Award, Search, Code, Rocket } from "lucide-react"
 import { ScrollView } from "@/components/scroll-view"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -8,18 +8,18 @@ export default function WhyChooseUsAndProcess() {
   const reasons = [
     {
       icon: <Award className="h-6 w-6 text-blue-500" />,
-      title: "Quality Guaranteed",
-      description: "Quality standards that keep every deliverable sharp and consistent.",
+      title: "Uncompromising Quality",
+      description: "Rigorous standards ensure every deliverable is sharp, consistent, and ready to perform.",
     },
     {
       icon: <Users className="h-6 w-6 text-blue-500" />,
-      title: "Expert Design Team",
-      description: "A compact team that moves quickly and stays close to the work.",
+      title: "Senior Expert Team",
+      description: "A compact group of specialists who move fast, stay agile, and remain hands-on from start to finish.",
     },
     {
       icon: <TrendingUp className="h-6 w-6 text-blue-500" />,
-      title: "Efficient Solutions",
-      description: "Lean delivery, fewer handoffs, and a strong bias toward momentum.",
+      title: "Efficient Execution",
+      description: "Lean workflows and fewer handoffs mean we focus on progress, not bureaucracy.",
     },
   ]
 
@@ -28,25 +28,25 @@ export default function WhyChooseUsAndProcess() {
       number: "01",
       icon: <Search className="h-6 w-6 text-blue-500" />,
       title: "Discovery & Strategy",
-      description: "Market research, validation and strategic planning for your business",
+      description: "Clear direction before we build. We validate your idea and map out a strategy that aligns perfectly with your business goals. your business",
     },
     {
       number: "02",
       icon: <Code className="h-6 w-6 text-blue-500" />,
       title: "Custom Development",
-      description: "Tailored solutions built to your unique business needs",
+      description: "Built for your exact needs. No bloated features. We engineer scalable solutions tailored specifically to solve your unique challenges.",
     },
     {
       number: "03",
       icon: <Rocket className="h-6 w-6 text-blue-500" />,
       title: "Launch & Testing",
-      description: "Market deployment, user testing and product refinement",
+      description: "Flawless execution. We deploy, test rigorously with real users, and refine every detail to ensure a seamless launch.",
     },
     {
       number: "04",
       icon: <TrendingUp className="h-6 w-6 text-blue-500" />,
       title: "Growth & Scale",
-      description: "Performance optimization, scaling and ongoing evolution",
+      description: "Ready to scale. We optimize performance and continuously evolve your product so it grows as fast as your business does.",
     },
   ]
 
@@ -62,12 +62,14 @@ export default function WhyChooseUsAndProcess() {
             </ScrollView>
             <ScrollView delay={0.1}>
               <h2 className="text-balance text-4xl font-semibold lg:text-5xl mb-6">
-                Transformative Solutions, delivered with a simple process.
+                Big impact. Simple process.
+
               </h2>
             </ScrollView>
             <ScrollView delay={0.2}>
               <p className="text-xl text-muted-foreground max-w-3xl text-pretty">
-                We keep the work lean: a focused team, clear communication, and a delivery style that avoids noise.
+                We believe great work shouldn't be complicated. You get a dedicated team, transparent communication, and a streamlined process designed to keep momentum high and distractions low.
+
               </p>
             </ScrollView>
 
@@ -122,7 +124,8 @@ export default function WhyChooseUsAndProcess() {
             </ScrollView>
             <ScrollView delay={0.1}>
               <p className="text-lg text-muted-foreground max-w-2xl">
-                Four steps, but presented as a clean sequence instead of four separate cards.
+                A clear, four-step framework designed to take you from idea to impact without the guesswork.
+
               </p>
             </ScrollView>
           </div>
@@ -151,7 +154,7 @@ export default function WhyChooseUsAndProcess() {
         <ScrollView delay={0.3}>
           <div className="mt-16 text-center">
             <Button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
-              Start Your Journey
+              Book a Discovery Call
             </Button>
           </div>
         </ScrollView>
