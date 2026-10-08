@@ -22,7 +22,7 @@ export default function AboutSection() {
           </ScrollView>
           <ScrollView delay={0.2}>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
-              We transform ideas into successful companies through strategic expertise and technology.
+              We transform visions into scalable realities through strategic expertise and technology.
             </p>
           </ScrollView>
         </div>
@@ -39,8 +39,7 @@ export default function AboutSection() {
                   <div>
                     <h3 className="text-foreground font-semibold text-xl mb-2">Strategic Vision</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      We don&apos;t just build products—we architect sustainable business models that scale and dominate
-                      markets.
+                      We don&apos;t just build products—we architect sustainable business models designed to scale efficiently and lead the market.
                     </p>
                   </div>
                 </div>
@@ -56,8 +55,7 @@ export default function AboutSection() {
                   <div>
                     <h3 className="text-foreground font-semibold text-xl mb-2">Execution Excellence</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      From concept to market leadership, we deliver with precision, speed, and unwavering quality
-                      standards.
+                      From concept to launch, we deliver with precision, speed, and uncompromising quality standards.
                     </p>
                   </div>
                 </div>
