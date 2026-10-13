@@ -202,6 +202,7 @@ export default function PortfolioSection() {
                       src={active.image}
                       alt={active.title}
                       fill
+                      sizes="(min-width: 1280px) 800px, (min-width: 1024px) 62vw, calc(100vw - 3rem)"
                       className="object-cover"
                       priority={selected === 0}
                     />

@@ -98,6 +98,7 @@ export default function ServicesSection2() {
                 src="/images/team_collab.png"
                 alt="Creative work and product delivery"
                 fill
+                sizes="(min-width: 1280px) 739px, (min-width: 1024px) 60vw, calc(100vw - 3rem)"
                 className="object-cover"
                 priority={false}
               />

@@ -98,6 +98,7 @@ export default function WhyChooseUsAndProcess() {
                     src="/images/get_together.jpg"
                     alt="Team celebrating a project milestone"
                     fill
+                    sizes="(min-width: 1280px) 720px, (min-width: 1024px) 58vw, calc(100vw - 3rem)"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-tr from-[#1e293b]/18 via-[#f4f0e7]/6 to-transparent" />

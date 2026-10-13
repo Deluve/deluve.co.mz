@@ -110,6 +110,7 @@ export default function PortfolioPage() {
                         src={project.image}
                         alt={project.title}
                         fill
+                        sizes="(min-width: 1280px) 384px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 3rem)"
                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
