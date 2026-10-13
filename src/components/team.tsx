@@ -2,43 +2,36 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ScrollView } from "@/components/scroll-view";
-import Image from "next/image";
 
 const members = [
   {
     name: "Liam Brown",
     role: "Founder - CEO",
-    avatar: "https://alt.tailus.io/images/team/member-one.webp",
     link: "#",
   },
   {
     name: "Elijah Jones",
     role: "Co-Founder - CTO",
-    avatar: "https://alt.tailus.io/images/team/member-two.webp",
     link: "#",
   },
   {
     name: "Isabella Garcia",
     role: "Sales Manager",
-    avatar: "https://alt.tailus.io/images/team/member-three.webp",
     link: "#",
   },
   {
     name: "Henry Lee",
     role: "UX Engeneer",
-    avatar: "https://alt.tailus.io/images/team/member-four.webp",
     link: "#",
   },
   {
     name: "Ava Williams",
     role: "Interaction Designer",
-    avatar: "https://alt.tailus.io/images/team/member-five.webp",
     link: "#",
   },
   {
     name: "Olivia Miller",
     role: "Visual Designer",
-    avatar: "https://alt.tailus.io/images/team/member-six.webp",
     link: "#",
   },
 ];
@@ -86,15 +79,19 @@ export default function TeamSection() {
                       },
                     }}
                   >
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-blue-600/10 rounded-md blur-sm group-hover:blur-md transition-all duration-500"></div>
-                      <Image
-                        className="relative h-96 w-full rounded-md object-cover object-top grayscale transition-all duration-500 hover:grayscale-0 group-hover:h-[22.5rem] group-hover:rounded-xl border border-blue-500/20 group-hover:border-blue-400/30"
-                        src={member.avatar}
-                        alt="team member"
-                        width={826}
-                        height={1239}
-                      />
+                    <div
+                      role="img"
+                      aria-label={`Profile placeholder for ${member.name}`}
+                      className="relative flex h-96 w-full items-center justify-center overflow-hidden rounded-md border border-blue-500/20 bg-gradient-to-br from-blue-500/10 via-background to-blue-700/15 transition-all duration-500 group-hover:h-[22.5rem] group-hover:rounded-xl group-hover:border-blue-400/30"
+                    >
+                      <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full border border-blue-500/15 transition-transform duration-700 group-hover:scale-110" />
+                      <div className="absolute -bottom-20 -left-12 h-64 w-64 rounded-full border border-blue-500/10" />
+                      <span className="relative text-7xl font-semibold tracking-tight text-blue-700/70 transition-transform duration-500 group-hover:scale-105">
+                        {member.name
+                          .split(" ")
+                          .map((part) => part[0])
+                          .join("")}
+                      </span>
                     </div>
                     <div className="px-2 pt-2 sm:pb-0 sm:pt-4">
                       <div className="flex justify-between">

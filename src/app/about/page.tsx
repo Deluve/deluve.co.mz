@@ -1,11 +1,10 @@
 "use client"
-import { Users, Target, Award, Globe, Heart, Lightbulb, Handshake, TrendingUp } from "lucide-react"
+import { Target, Heart, Lightbulb, Handshake, TrendingUp, Sparkles, Code2, Layers3, Bolt } from "lucide-react"
 import { ScrollView } from "@/components/scroll-view"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { useLanguage } from "@/contexts/language-context"
 import TeamSection from "@/components/team"
 import { motion } from "motion/react"
 
@@ -13,22 +12,22 @@ const companyValues = [
   {
     icon: Heart,
     title: "Passion for Excellence",
-    description: "Every project is developed with dedication and love for technology and innovation.",
+    description: "We sweat the details, test our decisions, and take responsibility for the quality of what we deliver.",
   },
   {
     icon: Target,
     title: "Results-Driven",
-    description: "Our goal is always to deliver solutions that exceed our clients' expectations.",
+    description: "We define success around the problem to solve and the difference the solution should make.",
   },
   {
     icon: Lightbulb,
     title: "Constant Innovation",
-    description: "We are always seeking the latest technologies and methodologies in the market.",
+    description: "We choose technology with purpose, using the right tools to make products more useful and effective.",
   },
   {
     icon: Handshake,
     title: "True Partnership",
-    description: "We build lasting relationships based on trust and transparency.",
+    description: "We work transparently, share progress early, and treat client goals as part of the same team effort.",
   },
 ]
 
@@ -36,65 +35,74 @@ const timeline = [
   {
     year: "2021",
     title: "Deluve Foundation",
-    description: "We started our journey with the goal of transforming ideas into innovative digital solutions.",
+    description: "Deluve began with a clear goal: turn promising ideas into useful digital solutions.",
   },
   {
     year: "2022",
     title: "First Major Projects",
-    description: "We developed our first large-scale projects, establishing our reputation in the market.",
+    description: "We took on larger projects and grew our experience delivering digital products.",
   },
   {
     year: "2023",
     title: "Team Expansion",
-    description: "We grew our team with professionals specialized in different areas of technology.",
+    description: "We broadened our capabilities with people focused on different areas of technology.",
   },
   {
     year: "2024",
-    title: "Market Recognition",
-    description: "We achieved over 50 delivered projects and recognition as a reference in digital development.",
+    title: "Deepening Our Focus",
+    description: "We continued building digital solutions and strengthening our focus on business needs.",
   },
 ]
 
 export default function AboutPage() {
-  const { t } = useLanguage()
-
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 bg-gradient-to-b from-blue-500/[0.05] via-background to-background overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.1] via-transparent to-blue-600/[0.05] blur-3xl" />
+      <section className="relative overflow-hidden border-b border-border/80 bg-gradient-to-b from-background via-background to-slate-950/5 py-20 md:py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.16),transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(96,165,250,0.08),transparent_35%)]" />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="container relative z-10 mx-auto px-6">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <ScrollView>
               <div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                  About <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500">Deluve</span>
+                <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+                  <Sparkles className="h-3.5 w-3.5" />
+                  About Deluve
+                </span>
+                <h1 className="mt-6 text-4xl font-semibold tracking-tight text-balance md:text-6xl">
+                  We turn business challenges into digital products built to last.
                 </h1>
-                <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                  We are a company passionate about technology and innovation, dedicated to transforming ideas into
-                  digital solutions that make a difference in the business world.
+                <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+                  Deluve brings strategy, design, and engineering together to
+                  build useful digital products, improve everyday operations,
+                  and help organizations move forward.
                 </p>
-                <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center gap-2 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
-                    <Users className="h-4 w-4 text-blue-400" />
-                    <span className="text-sm font-medium text-blue-300">Specialized Team</span>
+                <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                  <div className="flex items-center gap-3 rounded-2xl border border-border/80 bg-card/80 p-3">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-500/10 text-blue-700">
+                      <Code2 className="h-4 w-4" />
+                    </span>
+                    <span className="text-xs font-medium text-foreground">Product engineering</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
-                    <Globe className="h-4 w-4 text-blue-400" />
-                    <span className="text-sm font-medium text-blue-300">Global Reach</span>
+                  <div className="flex items-center gap-3 rounded-2xl border border-border/80 bg-card/80 p-3">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-500/10 text-blue-700">
+                      <Layers3 className="h-4 w-4" />
+                    </span>
+                    <span className="text-xs font-medium text-foreground">Experience design</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
-                    <Award className="h-4 w-4 text-blue-400" />
-                    <span className="text-sm font-medium text-blue-300">Premium Quality</span>
+                  <div className="flex items-center gap-3 rounded-2xl border border-border/80 bg-card/80 p-3">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-500/10 text-blue-700">
+                      <Bolt className="h-4 w-4" />
+                    </span>
+                    <span className="text-xs font-medium text-foreground">Operational systems</span>
                   </div>
                 </div>
               </div>
             </ScrollView>
             <ScrollView delay={0.1}>
-              <div className="group overflow-hidden">
+              <div className="group relative aspect-[4/3] overflow-hidden rounded-[2rem] border border-blue-500/20 bg-transparent shadow-2xl">
                 <motion.div
+                  className="absolute inset-0"
                   variants={{
                     hidden: { opacity: 0, scale: 0.8, filter: "blur(10px)" },
                     visible: {
@@ -104,17 +112,16 @@ export default function AboutPage() {
                     },
                   }}
                 >
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-600/20 rounded-2xl blur-3xl"></div>
-                    <Image
-                      className="relative rounded-2xl object-cover aspect-[4/3] w-full shadow-2xl grayscale transition-all duration-500 hover:grayscale-0 group-hover:rounded-xl border border-blue-500/20"
-                      src="/images/team-work.jpg"
-                      alt="Deluve team working together"
-                      height="600"
-                      width="800"
-                    />
-                  </div>
+                  <Image
+                    className="object-cover"
+                    src="/images/team-work.jpg"
+                    alt="Deluve team working together"
+                    fill
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                    loading="eager"
+                  />
                 </motion.div>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-blue-950/10" />
               </div>
             </ScrollView>
           </div>
@@ -130,14 +137,15 @@ export default function AboutPage() {
                 <CardContent className="p-8">
                   <div className="mb-6">
                     <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 border border-blue-500/20">
-                      <Target className="h-6 w-6 text-blue-400" />
+                      <Target className="h-6 w-6 text-blue-700" />
                     </div>
                     <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
-                    To transform ideas into innovative digital solutions, helping companies of all sizes achieve their
-                    goals through technology. Our commitment is to deliver excellence in every project, exceeding
-                    expectations and creating real value for our clients.
+                    We partner with organizations to understand where work is
+                    getting stuck, then design and build digital products that
+                    make it easier to serve customers, run operations, and
+                    reach business goals.
                   </p>
                 </CardContent>
               </Card>
@@ -147,14 +155,14 @@ export default function AboutPage() {
                 <CardContent className="p-8">
                   <div className="mb-6">
                     <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 border border-blue-500/20">
-                      <TrendingUp className="h-6 w-6 text-blue-400" />
+                      <TrendingUp className="h-6 w-6 text-blue-700" />
                     </div>
                     <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
                   </div>
                   <p className="text-muted-foreground leading-relaxed">
-                    To be recognized as the leading reference in developing innovative digital solutions, contributing
-                    to the digital transformation of companies and sustainable business growth through cutting-edge
-                    technology.
+                    A future where organizations of every size can use
+                    thoughtful technology to work smarter, create better
+                    experiences, and adapt with confidence.
                   </p>
                 </CardContent>
               </Card>
@@ -173,7 +181,7 @@ export default function AboutPage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                The principles that guide our company and define our organizational culture.
+                The principles behind how we make decisions, build products, and work with our clients.
               </p>
             </div>
           </ScrollView>
@@ -183,7 +191,7 @@ export default function AboutPage() {
                 <Card className="h-full hover:shadow-lg transition-all duration-300 border-blue-500/20 hover:border-blue-400/30 hover:bg-blue-500/[0.02]">
                   <CardContent className="p-6">
                     <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 border border-blue-500/20">
-                      <value.icon className="h-6 w-6 text-blue-400" />
+                      <value.icon className="h-6 w-6 text-blue-700" />
                     </div>
                     <h3 className="font-semibold mb-3">{value.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
@@ -201,7 +209,7 @@ export default function AboutPage() {
           <ScrollView>
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Journey</h2>
-              <p className="text-muted-foreground">Discover the key milestones of our history and evolution.</p>
+              <p className="text-muted-foreground">A few chapters in the growth of our work and capabilities.</p>
             </div>
           </ScrollView>
           <div className="space-y-8">
@@ -239,16 +247,16 @@ export default function AboutPage() {
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           <ScrollView>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to transform your idea into reality?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Have a challenge worth solving?</h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Contact us and discover how we can help your company reach new heights through technology.
+              Tell us what you&apos;re working toward. We&apos;ll explore the right next step for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="bg-blue-500 hover:bg-blue-600 text-white border-blue-500/20 hover:border-blue-400/30">
-                <Link href="/#contact">Contact Us</Link>
+              <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-500 text-white">
+                <Link href="/get-quote">Start a conversation</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="border-blue-500/20 hover:border-blue-400/30 hover:bg-blue-500/10 text-blue-400 hover:text-blue-300">
-                <Link href="/#services">Our Services</Link>
+              <Button size="lg" variant="outline" asChild className="border-blue-500/20 hover:border-blue-400/30 hover:bg-blue-500/10 text-blue-700 hover:text-blue-800">
+                <Link href="/portfolio">Explore our work</Link>
               </Button>
             </div>
           </ScrollView>
