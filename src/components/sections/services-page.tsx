@@ -182,7 +182,7 @@ export default function ServicesPageContent() {
         </div>
       </section>
 
-      <section className="border-y border-border/80 bg-slate-950 py-20 text-white md:py-24">
+      <section id="process" className="border-y border-border/80 bg-slate-950 py-20 text-white md:py-24">
         <div className="container mx-auto px-6">
           <div className="mb-12 max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-300">
