@@ -103,6 +103,8 @@ export function AccordionContent({
 }: React.PropsWithChildren<{ open?: boolean; className?: string }>) {
   return (
     <div
+      hidden={!open}
+      aria-hidden={!open}
       className={cn(
         "grid overflow-hidden px-5 transition-all duration-300",
         open ? "grid-rows-[1fr] pb-5" : "grid-rows-[0fr]"

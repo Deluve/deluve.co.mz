@@ -18,8 +18,10 @@ export default function Home() {
       <PortfolioSection />
       <AboutUsSection />
       <Testimonials />
+      <FAQSection />
       <ContactSection />
       <FooterSection />
+      
     </main>
   );
 }

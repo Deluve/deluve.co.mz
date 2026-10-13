@@ -74,7 +74,7 @@ export default function Testimonials() {
                 Testimonials
               </span>
               <h2 className="mt-4 text-3xl font-semibold leading-[1.1] text-balance text-foreground md:text-5xl lg:text-6xl">
-                Trusted by teams that need <span className="text-blue-700">results</span>
+                Trusted by teams that need <span className="text-blue-700">impact</span>
               </h2>
               <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground md:mt-6">
                 Deluve works with growing companies and established organizations that need dependable execution, clean communication, and measurable outcomes.
@@ -99,7 +99,7 @@ export default function Testimonials() {
                   </div>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  Consistent delivery, responsive communication, and solutions built around business goals.
+                  Consistent delivery, responsive communication, and solutions built for your business goals.
                 </p>
               </div>
             </ScrollView>
