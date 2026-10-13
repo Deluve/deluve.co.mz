@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Pacifico } from "next/font/google";
 import { cn } from "@/lib/utils";
 

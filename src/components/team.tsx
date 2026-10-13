@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ScrollView } from "@/components/scroll-view";
 import Image from "next/image";
 
