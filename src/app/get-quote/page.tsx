@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { Badge } from "@/components/ui/badge"
 import { useLanguage } from "@/contexts/language-context"
-import { CheckCircle, ArrowRight } from "lucide-react"
+import { CheckCircle, ArrowRight, Sparkles } from "lucide-react"
 import Link from "next/link"
 
 export default function GetQuotePage() {
@@ -43,10 +43,19 @@ export default function GetQuotePage() {
   const totalSteps = 4
 
   const steps = [
-    { number: 1, title: "Contact Information" },
-    { number: 2, title: "Project Details" },
-    { number: 3, title: "Additional Information" },
-    { number: 4, title: "Review & Submit" },
+    { number: 1, title: "Contact details" },
+    { number: 2, title: "Project brief" },
+    { number: 3, title: "Optional context" },
+    { number: 4, title: "Review & send" },
+  ]
+
+  const budgetRanges = [
+    { value: "300k-900k-mzn", label: "MZN 300,000 – 900,000 (approx.)" },
+    { value: "900k-1.8m-mzn", label: "MZN 900,000 – 1,800,000 (approx.)" },
+    { value: "1.8m-3m-mzn", label: "MZN 1,800,000 – 3,000,000 (approx.)" },
+    { value: "3m-6m-mzn", label: "MZN 3,000,000 – 6,000,000 (approx.)" },
+    { value: "6m+-mzn", label: "MZN 6,000,000+ (approx.)" },
+    { value: "discuss", label: "Prefer to discuss" },
   ]
 
   const handleInputChange = (field: string, value: string | boolean | string[]) => {
@@ -187,7 +196,7 @@ export default function GetQuotePage() {
                   value={formData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
                   className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
-                  placeholder="+1 (555) 123-4567"
+                  placeholder="+258 84 123 4567"
                 />
               </div>
 
@@ -208,7 +217,7 @@ export default function GetQuotePage() {
 
             <div>
               <Label htmlFor="company" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
-                Company Name *
+                Company / Organization *
               </Label>
               <Input
                 id="company"
@@ -216,7 +225,7 @@ export default function GetQuotePage() {
                 value={formData.company}
                 onChange={(e) => handleInputChange("company", e.target.value)}
                 className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
-                placeholder="Your Company Inc."
+                placeholder="Your company or organization"
               />
               {errors.company && <p className="text-red-500 text-sm mt-1">{errors.company}</p>}
             </div>
@@ -308,21 +317,24 @@ export default function GetQuotePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <Label htmlFor="budget" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
-                  Project Budget Range
+                  Indicative Project Budget (MZN)
                 </Label>
                 <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
                   <SelectTrigger className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10">
                     <SelectValue placeholder="Select budget range" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="5k-15k">$5,000 - $15,000</SelectItem>
-                    <SelectItem value="15k-30k">$15,000 - $30,000</SelectItem>
-                    <SelectItem value="30k-50k">$30,000 - $50,000</SelectItem>
-                    <SelectItem value="50k-100k">$50,000 - $100,000</SelectItem>
-                    <SelectItem value="100k+">$100,000+</SelectItem>
-                    <SelectItem value="discuss">Prefer to discuss</SelectItem>
+                    {budgetRanges.map((range) => (
+                      <SelectItem key={range.value} value={range.value}>
+                        {range.label}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Approximate conversions of the previous USD ranges (about
+                  MZN 60 per USD). The final proposal depends on project scope.
+                </p>
               </div>
 
               <div>
@@ -470,7 +482,7 @@ export default function GetQuotePage() {
                 <p className="text-sm text-slate-600 dark:text-slate-400">
                   Type: {formData.projectType || "Not specified"}
                   <br />
-                  Budget: {formData.budget || "Not specified"}
+                  Budget: {budgetRanges.find((range) => range.value === formData.budget)?.label || "Not specified"}
                   <br />
                   Timeline: {formData.timeline || "Not specified"}
                 </p>
@@ -545,53 +557,97 @@ export default function GetQuotePage() {
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12 pt-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-              Get Your Project <span className="bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500 bg-clip-text text-transparent">Quote</span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-700">
+              <Sparkles className="h-3.5 w-3.5" />
+              Start a conversation
+            </span>
+            <h1 className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-foreground">
+              Let&apos;s solve your next{" "}
+              <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 bg-clip-text text-transparent">
+                digital challenge.
+              </span>
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Transform your vision into reality with our expert development team
+            <p className="mt-5 text-base md:text-lg leading-7 text-muted-foreground max-w-2xl mx-auto">
+              Tell us what you&apos;re working toward. A clear brief helps us
+              understand the challenge and shape the right solution.
             </p>
+          </div>
+
+          <div
+            className="mb-8 rounded-2xl border border-border/80 bg-card p-5 md:p-6"
+            aria-label={`Form progress: step ${currentStep} of ${totalSteps}`}
+          >
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-sm font-semibold text-foreground">
+                Step {currentStep} of {totalSteps}
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {Math.round((currentStep / totalSteps) * 100)}% complete
+              </p>
+            </div>
+            <div
+              className="mt-3 h-1.5 overflow-hidden rounded-full bg-muted"
+              role="progressbar"
+              aria-valuenow={currentStep}
+              aria-valuemin={1}
+              aria-valuemax={totalSteps}
+              aria-valuetext={`Step ${currentStep} of ${totalSteps}`}
+            >
+              <div
+                className="h-full rounded-full bg-blue-600 transition-all duration-500"
+                style={{ width: `${(currentStep / totalSteps) * 100}%` }}
+              />
+            </div>
+            <div className="mt-4 grid grid-cols-4 gap-2">
+              {steps.map((step) => (
+                <div
+                  key={step.number}
+                  aria-current={step.number === currentStep ? "step" : undefined}
+                  className={`text-center text-[10px] leading-tight sm:text-xs ${
+                    step.number <= currentStep
+                      ? "font-medium text-blue-700"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {step.title}
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Left Sidebar - Steps */}
-            <div className="lg:col-span-4">
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-blue-500/10 hover:border-blue-400/20 transition-colors p-6 sticky top-6">
-                <div className="space-y-4">
-                  {steps.map((step) => (
-                    <div key={step.number} className="flex items-center gap-4">
-                      <div
-                        className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm transition-all ${
-                          step.number < currentStep
-                            ? "bg-blue-600 text-white"
-                            : step.number === currentStep
-                            ? "bg-blue-600 text-white shadow-lg shadow-blue-500/50"
-                            : "bg-slate-100 dark:bg-slate-800 text-slate-400"
-                        }`}
-                      >
-                        {step.number}
-                      </div>
-                      <div className="flex-1">
-                        <p
-                          className={`text-sm font-medium ${
-                            step.number <= currentStep
-                              ? "text-foreground"
-                              : "text-muted-foreground"
-                          }`}
-                        >
-                          {step.title}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-8 pt-8 border-t border-blue-500/10">
-                  <h3 className="font-semibold text-foreground mb-4">About Your Quote</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Fill out this form to help us understand your project requirements. The more details you provide, the more accurate our proposal will be.
+            <div className="hidden lg:block lg:col-span-4">
+              <div className="bg-card/70 backdrop-blur-sm rounded-2xl border border-blue-500/15 p-6 sticky top-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
+                  A useful first brief
+                </p>
+                <h2 className="mt-4 text-xl font-semibold text-foreground">
+                  Start with the essentials.
+                </h2>
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                  Your name, business email, company, project type, and a short
+                  description are enough to get the conversation started.
+                </p>
+                <div className="mt-6 rounded-xl border border-blue-500/10 bg-blue-500/5 p-4">
+                  <p className="text-sm font-medium text-foreground">
+                    The rest is optional.
+                  </p>
+                  <p className="mt-1 text-xs leading-5 text-muted-foreground">
+                    Budget, timing, and extra context help us tailor our
+                    response, but you can skip them.
                   </p>
                 </div>
+                <p className="mt-5 text-xs leading-5 text-muted-foreground">
+                  Your information is handled according to our{" "}
+                  <Link
+                    href="/privacy"
+                    className="font-medium text-blue-700 hover:underline"
+                  >
+                    Privacy Policy
+                  </Link>
+                  .
+                </p>
               </div>
             </div>
 
@@ -604,10 +660,14 @@ export default function GetQuotePage() {
                       {steps[currentStep - 1].title}
                     </h2>
                     <p className="text-muted-foreground">
-                      {currentStep === 1 && "Please enter your contact information"}
-                      {currentStep === 2 && "Tell us about your project requirements"}
-                      {currentStep === 3 && "Share additional details about your needs"}
-                      {currentStep === 4 && "Review your information and submit"}
+                      {currentStep === 1 &&
+                        "Name, business email, and company are required. Phone, role, and website are optional."}
+                      {currentStep === 2 &&
+                        "Project type and a 50-character description are required. Services, budget, and timing are optional."}
+                      {currentStep === 3 &&
+                        "Everything on this step is optional. Share only what will help us understand your goals."}
+                      {currentStep === 4 &&
+                        "Check your details and confirm your request."}
                     </p>
                   </div>
 
