@@ -5,22 +5,19 @@ export const FOOTER_LINKS = [
   },
   {
     title: "About",
-    href: "#about",
+    href: "/about",
   },
   {
-    title: "Team",
-    href: "#team",
+    title: "Get Quote",
+    href: "/get-quote",
   },
   {
     title: "Services",
-    href: "#services",
+    href: "/services",
   },
   {
     title: "Portfolio",
-    href: "#portfolio",
+    href: "/portfolio",
   },
-  {
-    title: "Testimonials",
-    href: "#testimonials",
-  },
+  
 ];

@@ -24,6 +24,7 @@ const translations = {
     
     // Header
     'header.contact': 'Contate-nos',
+    'header.portfolio': 'Ver Portfólio',
     'header.waitlist': 'Lista de Espera',
     
     // Hero
@@ -145,6 +146,7 @@ const translations = {
     
     // Header
     'header.contact': 'Contact Us',
+    'header.portfolio': 'View Portfolio',
     'header.waitlist': 'Join Waitlist',
     
     // Hero
@@ -274,7 +276,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   };
 
   const t = (key: string): string => {
-    return translations[language][key] || key;
+    const currentTranslations = translations[language] as Record<string, string>;
+    return currentTranslations[key] || key;
   };
 
   return (

@@ -12,76 +12,41 @@ import Image from "next/image";
 const PORTFOLIO_PROJECTS = [
   {
     id: 1,
-    title: "E-commerce Platform",
-    description: "Modern e-commerce solution with advanced filtering and seamless checkout experience.",
+    title: "Enterprise ERP Suite",
+    description: "Integrated enterprise resource planning for finance, HR and supply chain management",
     category: "E-commerce",
     technologies: ["Next.js", "TypeScript", "Stripe"],
     image: "/images/portfolio/eco.jpg",
   },
   {
     id: 2,
-    title: "SaaS Dashboard",
-    description: "Comprehensive analytics dashboard with real-time data visualization and reporting.",
-    category: "SaaS",
-    technologies: ["React", "Node.js", "PostgreSQL"],
-    image: "/images/portfolio/art.jpg",
+    title: "EventSnap",
+    description:
+      "EventSnap is an instant photo-sharing app for events where guests scan a QR Code to upload photos in real time—no app or login needed.",
+    category: "Web",
+    technologies: ["Next.js", "TypeScript", "Cloudinary"],
+    image: "/images/portfolio/eventsnap.png",
   },
   {
     id: 3,
-    title: "Banking Mobile App",
-    description: "Secure mobile banking application with intuitive user interface and biometric authentication.",
-    category: "Mobile",
-    technologies: ["React Native", "Firebase", "Redux"],
-    image: "/images/portfolio/meditation.jpg",
-  },
-  {
+    title: "CVFlow",
+    description:
+      "An AI-powered smart platform that effortlessly transforms your skills and experience into ATS-friendly, professionally styled resumes in minutes.",
+    category: "Web",
+    technologies: ["Next.js", "TypeScript", "OpenAI API"],
+    image: "/images/portfolio/cvflow.png",
+  }, {
     id: 4,
-    title: "Corporate Website",
-    description: "Professional corporate website with focus on accessibility and performance optimization.",
+    title: "Appointment Booking Platform",
+    description:
+      "A seamless appointment scheduling platform that lets clients book, reschedule, and manage appointments in real time, with automated reminders and calendar sync.",
     category: "Web",
-    technologies: ["Next.js", "Sanity", "Framer Motion"],
-    image: "/images/portfolio/bike.jpg",
+    technologies: ["Next.js", "Node.js", "Stripe"],
+    image: "/images/portfolio/appointment.jpg",
   },
-  {
-    id: 5,
-    title: "Restaurant Management",
-    description: "Multi-location restaurant management system with inventory and staff scheduling.",
-    category: "Web",
-    technologies: ["Vue.js", "Laravel", "MySQL"],
-    image: "/images/portfolio/resturant.jpg",
-  },
-  {
-    id: 6,
-    title: "Fitness Tracking App",
-    description: "Comprehensive fitness app with workout plans and nutrition tracking features.",
-    category: "Mobile",
-    technologies: ["Flutter", "Firebase", "HealthKit"],
-    image: "/images/portfolio/event.jpg",
-  },
-  {
-    id: 7,
-    title: "Luxury Brand Identity",
-    description: "Complete brand identity and digital presence for luxury fashion brand.",
-    category: "Branding",
-    technologies: ["Webflow", "GSAP", "Three.js"],
-    image: "/images/portfolio/eco.jpg",
-  },
-  {
-    id: 8,
-    title: "Learning Platform",
-    description: "Interactive online learning platform with video streaming and progress tracking.",
-    category: "SaaS",
-    technologies: ["React", "Node.js", "MongoDB"],
-    image: "/images/portfolio/art.jpg",
-  },
-  {
-    id: 9,
-    title: "Real Estate Platform",
-    description: "Modern real estate marketplace with advanced search and virtual tour features.",
-    category: "Web",
-    technologies: ["Next.js", "Prisma", "Mapbox"],
-    image: "/images/portfolio/meditation.jpg",
-  },
+
+
+
 ];
 
 const CATEGORIES = ["All", "Web", "Mobile", "E-commerce", "SaaS", "Branding"];
@@ -117,11 +82,10 @@ export default function PortfolioPage() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  selectedCategory === category
+                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${selectedCategory === category
                     ? "bg-foreground text-background shadow-lg scale-105"
                     : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground hover:scale-105"
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -134,9 +98,9 @@ export default function PortfolioPage() {
           {filteredProjects.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               {filteredProjects.map((project, index) => (
-                <Card 
-                  key={project.id} 
-                  className="group hover:shadow-2xl transition-all duration-500 border-0 bg-muted/30 dark:bg-gray-900/50 backdrop-blur-sm rounded-2xl overflow-hidden hover:-translate-y-2"
+                <Card
+                  key={project.id}
+                  className="group hover:shadow-2xl transition-all duration-500 border border-slate-200 bg-white backdrop-blur-sm rounded-2xl overflow-hidden hover:-translate-y-2 shadow-sm"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CardContent className="p-0">
@@ -146,9 +110,10 @@ export default function PortfolioPage() {
                         src={project.image}
                         alt={project.title}
                         fill
+                        sizes="(min-width: 1280px) 384px, (min-width: 1024px) 30vw, (min-width: 768px) 45vw, calc(100vw - 3rem)"
                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
 
                     {/* Project Info */}
@@ -161,7 +126,7 @@ export default function PortfolioPage() {
                           {project.category}
                         </Badge>
                       </div>
-                      
+
                       <p className="text-sm text-muted-foreground leading-relaxed">
                         {project.description}
                       </p>
@@ -189,8 +154,8 @@ export default function PortfolioPage() {
               <p className="text-lg text-muted-foreground mb-4">
                 No projects found in this category.
               </p>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={() => setSelectedCategory("All")}
                 className="border-muted-foreground/20 text-muted-foreground hover:bg-muted"
               >
@@ -202,7 +167,7 @@ export default function PortfolioPage() {
 
         {/* Call to Action Section */}
         <ScrollView delay={0.3}>
-          <div className="text-center py-20 border-t border-muted/30">
+          <div className="text-center py-20 border-t border-slate-200">
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground">Ready to start your project?</h2>
             <p className="text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
               Let&apos;s collaborate to bring your vision to life. We&apos;re here to help you create something extraordinary.

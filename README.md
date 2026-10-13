@@ -20,6 +20,15 @@ This project is a Next.js template built with TypeScript, designed for creating 
 
 ## Deployment
 
+### Netlify
+
+This repository includes a `netlify.toml` file configured for Netlify's Next.js runtime. To deploy:
+
+1. Push the repository to GitHub, GitLab, or Bitbucket.
+2. Import the project in Netlify.
+3. Keep the build command as `pnpm build`.
+4. Let Netlify use the included Next.js plugin configuration.
+
 ### Cloudflare Pages
 
 If you intend to deploy this project using Cloudflare Pages, please use the `cf-pages` branch. This branch contains configurations optimized for Cloudflare Pages deployment.

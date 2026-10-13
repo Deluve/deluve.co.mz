@@ -7,7 +7,7 @@ import { FOOTER_LINKS } from "@/content/footer";
 
 export default function FooterSection() {
   return (
-    <footer className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-t">
+    <footer className="bg-slate-50/95 backdrop-blur supports-[backdrop-filter]:bg-slate-50/80 border-t border-slate-200">
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-12">
@@ -28,10 +28,10 @@ export default function FooterSection() {
                </p>
               <div className="flex flex-wrap gap-4">
                                                  <Link
-                  href="mailto:deluve.solutions@gmail.com"
+                  href="mailto:digital@deluve.co"
                   className="text-muted-foreground hover:text-blue-400 transition-colors text-sm relative group"
                 >
-                  <span>deluve.solutions@gmail.com</span>
+                  <span>digital@deluve.co</span>
                    <div className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/40 via-blue-300/60 to-blue-400/40 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
                  </Link>
                                  <Link
@@ -213,8 +213,8 @@ export default function FooterSection() {
                 </div>
                 <div className="pt-4 border-t border-border">
                                      <p className="text-muted-foreground text-sm mb-2">Business hours:</p>
-                   <p className="text-foreground text-sm">Monday - Friday: 8AM - 6PM</p>
-                   <p className="text-foreground text-sm">Saturday: 9AM - 2PM</p>
+                   <p className="text-foreground text-sm">Monday - Friday: 8AM - 5PM</p>
+                   <p className="text-foreground text-sm">Saturday and Sunday: Closed</p>
                 </div>
               </div>
             </div>
