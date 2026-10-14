@@ -2,45 +2,8 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import { Code, Cloud, Cog, BarChart3, Database, ArrowUpRight } from "lucide-react";
-
-const services = [
-  {
-    icon: Code,
-    title: "Software Development",
-    description: "Custom web and mobile applications built for performance, security, and scale.",
-    span: "lg:col-span-3",
-    highlight: "Web • APIs • Integrations",
-  },
-  {
-    icon: Cloud,
-    title: "Cloud Infrastructure",
-    description: "Migration, management, and optimization across AWS, GCP, and hybrid environments.",
-    span: "lg:col-span-3",
-    highlight: "AWS • GCP • Hybrid",
-  },
-  {
-    icon: Cog,
-    title: "Process Automation",
-    description: "Automated workflows that maximize operational efficiency and cut costs.",
-    span: "lg:col-span-2",
-    highlight: "RPA • Workflows • Ops",
-  },
-  {
-    icon: BarChart3,
-    title: "IT Consulting",
-    description: "Strategic analysis and technology roadmaps for results-driven digital transformation.",
-    span: "lg:col-span-2",
-    highlight: "Strategy • Architecture",
-  },
-  {
-    icon: Database,
-    title: "Data & Analytics",
-    description: "Intelligent data solutions for evidence-based decision making.",
-    span: "lg:col-span-2",
-    highlight: "BI • Dashboards • Insights",
-  },
-];
+import { ArrowUpRight } from "lucide-react";
+import { servicePillars } from "../services-data";
 
 export default function ServicesSection2() {
   return (
@@ -124,17 +87,17 @@ export default function ServicesSection2() {
         </motion.div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-6">
-          {services.map((service, i) => (
-            <motion.button
+          {servicePillars.map((service, i) => (
+            <motion.a
               key={service.title}
-              type="button"
+              href={`/services#${service.id}`}
               aria-label={`Explore ${service.title}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05, duration: 0.5 }}
               whileHover={{ y: -6, scale: 1.02 }}
-              className={`group relative overflow-hidden rounded-2xl border border-border bg-card p-8 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${service.span}`}
+              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:col-span-3"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-blue-500/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-40" />
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full border border-blue-500/15 opacity-0 transition-opacity duration-300 group-hover:opacity-30" />
@@ -150,7 +113,7 @@ export default function ServicesSection2() {
 
               <div className="relative z-10">
                 <span className="mb-4 inline-flex items-center rounded-full border border-blue-500/20 bg-blue-500/8 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-blue-700">
-                  {service.highlight}
+                  {service.tags.join(" • ")}
                 </span>
                 <h3 className="mb-3 text-xl font-semibold text-foreground md:text-2xl">
                   {service.title}
@@ -164,7 +127,7 @@ export default function ServicesSection2() {
                   <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
                 </div>
               </div>
-            </motion.button>
+            </motion.a>
           ))}
         </div>
       </div>

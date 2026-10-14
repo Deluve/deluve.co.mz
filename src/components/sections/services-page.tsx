@@ -3,64 +3,30 @@
 import { motion } from "motion/react";
 import {
   ArrowRight,
-  Bolt,
-  ChartNoAxesCombined,
-  Code2,
-  Layers3,
   Sparkles,
 } from "lucide-react";
-
-const servicePillars = [
-  {
-    icon: Code2,
-    title: "Product Engineering",
-    description:
-      "Web and mobile products built for speed, reliability, and delight from day one.",
-    accent: "Build",
-  },
-  {
-    icon: Layers3,
-    title: "Experience Design",
-    description:
-      "Interfaces and journeys that feel clear, premium, and built around real user behavior.",
-    accent: "Design",
-  },
-  {
-    icon: Bolt,
-    title: "Automation Systems",
-    description:
-      "Operational workflows that remove friction and free teams to focus on growth.",
-    accent: "Scale",
-  },
-  {
-    icon: ChartNoAxesCombined,
-    title: "Data & Insights",
-    description:
-      "Measurement layers and dashboards that turn signals into sharper decisions.",
-    accent: "Measure",
-  },
-];
+import { servicePillars } from "./services-data";
 
 const process = [
   {
     step: "01",
     title: "Diagnose",
-    description: "We map your goals, bottlenecks, and constraints to uncover the angle that creates leverage.",
+    description: "We clarify your goals and identify the biggest opportunities.",
   },
   {
     step: "02",
     title: "Design",
-    description: "We shape the system, message, and experience so the solution is clear and scalable.",
+    description: "We shape a clear, scalable solution around your needs.",
   },
   {
     step: "03",
     title: "Build",
-    description: "We engineer and launch thoughtful digital experiences with a strong product mindset.",
+    description: "We build, test, and launch your digital solution.",
   },
   {
     step: "04",
     title: "Optimize",
-    description: "We keep improving performance, growth, and usability after launch.",
+    description: "We refine performance and usability after launch.",
   },
 ];
 
@@ -85,7 +51,7 @@ export default function ServicesPageContent() {
               We turn ideas into digital systems people actually want to use.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
-              From the first strategy question to the final launch, we build digital experiences that combine clarity, momentum, and measurable business value.
+              Strategy, design, and technology that create measurable business value.
             </p>
           </motion.div>
 
@@ -103,7 +69,7 @@ export default function ServicesPageContent() {
                 Strategy, design, and technology working as one.
               </h2>
               <p className="mt-4 max-w-xl text-sm leading-7 text-muted-foreground md:text-base">
-                We help companies move faster, look sharper, and operate more intelligently by building the systems behind growth.
+                We help teams move faster and operate smarter.
               </p>
             </motion.div>
 
@@ -147,34 +113,49 @@ export default function ServicesPageContent() {
               </h2>
             </div>
             <p className="hidden max-w-md text-sm leading-7 text-muted-foreground md:block">
-              Every engagement is shaped around your business goals, your users, and the systems that help you scale without friction.
+              Practical solutions shaped around your goals and users.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-4 md:grid-cols-2">
             {servicePillars.map((item, index) => {
               const Icon = item.icon;
 
               return (
                 <motion.article
                   key={item.title}
+                  id={item.id}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.08, duration: 0.45 }}
-                  className="group rounded-[1.75rem] border border-border/80 bg-card p-6 transition-transform duration-300 hover:-translate-y-1 hover:border-blue-500/30"
+                  className="group scroll-mt-24 rounded-2xl border border-border bg-card p-6 shadow-sm transition-colors duration-300 hover:border-slate-950 hover:bg-slate-950 md:p-7"
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-700 ring-1 ring-blue-500/10">
-                      <Icon className="h-5 w-5" />
+                  <div className="mb-5 flex items-start justify-between">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500/10 text-blue-700 transition-colors duration-300 group-hover:bg-blue-500 group-hover:text-white">
+                      <Icon className="h-4 w-4" />
                     </div>
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-                      {item.accent}
+                    <span className="font-mono text-4xl font-bold leading-none tracking-tight text-muted-foreground/15 transition-colors duration-300 group-hover:text-white/10">
+                      0{index + 1}
                     </span>
                   </div>
 
-                  <h3 className="mt-6 text-xl font-semibold">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.description}</p>
+                  <ul className="mb-4 flex flex-wrap gap-1.5">
+                    {item.tags.map((tag) => (
+                      <li
+                        key={tag}
+                        className="rounded-full border border-border px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground transition-colors duration-300 group-hover:border-white/20 group-hover:text-slate-300"
+                      >
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                  <h3 className="mb-2 text-lg font-semibold transition-colors duration-300 group-hover:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="max-w-lg text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-slate-300">
+                    {item.details}
+                  </p>
                 </motion.article>
               );
             })}
