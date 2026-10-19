@@ -20,6 +20,28 @@ This project is a Next.js template built with TypeScript, designed for creating 
 
 ## Deployment
 
+### Quote request email
+
+The `/get-quote` quote request form and the contact message form send email through Mailtrap SMTP. Configure these
+server-side environment variables in the project-root `.env.local` file for local
+development and in your hosting provider's environment settings for deployment:
+
+- `SMTP_HOST`: SMTP server (defaults to `sandbox.smtp.mailtrap.io`).
+- `SMTP_PORT`: SMTP port (defaults to `2525`; port `465` enables implicit TLS).
+- `SMTP_USER` and `SMTP_PASS`: SMTP credentials from your Mailtrap inbox.
+- `QUOTE_FROM_EMAIL`: sender address (defaults to `digital@deluve.co`).
+- `QUOTE_TO_EMAIL`: destination address (optional; defaults to `digital@deluve.co`).
+
+Keep these variables server-side; do not prefix SMTP credentials with `NEXT_PUBLIC_`.
+Restart the Next.js development server after changing `.env.local`.
+
+Mailtrap sandbox credentials send messages to the Mailtrap test inbox, not to a real
+recipient. Use the SMTP credentials and host for your production sending domain when
+you want quote requests delivered to `QUOTE_TO_EMAIL`.
+
+Without the SMTP credentials, the form reports that sending is
+unavailable instead of displaying a false success message.
+
 ### Netlify
 
 This repository includes a `netlify.toml` file configured for Netlify's Next.js runtime. To deploy:

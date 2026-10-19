@@ -113,12 +113,25 @@ export default function GetQuotePage() {
     setIsSubmitting(true)
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2500))
-      console.log("Form submitted:", formData)
+      const response = await fetch("/api/quote-requests", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+      const result: { error?: string } = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || "Unable to send your quote request. Please try again.")
+      }
+
       setIsSubmitted(true)
     } catch (error) {
       console.error("Submission error:", error)
-      setErrors({ submit: "Something went wrong. Please try again." })
+      setErrors({
+        submit: error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again.",
+      })
     } finally {
       setIsSubmitting(false)
     }
@@ -364,6 +377,7 @@ export default function GetQuotePage() {
               <Textarea
                 id="description"
                 value={formData.description}
+                maxLength={500}
                 onChange={(e) => handleInputChange("description", e.target.value)}
                 placeholder="Please describe your project in detail..."
                 className="min-h-[150px] bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"

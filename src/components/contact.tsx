@@ -1,3 +1,6 @@
+"use client"
+
+import { useState, type FormEvent } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -5,6 +8,43 @@ import { Mail, MapPin, ArrowRight } from "lucide-react"
 import { ScrollView } from "./scroll-view"
 
 export default function ContactSection() {
+  const [isSending, setIsSending] = useState(false)
+  const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null)
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setIsSending(true)
+    setFeedback(null)
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const payload = Object.fromEntries(formData.entries())
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+      const result: { error?: string } = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || "We couldn't send your message. Please try again.")
+      }
+
+      form.reset()
+      setFeedback({ type: "success", message: "Thanks for your message. We'll get back to you within 24 hours." })
+    } catch (error) {
+      console.error("Contact form submission error:", error)
+      setFeedback({
+        type: "error",
+        message: error instanceof Error ? error.message : "We couldn't send your message. Please try again.",
+      })
+    } finally {
+      setIsSending(false)
+    }
+  }
+
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background" id="contact">
       <div className="max-w-7xl mx-auto px-6">
@@ -29,18 +69,28 @@ export default function ContactSection() {
             <div className="bg-card border border-border rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 hover:scale-[1.02]">
               <h3 className="text-2xl font-semibold text-foreground mb-6">Send us a message</h3>
 
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">First Name</label>
-                                          <Input
-                        className="bg-background border-border text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/20"
-                        placeholder="John"
-                      />
+                    <label htmlFor="contact-first-name" className="block text-sm font-medium text-foreground mb-2">First Name</label>
+                    <Input
+                      id="contact-first-name"
+                      name="firstName"
+                      autoComplete="given-name"
+                      maxLength={100}
+                      required
+                      className="bg-background border-border text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/20"
+                      placeholder="John"
+                    />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">Last Name</label>
+                    <label htmlFor="contact-last-name" className="block text-sm font-medium text-foreground mb-2">Last Name</label>
                     <Input
+                      id="contact-last-name"
+                      name="lastName"
+                      autoComplete="family-name"
+                      maxLength={100}
+                      required
                       className="bg-background border-border text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/20"
                       placeholder="Doe"
                     />
@@ -48,33 +98,62 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Email</label>
+                  <label htmlFor="contact-email" className="block text-sm font-medium text-foreground mb-2">Email</label>
                   <Input
+                    id="contact-email"
+                    name="email"
                     type="email"
+                    autoComplete="email"
+                    maxLength={254}
+                    required
                     className="bg-background border-border text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/20"
                     placeholder="john@company.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Company</label>
+                  <label htmlFor="contact-company" className="block text-sm font-medium text-foreground mb-2">Company</label>
                   <Input
+                    id="contact-company"
+                    name="company"
+                    autoComplete="organization"
+                    maxLength={200}
+                    required
                     className="bg-background border-border text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/20"
                     placeholder="Your Company"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Project Details</label>
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-foreground mb-2">Project Details</label>
                   <Textarea
+                    id="contact-message"
+                    name="message"
+                    minLength={10}
+                    maxLength={5000}
+                    required
                     className="bg-background border-border text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:ring-blue-500/20 min-h-[120px]"
                     placeholder="Tell us about your startup idea, goals, and timeline..."
                   />
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 group shadow-lg shadow-blue-500/25">
-                  Send Message
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                {feedback && (
+                  <p
+                    role="status"
+                    aria-live="polite"
+                    className={feedback.type === "success" ? "text-sm text-green-600" : "text-sm text-red-600"}
+                  >
+                    {feedback.message}
+                  </p>
+                )}
+
+                <Button
+                  type="submit"
+                  disabled={isSending}
+                  className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 rounded-xl transition-all duration-300 group shadow-lg shadow-blue-500/25"
+                >
+                  {isSending ? "Sending..." : "Send Message"}
+                  {!isSending && <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />}
                 </Button>
               </form>
             </div>
