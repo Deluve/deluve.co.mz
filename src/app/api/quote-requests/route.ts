@@ -211,15 +211,15 @@ export async function POST(request: Request) {
     )
   }
 
-  const host = process.env.SMTP_HOST || "sandbox.smtp.mailtrap.io"
+  const host = process.env.SMTP_HOST
   const port = Number(process.env.SMTP_PORT)
   const user = process.env.SMTP_USER
   const pass = process.env.SMTP_PASS
   const from = process.env.QUOTE_FROM_EMAIL
   const to = process.env.QUOTE_TO_EMAIL 
 
-  if (!user || !pass || !Number.isInteger(port) || port < 1 || port > 65535) {
-    console.error("Quote request email is not configured: SMTP_USER and SMTP_PASS are required, and SMTP_PORT must be valid.")
+  if (!host || !user || !pass || !from || !to || !Number.isInteger(port) || port < 1 || port > 65535) {
+    console.error("Quote request email is not configured: SMTP settings, sender, recipient, and a valid port are required.")
     return NextResponse.json(
       { error: "Quote requests are temporarily unavailable. Please email digital@deluve.co directly." },
       { status: 503 },
@@ -248,8 +248,8 @@ export async function POST(request: Request) {
     })
 
     return NextResponse.json({ success: true })
-  } catch (error) {
-    console.error("Failed to send quote request via SMTP:", error)
+  } catch {
+    console.error("Failed to send quote request via SMTP.")
     return NextResponse.json(
       { error: "We couldn't send your quote request right now. Please try again or email digital@deluve.co." },
       { status: 502 },
