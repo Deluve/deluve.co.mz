@@ -43,7 +43,7 @@ export default function ServicesSection2() {
           </div>
           <div className="max-w-sm rounded-xl border border-blue-500/15 bg-blue-500/5 px-4 py-3 backdrop-blur-sm">
             <p className="text-sm leading-relaxed text-muted-foreground">
-              End-to-end solutions for every stage of your technology journey.
+              We help growing teams build better products, simplify operations and make smarter decisions.
             </p>
           </div>
         </motion.div>

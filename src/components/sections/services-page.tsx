@@ -113,7 +113,7 @@ export default function ServicesPageContent() {
               </h2>
             </div>
             <p className="hidden max-w-md text-sm leading-7 text-muted-foreground md:block">
-              Practical solutions shaped around your goals and users.
+              We help growing teams build better products, simplify operations and make smarter decisions.
             </p>
           </div>
 
@@ -140,19 +140,15 @@ export default function ServicesPageContent() {
                     </span>
                   </div>
 
-                  <ul className="mb-4 flex flex-wrap gap-1.5">
-                    {item.tags.map((tag) => (
-                      <li
-                        key={tag}
-                        className="rounded-full border border-border px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-muted-foreground transition-colors duration-300 group-hover:border-white/20 group-hover:text-slate-300"
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
                   <h3 className="mb-2 text-lg font-semibold transition-colors duration-300 group-hover:text-white">
                     {item.title}
                   </h3>
+                  <p className="mb-3 text-xs font-semibold text-foreground transition-colors duration-300 group-hover:text-slate-200">
+                    {item.tags.join(" · ")}
+                  </p>
+                  <p className="mb-2 text-sm font-medium leading-relaxed text-foreground transition-colors duration-300 group-hover:text-slate-200">
+                    {item.description}
+                  </p>
                   <p className="max-w-lg text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-slate-300">
                     {item.details}
                   </p>

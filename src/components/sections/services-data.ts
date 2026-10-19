@@ -9,45 +9,45 @@ export const servicePillars = [
   {
     icon: Code2,
     id: "product-engineering",
-    title: "Product Engineering",
+    title: "Digital Product Development",
     description:
-      "Web and mobile products built for speed, reliability, and delight from day one.",
+      "We build dependable digital products that address real business needs.",
     details:
-      "Custom web and mobile apps, APIs, and integrations—from concept through launch.",
+      "From discovery and prototyping to development and launch, we deliver custom web and mobile applications, APIs, and integrations.",
     accent: "Build",
-    tags: ["Web Apps", "Mobile", "APIs & Integrations"],
+    tags: ["Web Applications", "Mobile Apps", "APIs & Integrations"],
   },
   {
     icon: Layers3,
     id: "experience-design",
-    title: "Experience Design",
+    title: "Digital Experience Design",
     description:
-      "Interfaces and journeys that feel clear, premium, and built around real user behavior.",
+      "We make digital services easier to understand, use, and scale.",
     details:
-      "Research-led journeys, polished interfaces, reusable design systems, and consistent branding.",
+      "Our work spans user research, UX/UI design, design systems, and brand experiences—grounded in user needs and business goals.",
     accent: "Design",
-    tags: ["UI/UX", "Design Systems", "Brand"],
+    tags: ["User Research", "UX/UI", "Design Systems"],
   },
   {
     icon: Bolt,
     id: "automation-systems",
-    title: "Automation Systems",
+    title: "Business Automation",
     description:
-      "Operational workflows that remove friction and free teams to focus on growth.",
+      "We help organizations reduce manual work and improve operational efficiency.",
     details:
-      "RPA and connected workflows to streamline repeatable tasks and reduce manual work.",
-    accent: "Scale",
-    tags: ["RPA", "Workflows", "Cloud & DevOps"],
+      "We automate repeatable processes and connect business systems through workflow automation, RPA, and cloud solutions.",
+    accent: "Optimize",
+    tags: ["Workflow Automation", "RPA", "Cloud & DevOps"],
   },
   {
     icon: ChartNoAxesCombined,
     id: "data-insights",
-    title: "Data & Insights",
+    title: "Data & Business Intelligence",
     description:
-      "Measurement layers and dashboards that turn signals into sharper decisions.",
+      "We make business performance easier to measure and understand.",
     details:
-      "Dashboards and analytics to track performance and guide better business decisions.",
+      "We develop dashboards, reporting, and analytics that help teams monitor key metrics, identify trends, and make informed decisions.",
     accent: "Measure",
-    tags: ["BI", "Dashboards", "Analytics"],
+    tags: ["Business Intelligence", "Dashboards", "Analytics"],
   },
 ];
