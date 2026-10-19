@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ScrollView } from "./scroll-view";
 import { FOOTER_LINKS } from "@/content/footer";
+import { servicePillars } from "@/components/sections/services-data";
 
 export default function FooterSection() {
   return (
@@ -75,48 +76,18 @@ export default function FooterSection() {
           {/* Services */}
           <ScrollView delay={0.15}>
             <div>
-                             <h3 className="font-semibold text-foreground mb-6">Services</h3>
+              <h3 className="font-semibold text-foreground mb-6">Services</h3>
               <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="#web-development"
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm duration-200"
-                  >
-                                         Custom Software Development
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#mobile-apps"
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm duration-200"
-                  >
-                                         Mobile Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#ui-ux-design"
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm duration-200"
-                  >
-                                         AI & Chatbots
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#digital-marketing"
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm duration-200"
-                  >
-                                         Business Automation
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#consulting"
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm duration-200"
-                  >
-                                         Technology Consulting
-                  </Link>
-                </li>
+                {servicePillars.map((service) => (
+                  <li key={service.id}>
+                    <Link
+                      href={`/services#${service.id}`}
+                      className="text-muted-foreground hover:text-primary transition-colors text-sm duration-200"
+                    >
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </ScrollView>

@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import TeamSection from "@/components/team"
+import OurApproachSection from "@/components/our-approach"
 import { motion } from "motion/react"
 
 const companyValues = [
@@ -237,8 +237,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <TeamSection />
+      <OurApproachSection />
 
       {/* CTA */}
       <section className="relative py-12 md:py-20 bg-gradient-to-b from-blue-500/[0.05] to-background overflow-hidden">
