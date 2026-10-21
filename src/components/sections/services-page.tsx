@@ -146,9 +146,7 @@ export default function ServicesPageContent() {
                   <p className="mb-3 text-xs font-semibold text-foreground transition-colors duration-300 group-hover:text-slate-200">
                     {item.tags.join(" · ")}
                   </p>
-                  <p className="mb-2 text-sm font-medium leading-relaxed text-foreground transition-colors duration-300 group-hover:text-slate-200">
-                    {item.description}
-                  </p>
+                 
                   <p className="max-w-lg text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-slate-300">
                     {item.details}
                   </p>
