@@ -221,7 +221,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="border-y border-blue-500/15 bg-blue-500/[0.03] py-16 md:py-20">
+      <section className="border-y border-border/50 bg-blue-500/[0.015] py-16 md:py-20">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -272,7 +272,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24">
+      <section className="bg-blue-500/[0.005] py-20 md:py-24">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
