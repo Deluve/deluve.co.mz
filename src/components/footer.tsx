@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ScrollView } from "./scroll-view";
 import { FOOTER_LINKS } from "@/content/footer";
-import { servicePillars } from "@/components/sections/services-data";
+import { servicePillars } from "@/content/services";
 
 export default function FooterSection() {
   return (

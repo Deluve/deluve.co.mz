@@ -5,7 +5,7 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
-import { servicePillars } from "./services-data";
+import { servicePillars } from "@/content/services";
 
 const process = [
   {

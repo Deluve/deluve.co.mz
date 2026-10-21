@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { servicePillars } from "../services-data";
+import { servicePillars } from "@/content/services";
 
 export default function ServicesSection2() {
   return (

@@ -1,54 +1,55 @@
-export const SERVICES_LIST = [
+import { 
+   Code2,
+   Bolt, 
+   ChartNoAxesCombined,
+   Compass
+   } from "lucide-react";
+
+
+
+export const servicePillars = [
   {
-    name: "Custom Software Development",
-    tags: [
-      "User Engagement",
-      "Conversion Optimization",
-      "Scalable Solutions",
-      "Performance Boost",
-    ],
-    icon: "Code",
-    url: "#",
+    icon: Code2,
+    id: "product-development",
+    title: "Product Design & Development",
     description:
-      "We create cutting-edge websites and web applications that engage users and drive results.",
+      "We design and build dependable digital products from concept to launch.",
+    details:
+      "We cover the full product lifecycle—from user research and UX/UI design to custom web and mobile applications, APIs, and scalable integrations.",
+    accent: "Build",
+    tags: ["Product Design", "Web & Mobile Apps", "APIs & Integrations"],
   },
   {
-    name: "Mobile Solutions",
-    tags: [
-      "Cross-Platform Reach",
-      "User Experience",
-      "Market Expansion",
-      "Customer Retention",
-    ],
-    icon: "Smartphone",
-    url: "#",
+    icon: Bolt,
+    id: "automation-systems",
+    title: "Business Automation",
     description:
-      "Custom mobile applications that work seamlessly across all platforms and devices.",
+      "We help organizations reduce manual work and improve operational efficiency.",
+    details:
+      "We automate repeatable processes and connect business systems through workflow automation, cloud solutions, and system integration.",
+    accent: "Optimize",
+    tags: ["Workflow Automation", "System Integration", "Cloud Solutions"],
   },
   {
-    name: "AI & Chatbots",
-    tags: [
-      "Process Automation",
-      "24/7 Support",
-      "Cost Reduction",
-      "Customer Satisfaction",
-    ],
-    icon: "Bot",
-    url: "#",
+    icon: ChartNoAxesCombined,
+    id: "data-insights",
+    title: "Data & Business Intelligence",
     description:
-      "Smart AI solutions and chatbots that streamline processes and enhance user experiences.",
+      "We make business performance easier to measure and understand.",
+    details:
+      "We build dashboards and analytics tools that help teams monitor key metrics, identify trends, and make data-driven decisions.",
+    accent: "Measure",
+    tags: ["Business Intelligence", "Dashboards", "Data Analytics"],
   },
   {
-    name: "Business Automation",
-    tags: [
-      "Process Optimization",
-      "Data Insights",
-      "Workflow Efficiency",
-      "Cost Savings",
-    ],
-    icon: "Zap",
-    url: "#",
+    icon: Compass,
+    id: "digital-advisory",
+    title: "Digital Strategy & Advisory",
     description:
-      "Comprehensive CRM and ERP systems that give you complete control over your business.",
+      "We help businesses navigate technology choices and plan their digital growth.",
+    details:
+      "We partner with leaders to define technology roadmaps, evaluate system architecture, select the right tech stacks, and structure digital projects.",
+    accent: "Guide",
+    tags: ["Tech Roadmap", "Architecture Assessment", "Digital Strategy"],
   },
 ];
