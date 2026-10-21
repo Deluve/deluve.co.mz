@@ -28,13 +28,11 @@ const approachPoints = [
 export default function OurApproachSection() {
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-blue-500/[0.02] to-background py-12 md:py-16"
+      className="bg-blue-500/[0.02] py-12 md:py-16"
       id="approach"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.03] via-transparent to-blue-600/[0.02] blur-3xl" />
-
-      <div className="relative z-10 mx-auto max-w-6xl border-t border-blue-500/20 px-6">
-        <span className="-ml-6 -mt-3.5 block w-max rounded-t-lg border border-blue-500/20 bg-background px-6 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-blue-400">
+      <div className="mx-auto max-w-6xl px-6">
+        <span className="-ml-6 -mt-3.5 block w-max rounded-t-lg border border-blue-500/20 bg-blue-500/[0.02] px-6 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-blue-400">
           How we work
         </span>
 

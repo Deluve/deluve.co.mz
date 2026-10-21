@@ -58,8 +58,8 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <section className="relative overflow-hidden border-b border-border/80 bg-gradient-to-b from-background via-background to-slate-950/5 py-20 md:py-28">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.16),transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(96,165,250,0.08),transparent_35%)]" />
+      <section className="relative overflow-hidden border-b border-border/50 bg-gradient-to-b from-background via-background to-blue-500/[0.015] py-20 md:py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.08),transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(96,165,250,0.04),transparent_35%)]" />
 
         <div className="container relative z-10 mx-auto px-6">
           <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
@@ -172,11 +172,8 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="relative py-12 md:py-20 bg-gradient-to-b from-blue-500/[0.03] to-background overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-blue-600/[0.03] blur-3xl" />
-
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
+      <section className="bg-blue-500/[0.02] py-12 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
           <ScrollView>
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
@@ -204,7 +201,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-12 md:py-20">
+      <section className="bg-blue-500/[0.005] py-12 md:py-20">
         <div className="mx-auto max-w-4xl px-6">
           <ScrollView>
             <div className="text-center mb-12">
@@ -240,11 +237,8 @@ export default function AboutPage() {
       <OurApproachSection />
 
       {/* CTA */}
-      <section className="relative py-8 md:py-12 bg-gradient-to-b from-blue-500/[0.05] to-background overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.08] via-transparent to-blue-600/[0.05] blur-3xl" />
-
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+      <section className="bg-blue-500/[0.015] py-8 md:py-12">
+        <div className="mx-auto max-w-4xl px-6 text-center">
           <ScrollView>
             <h2 className="text-3xl md:text-4xl font-bold mb-3">Have a challenge to solve?</h2>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-base md:text-lg">
