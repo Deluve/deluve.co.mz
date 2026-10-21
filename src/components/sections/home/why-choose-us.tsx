@@ -3,6 +3,7 @@ import { Users, TrendingUp, Award, Search, Code, Rocket } from "lucide-react"
 import { ScrollView } from "@/components/scroll-view"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function WhyChooseUsAndProcess() {
   const reasons = [
@@ -154,8 +155,11 @@ export default function WhyChooseUsAndProcess() {
         {/* CTA Section */}
         <ScrollView delay={0.3}>
           <div className="mt-16 text-center">
-            <Button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
-              Book a Discovery Call
+            <Button
+              asChild
+              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+            >
+              <Link href="/#contact">Book a Discovery Call</Link>
             </Button>
           </div>
         </ScrollView>

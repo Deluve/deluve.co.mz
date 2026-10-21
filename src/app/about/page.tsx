@@ -240,15 +240,15 @@ export default function AboutPage() {
       <OurApproachSection />
 
       {/* CTA */}
-      <section className="relative py-12 md:py-20 bg-gradient-to-b from-blue-500/[0.05] to-background overflow-hidden">
+      <section className="relative py-8 md:py-12 bg-gradient-to-b from-blue-500/[0.05] to-background overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.08] via-transparent to-blue-600/[0.05] blur-3xl" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           <ScrollView>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Have a challenge worth solving?</h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Tell us what you&apos;re working toward. We&apos;ll explore the right next step for your business.
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">Have a challenge to solve?</h2>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-base md:text-lg">
+              Tell us what you’re working on, and we’ll discuss a practical next step.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" asChild className="bg-blue-600 hover:bg-blue-500 text-white">

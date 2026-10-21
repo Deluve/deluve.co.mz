@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, ArrowRight } from "lucide-react"
 import { ScrollView } from "./scroll-view"
+import Link from "next/link"
 
 export default function ContactSection() {
   const [isSending, setIsSending] = useState(false)
@@ -33,7 +34,7 @@ export default function ContactSection() {
       }
 
       form.reset()
-      setFeedback({ type: "success", message: "Thanks for your message. We'll get back to you within 24 hours." })
+      setFeedback({ type: "success", message: "Thanks for your message. We'll be in touch as soon as possible." })
     } catch (error) {
       console.error("Contact form submission error:", error)
       setFeedback({
@@ -52,21 +53,28 @@ export default function ContactSection() {
         <div className="text-center mb-16">
           <ScrollView>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">
-              Ready to Build Your{" "}
-              <span className="text-blue-400">Next Success?</span>
+              Let&apos;s talk about your project
             </h2>
           </ScrollView>
           <ScrollView delay={0.1}>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Let&apos;s discuss your vision and turn it into a successful business. Get in touch with our team today.
+              Tell us what you&apos;re looking to build. We&apos;ll be in touch as soon as possible.
             </p>
+          </ScrollView>
+          <ScrollView delay={0.2}>
+            <Button asChild className="mt-6 bg-blue-600 text-white hover:bg-blue-500">
+              <Link href="#contact-form">
+                Start a project
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
           </ScrollView>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Contact Form */}
           <ScrollView delay={0.2}>
-            <div className="bg-card border border-border rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 hover:scale-[1.02]">
+            <div id="contact-form" className="scroll-mt-24 bg-card border border-border rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 hover:scale-[1.02]">
               <h3 className="text-2xl font-semibold text-foreground mb-6">Send us a message</h3>
 
               <form className="space-y-6" onSubmit={handleSubmit}>
@@ -194,7 +202,7 @@ export default function ContactSection() {
               <div className="pt-8 border-t border-border">
                 <h4 className="text-foreground font-semibold mb-4">Response Time</h4>
                 <p className="text-muted-foreground">
-                  We typically respond within 24 hours. For urgent inquiries, please email us directly.
+                  We&apos;ll review your message and get in touch as soon as possible. For urgent inquiries, please email us directly.
                 </p>
               </div>
             </div>

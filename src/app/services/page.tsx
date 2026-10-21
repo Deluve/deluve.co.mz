@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ServicesPageContent from "@/components/sections/services-page";
+import FAQSection from "@/components/sections/home/faq";
 import ContactSection from "@/components/contact";
-import FooterSection from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Services | Deluve",
@@ -13,8 +13,8 @@ export default function ServicesPage() {
   return (
     <>
       <ServicesPageContent />
+      <FAQSection />
       <ContactSection />
-      <FooterSection />
     </>
   );
 }

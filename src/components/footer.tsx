@@ -2,18 +2,69 @@
 import { Logo } from "@/components/logo";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { usePathname } from "next/navigation";
 import { ScrollView } from "./scroll-view";
 import { FOOTER_LINKS } from "@/content/footer";
 import { servicePillars } from "@/content/services";
 
 export default function FooterSection() {
+  const pathname = usePathname();
+  const compactFooterPaths = ["/get-quote", "/privacy", "/terms", "/cookies", "/sitemap"];
+  const isCompact = compactFooterPaths.includes(pathname);
+
+  if (isCompact) {
+    return (
+      <footer className="border-t border-slate-200 bg-slate-50/95 backdrop-blur supports-[backdrop-filter]:bg-slate-50/80">
+        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-8 md:flex-row md:items-center md:justify-between md:py-10">
+          <div className="flex flex-col items-center gap-3 text-center md:items-start md:text-left">
+            <Link href="/" aria-label="go home" className="inline-block">
+              <Logo />
+            </Link>
+            <span className="text-xs text-muted-foreground">
+              © {new Date().getFullYear()} Deluve. All rights reserved.
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center gap-3 md:items-end">
+            <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm md:justify-end">
+              <Link
+                href="mailto:digital@deluve.co"
+                className="text-muted-foreground transition-colors hover:text-blue-400"
+              >
+                digital@deluve.co
+              </Link>
+              <Link
+                href="tel:+258841234567"
+                className="text-muted-foreground transition-colors hover:text-blue-400"
+              >
+                +258 84 123 4567
+              </Link>
+            </div>
+            <nav aria-label="Legal links" className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs md:justify-end">
+              <Link href="/privacy" className="text-muted-foreground transition-colors hover:text-primary">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-muted-foreground transition-colors hover:text-primary">
+                Terms of Service
+              </Link>
+              <Link href="/cookies" className="text-muted-foreground transition-colors hover:text-primary">
+                Cookie Policy
+              </Link>
+            </nav>
+          </div>
+        </div>
+      </footer>
+    );
+  }
+
   return (
     <footer className="bg-slate-50/95 backdrop-blur supports-[backdrop-filter]:bg-slate-50/80 border-t border-slate-200">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6 py-10 md:py-20">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-4 lg:gap-12">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:gap-8 lg:grid-cols-4 lg:gap-12">
           {/* Company Info */}
-          <ScrollView>
+          <div className="col-span-2 lg:col-span-1">
+            <ScrollView>
             <div className="lg:col-span-1">
               <Link
                 href="/"
@@ -44,10 +95,12 @@ export default function FooterSection() {
                  </Link>
               </div>
             </div>
-          </ScrollView>
+            </ScrollView>
+          </div>
 
           {/* Quick Links */}
-          <ScrollView delay={0.1}>
+          <div>
+            <ScrollView delay={0.1}>
             <div>
                              <h3 className="font-semibold text-foreground mb-6">Navigation</h3>
               <ul className="space-y-3">
@@ -71,10 +124,12 @@ export default function FooterSection() {
                 ))}
               </ul>
             </div>
-          </ScrollView>
+            </ScrollView>
+          </div>
 
           {/* Services */}
-          <ScrollView delay={0.15}>
+          <div>
+            <ScrollView delay={0.15}>
             <div>
               <h3 className="font-semibold text-foreground mb-6">Services</h3>
               <ul className="space-y-3">
@@ -90,10 +145,12 @@ export default function FooterSection() {
                 ))}
               </ul>
             </div>
-          </ScrollView>
+            </ScrollView>
+          </div>
 
           {/* Contact & Social */}
-          <ScrollView delay={0.2}>
+          <div className="col-span-2 lg:col-span-1">
+            <ScrollView delay={0.2}>
             <div>
                              <h3 className="font-semibold text-foreground mb-6">Connect</h3>
               <div className="space-y-4">
@@ -189,12 +246,13 @@ export default function FooterSection() {
                 </div>
               </div>
             </div>
-          </ScrollView>
+            </ScrollView>
+          </div>
         </div>
 
         {/* Bottom Section */}
         <ScrollView delay={0.25} viewMargin="0px 0px -20px 0px">
-          <div className="mt-16 pt-8 border-t border-border">
+          <div className="mt-10 border-t border-border pt-6 md:mt-16 md:pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="text-center md:text-left">
                                  <span className="text-muted-foreground text-sm">

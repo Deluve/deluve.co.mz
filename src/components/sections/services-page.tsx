@@ -1,10 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import {
-  ArrowRight,
-  Sparkles,
-} from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { servicePillars } from "@/content/services";
 
 const process = [
@@ -129,25 +126,25 @@ export default function ServicesPageContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.08, duration: 0.45 }}
-                  className="group scroll-mt-24 rounded-2xl border border-border bg-card p-6 shadow-sm transition-colors duration-300 hover:border-slate-950 hover:bg-slate-950 md:p-7"
+                  className="scroll-mt-24 rounded-2xl border border-border bg-card p-6 shadow-sm md:p-7"
                 >
                   <div className="mb-5 flex items-start justify-between">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500/10 text-blue-700 transition-colors duration-300 group-hover:bg-blue-500 group-hover:text-white">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500/10 text-blue-700">
                       <Icon className="h-4 w-4" />
                     </div>
-                    <span className="font-mono text-4xl font-bold leading-none tracking-tight text-muted-foreground/15 transition-colors duration-300 group-hover:text-white/10">
+                    <span className="font-mono text-4xl font-bold leading-none tracking-tight text-muted-foreground/15">
                       0{index + 1}
                     </span>
                   </div>
 
-                  <h3 className="mb-2 text-lg font-semibold transition-colors duration-300 group-hover:text-white">
+                  <h3 className="mb-2 text-lg font-semibold">
                     {item.title}
                   </h3>
-                  <p className="mb-3 text-xs font-semibold text-foreground transition-colors duration-300 group-hover:text-slate-200">
+                  <p className="mb-3 text-xs font-semibold text-foreground">
                     {item.tags.join(" · ")}
                   </p>
                  
-                  <p className="max-w-lg text-sm leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-slate-300">
+                  <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">
                     {item.details}
                   </p>
                 </motion.article>
@@ -180,35 +177,6 @@ export default function ServicesPageContent() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-[2rem] border border-border/80 bg-card p-8 md:p-12"
-          >
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-2xl">
-                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
-                  Ready when you are
-                </span>
-                <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
-                  Need a digital partner with focus and follow-through?
-                </h2>
-              </div>
-
-              <a
-                href="/get-quote"
-                className="inline-flex items-center gap-2 self-start rounded-full bg-blue-600 px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-500"
-              >
-                Start a project
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </main>
   );
 }

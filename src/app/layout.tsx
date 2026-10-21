@@ -4,6 +4,7 @@ import "./globals.css";
 import "devicon/devicon.min.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { HeroHeader } from "@/components/header";
+import FooterSection from "@/components/footer";
 import { LanguageProvider } from "@/contexts/language-context";
 import SplashWrapper from "@/components/splash-wrapper-simple";
 
@@ -53,6 +54,7 @@ export default function RootLayout({
             <SplashWrapper>
               <HeroHeader />
               {children}
+              <FooterSection />
             </SplashWrapper>
           </LanguageProvider>
         </ThemeProvider>

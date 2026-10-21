@@ -9,55 +9,55 @@ const approachPoints = [
     icon: Handshake,
     title: "Direct collaboration",
     description:
-      "Work directly with the person responsible for your project, with clear communication from start to finish.",
+      "Work directly with the person responsible for your project, from the first conversation to delivery.",
   },
   {
     icon: Lightbulb,
     title: "Specialist expertise",
     description:
-      "Bring in the right skills for each project, based on its goals and requirements.",
+      "Bring in the skills your project needs, based on its goals, scope, and technical requirements.",
   },
   {
     icon: ListChecks,
     title: "Clear ownership",
     description:
-      "Know who is responsible, what happens next, and how progress is communicated.",
+      "Know who is responsible, what happens next, and how progress is shared.",
   },
 ];
 
 export default function OurApproachSection() {
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-blue-500/[0.02] to-background py-16 md:py-32"
+      className="relative overflow-hidden bg-gradient-to-b from-blue-500/[0.02] to-background py-12 md:py-16"
       id="approach"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.03] via-transparent to-blue-600/[0.02] blur-3xl" />
 
-      <div className="relative z-10 mx-auto max-w-5xl border-t border-blue-500/20 px-6">
-        <span className="-ml-6 -mt-3.5 block w-max rounded-t-lg border border-blue-500/20 bg-background px-6 text-caption text-blue-400">
-          Our approach
+      <div className="relative z-10 mx-auto max-w-6xl border-t border-blue-500/20 px-6">
+        <span className="-ml-6 -mt-3.5 block w-max rounded-t-lg border border-blue-500/20 bg-background px-6 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-blue-400">
+          How we work
         </span>
 
         <ScrollView>
-          <div className="mt-12 gap-4 sm:grid sm:grid-cols-2 md:mt-24">
+          <div className="mt-8 gap-8 md:mt-12 md:grid md:grid-cols-2 md:items-end md:gap-12">
             <div>
-              <h2 className="text-3xl font-bold sm:text-4xl">
-                The right expertise for every project
+              <h2 className="max-w-3xl text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+                Clear communication. The right expertise. No guesswork.
               </h2>
             </div>
-            <div className="mt-6 sm:mt-0">
-              <p className="text-muted-foreground">
-                We bring together the skills each project needs, working with
-                trusted specialists when needed. You&apos;ll have a clear point
-                of contact and know who is responsible at every stage.
+            <div className="mt-4 md:mt-0">
+              <p className="text-base leading-relaxed text-muted-foreground md:text-lg md:leading-8">
+                We tailor each engagement to the project, with a clear point of
+                contact, relevant specialist skills, and regular progress
+                updates.
               </p>
             </div>
           </div>
         </ScrollView>
 
-        <div className="mt-12 md:mt-24">
+        <div className="mt-8 md:mt-10">
           <ScrollView stagger delay={0.02}>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid items-stretch gap-4 md:grid-cols-3 md:gap-5">
               {approachPoints.map((point, index) => {
                 const Icon = point.icon;
 
@@ -68,9 +68,9 @@ export default function OurApproachSection() {
                       hidden: { opacity: 0, y: 16 },
                       visible: { opacity: 1, y: 0 },
                     }}
-                    className="rounded-xl border border-blue-500/20 bg-card/70 p-6 transition-colors hover:border-blue-400/40"
+                    className="flex h-full flex-col rounded-xl border border-blue-500/20 bg-card/70 p-6 transition-colors hover:border-blue-400/40 md:p-7"
                   >
-                    <div className="mb-8 flex items-center justify-between">
+                    <div className="mb-6 flex items-center justify-between">
                       <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-500/5 text-blue-700">
                         <Icon className="h-5 w-5" aria-hidden="true" />
                       </div>
@@ -78,8 +78,8 @@ export default function OurApproachSection() {
                         _0{index + 1}
                       </span>
                     </div>
-                    <h3 className="mb-3 text-lg font-semibold">{point.title}</h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground">
+                    <h3 className="mb-3 text-xl font-semibold">{point.title}</h3>
+                    <p className="text-base leading-relaxed text-muted-foreground">
                       {point.description}
                     </p>
                   </motion.article>
