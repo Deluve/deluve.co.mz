@@ -39,6 +39,10 @@ export const metadata: Metadata = {
     description:
       "Deluve is a software development company that provides software development services to businesses and organizations.",
     siteName: "Deluve",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
