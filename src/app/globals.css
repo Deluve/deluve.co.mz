@@ -196,3 +196,8 @@
   }
 
 }
+
+/* Keep anchor targets clear of the fixed header */
+html {
+  scroll-padding-top: 5rem;
+}

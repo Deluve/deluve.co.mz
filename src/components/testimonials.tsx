@@ -51,17 +51,9 @@ export default function Testimonials() {
     <section id="testimonials" className="relative overflow-hidden bg-background py-10 md:py-24">
       <div className="pointer-events-none absolute inset-0">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
           className="absolute -left-20 top-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl"
         />
         <motion.div
-          initial={{ opacity: 0, scale: 1.05 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, delay: 0.1 }}
           className="absolute -bottom-24 right-0 h-80 w-80 rounded-full bg-primary/5 blur-3xl"
         />
       </div>
@@ -111,9 +103,6 @@ export default function Testimonials() {
                 {testimonials.slice(0, 2).map((testimonial, index) => (
                   <ScrollView key={testimonial.name} delay={index * 0.05}>
                     <motion.div
-                      initial={{ opacity: 0, y: 16 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
                       whileHover={{ y: -2 }}
                       className="w-full"
                     >
@@ -162,9 +151,6 @@ export default function Testimonials() {
               {testimonials.map((testimonial, index) => (
                 <ScrollView key={testimonial.name} delay={index * 0.08}>
                   <motion.div
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
                     whileHover={{ y: -4 }}
                     className={testimonial.featured ? "md:col-span-2" : ""}
                   >

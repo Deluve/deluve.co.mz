@@ -95,19 +95,12 @@ export default function PortfolioSection() {
     <section id="cases" className="relative overflow-hidden bg-background py-16 md:py-24">
       <div className="pointer-events-none absolute inset-0">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
           className="absolute -bottom-40 left-1/4 h-96 w-96 rounded-full bg-primary/8 blur-3xl"
         />
       </div>
 
       <div className="container mx-auto relative z-10 px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="mb-16"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
@@ -133,10 +126,6 @@ export default function PortfolioSection() {
                   <motion.button
                     key={item.title}
                     onClick={() => setSelected(i)}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05, duration: 0.45 }}
                     whileHover={{ y: -5, scale: 1.01 }}
                     className={`group relative cursor-pointer overflow-hidden rounded-2xl border p-5 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${itemAccent.ring} ${
                       isActive
@@ -241,10 +230,6 @@ export default function PortfolioSection() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.15, duration: 0.4 }}
           className="mt-12 flex justify-center"
         >
           <a

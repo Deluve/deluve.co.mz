@@ -11,7 +11,7 @@ export default function AboutSection() {
         <div className="text-center mb-16">
           <ScrollView>
             <Badge variant="secondary" className="mb-4 text-sm font-medium bg-blue-500/10 text-blue-600 border-blue-500/20">
-              Est. 2023
+              Est. 2024
             </Badge>
           </ScrollView>
           <ScrollView delay={0.1}>

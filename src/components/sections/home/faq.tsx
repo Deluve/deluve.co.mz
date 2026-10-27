@@ -50,9 +50,6 @@ export default function FAQSection() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-5">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
             >
               <span className="text-xs font-semibold text-primary uppercase tracking-[0.3em]">FAQ</span>
               <h2 className="text-4xl md:text-5xl font-semibold text-foreground mt-4 leading-[1.1]">
@@ -67,18 +64,11 @@ export default function FAQSection() {
 
           <div className="lg:col-span-7">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
             >
               <Accordion type="single" collapsible className="space-y-3">
                 {faqs.map((faq, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    viewport={{ once: true }}
                     className="group relative"
                   >
                     <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-primary/20 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />

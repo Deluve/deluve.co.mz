@@ -1,0 +1,12 @@
+# Favicon Deluve
+
+Ícone quadrado com monograma D em branco e azul sobre fundo carvão, em linha com a identidade visual de Deluve.
+
+## Arquivos
+- `favicon.ico`: favicon multi-resolução para navegadores.
+- `favicon-16.png` e `favicon-32.png`: tamanhos PNG para navegadores.
+- `favicon-192.png` e `favicon-512.png`: ícones para Android/PWA.
+- `apple-touch-icon.png`: ícone de 180 × 180 px para iOS.
+
+## Instalação
+Substitua o favicon atual do projeto por `favicon.ico` e, se necessário, publique os PNGs na pasta pública do site. Em um projeto Next.js com App Router, substitua `app/favicon.ico` (ou o caminho usado pelo projeto). A publicação do site não foi feita.

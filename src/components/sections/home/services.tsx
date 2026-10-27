@@ -10,26 +10,15 @@ export default function ServicesSection2() {
     <section id="services" className="relative overflow-hidden bg-background py-16 md:py-24">
       <div className="pointer-events-none absolute inset-0">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
           className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-primary/10 blur-3xl"
         />
         <motion.div
-          initial={{ opacity: 0, scale: 1.1 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, delay: 0.1 }}
           className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-primary/5 blur-3xl"
         />
       </div>
 
       <div className="container mx-auto relative px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
         >
           <div>
@@ -49,10 +38,6 @@ export default function ServicesSection2() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.05 }}
           className="mb-16 overflow-hidden rounded-[2rem] border border-blue-500/15 bg-card shadow-sm"
         >
           <div className="grid grid-cols-1 lg:grid-cols-5">
@@ -92,10 +77,6 @@ export default function ServicesSection2() {
               key={service.title}
               href={`/services#${service.id}`}
               aria-label={`Explore ${service.title}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05, duration: 0.5 }}
               whileHover={{ y: -6, scale: 1.02 }}
               className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:col-span-3"
             >
