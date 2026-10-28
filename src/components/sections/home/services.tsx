@@ -93,7 +93,7 @@ export default function ServicesSection2() {
               </div>
 
               <div className="relative z-10">
-                <span className="mb-4 inline-flex items-center rounded-full border border-blue-500/20 bg-blue-500/8 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-blue-700">
+                <span className="mb-4 inline-flex max-w-full items-center rounded-full border border-blue-500/20 bg-blue-500/8 px-3 py-1.5 text-[10px] font-semibold uppercase leading-relaxed tracking-[0.1em] text-blue-700 sm:text-[11px] sm:tracking-[0.25em]">
                   {service.tags.join(" • ")}
                 </span>
                 <h3 className="mb-3 text-xl font-semibold text-foreground md:text-2xl">
