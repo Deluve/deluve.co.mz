@@ -63,7 +63,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     service: "product-development",
     sector: "Services",
     technologies: ["Next.js", "Node.js", "Stripe"],
-    image: "/images/portfolio/myturn.png",
   },
 ];
 
@@ -93,7 +92,7 @@ export const PORTFOLIO_CONTENT = [
     name: "Appointment Booking Platform",
     description:
       "Seamless appointment scheduling platform with real-time booking, rescheduling, automated reminders and calendar sync.",
-    img: "/images/portfolio/myturn.png",
+    img: "/images/portfolio/appointment.jpg",
     url: "#",
   },
 ];
