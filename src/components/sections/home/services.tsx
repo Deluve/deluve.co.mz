@@ -43,7 +43,7 @@ export default function ServicesSection2() {
           <div className="grid grid-cols-1 lg:grid-cols-5">
             <div className="relative min-h-[320px] lg:col-span-3">
               <Image
-                src="/images/team_collab.jpg"
+                src="/images/team_collab.png"
                 alt="Creative work and product delivery"
                 fill
                 sizes="(min-width: 1280px) 739px, (min-width: 1024px) 60vw, calc(100vw - 3rem)"
