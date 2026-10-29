@@ -188,7 +188,7 @@ const translations = {
     
     // Hero
     'hero.badge': 'Technology partner for businesses',
-    'hero.title': 'We build the software that makes your business',
+    'hero.title': 'We build solutions that make your business',
     'hero.titleAccent': 'grow.',
     'hero.mock.title': 'Operations dashboard',
     'hero.mock.kpi1': 'Orders processed',

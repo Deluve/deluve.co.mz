@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { Users, TrendingUp, Award, Search, Code, Rocket } from "lucide-react"
+import { Users, TrendingUp, Award } from "lucide-react"
 import { ScrollView } from "@/components/scroll-view"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -21,33 +21,6 @@ export default function WhyChooseUsAndProcess() {
       icon: <TrendingUp className="h-6 w-6 text-blue-500" />,
       title: "Efficient Execution",
       description: "Lean workflows and fewer handoffs mean we focus on progress, not bureaucracy.",
-    },
-  ]
-
-  const steps = [
-    {
-      number: "01",
-      icon: <Search className="h-6 w-6 text-blue-500" />,
-      title: "Discovery & Strategy",
-      description: "Clear direction before we build. We validate your idea and map out a strategy that aligns perfectly with your business goals. your business",
-    },
-    {
-      number: "02",
-      icon: <Code className="h-6 w-6 text-blue-500" />,
-      title: "Custom Development",
-      description: "Built for your exact needs. No bloated features. We engineer scalable solutions tailored specifically to solve your unique challenges.",
-    },
-    {
-      number: "03",
-      icon: <Rocket className="h-6 w-6 text-blue-500" />,
-      title: "Launch & Testing",
-      description: "Flawless execution. We deploy, test rigorously with real users, and refine every detail to ensure a seamless launch.",
-    },
-    {
-      number: "04",
-      icon: <TrendingUp className="h-6 w-6 text-blue-500" />,
-      title: "Growth & Scale",
-      description: "Ready to scale. We optimize performance and continuously evolve your product so it grows as fast as your business does.",
     },
   ]
 
@@ -96,7 +69,7 @@ export default function WhyChooseUsAndProcess() {
               <div className="relative min-h-[540px] overflow-hidden rounded-[2.25rem] border border-border bg-card shadow-xl">
                 <div className="absolute inset-0">
                   <Image
-                    src="/images/get_together.jpg"
+                    src="/images/get_together.png"
                     alt="Team celebrating a project milestone"
                     fill
                     sizes="(min-width: 1280px) 720px, (min-width: 1024px) 58vw, calc(100vw - 3rem)"
@@ -114,41 +87,6 @@ export default function WhyChooseUsAndProcess() {
                 </div>
               </div>
             </ScrollView>
-          </div>
-        </div>
-
-        <div className="mt-10 border-t border-border pt-10">
-          <div className="mb-10">
-            <ScrollView delay={0.05}>
-              <h3 className="text-3xl font-semibold text-foreground mb-4">
-                How we work
-              </h3>
-            </ScrollView>
-            <ScrollView delay={0.1}>
-              <p className="text-lg text-muted-foreground max-w-2xl">
-                A clear, four-step framework designed to take you from idea to impact without the guesswork.
-
-              </p>
-            </ScrollView>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            {steps.map((step, index) => (
-              <ScrollView key={index} delay={index * 0.08}>
-                <div className="flex items-start gap-4 rounded-2xl border border-border bg-card px-5 py-5 shadow-sm">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-500/10 ring-1 ring-blue-500/10">
-                    {step.icon}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="mb-2 flex items-center gap-3">
-                      <span className="text-sm font-semibold text-blue-500">{step.number}</span>
-                      <h4 className="font-semibold text-foreground">{step.title}</h4>
-                    </div>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
-                  </div>
-                </div>
-              </ScrollView>
-            ))}
           </div>
         </div>
 
