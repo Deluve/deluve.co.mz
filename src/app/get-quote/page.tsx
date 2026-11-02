@@ -9,12 +9,16 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Badge } from "@/components/ui/badge"
-import { useLanguage } from "@/contexts/language-context"
 import { CheckCircle, ArrowRight, Sparkles } from "lucide-react"
 import Link from "next/link"
 
+function getBudgetPeriod(projectType: string) {
+  if (projectType === "maintenance") return "month"
+  if (projectType === "consulting") return "hour"
+  return "project"
+}
+
 export default function GetQuotePage() {
-  const { t } = useLanguage()
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -24,42 +28,67 @@ export default function GetQuotePage() {
     email: "",
     phone: "",
     company: "",
-    position: "",
-    website: "",
     projectType: "",
     services: [] as string[],
     budget: "",
     timeline: "",
     description: "",
-    competitorWebsites: "",
     targetAudience: "",
     goals: "",
     preferredContact: "",
-    hearAboutUs: "",
     agreeToTerms: false,
     subscribeNewsletter: false,
   })
 
-  const totalSteps = 4
+  const totalSteps = 3
 
   const steps = [
     { number: 1, title: "Contact details" },
     { number: 2, title: "Project brief" },
-    { number: 3, title: "Optional context" },
-    { number: 4, title: "Review & send" },
+    { number: 3, title: "Review & send" },
   ]
 
-  const budgetRanges = [
-    { value: "300k-900k-mzn", label: "MZN 300,000 – 900,000 (approx.)" },
-    { value: "900k-1.8m-mzn", label: "MZN 900,000 – 1,800,000 (approx.)" },
-    { value: "1.8m-3m-mzn", label: "MZN 1,800,000 – 3,000,000 (approx.)" },
-    { value: "3m-6m-mzn", label: "MZN 3,000,000 – 6,000,000 (approx.)" },
-    { value: "6m+-mzn", label: "MZN 6,000,000+ (approx.)" },
+  const projectBudgetRanges = [
+    { value: "25k-50k-mzn", label: "MZN 25,000 – 50,000" },
+    { value: "50k-100k-mzn", label: "MZN 50,000 – 100,000" },
+    { value: "100k-250k-mzn", label: "MZN 100,000 – 250,000" },
+    { value: "250k-plus-mzn", label: "Above MZN 250,000" },
     { value: "discuss", label: "Prefer to discuss" },
   ]
 
+  const maintenanceBudgetRanges = [
+    { value: "monthly-up-to-10k-mzn", label: "Up to MZN 10,000/month" },
+    { value: "monthly-10k-25k-mzn", label: "MZN 10,000 – 25,000/month" },
+    { value: "monthly-25k-plus-mzn", label: "Above MZN 25,000/month" },
+    { value: "monthly-discuss", label: "Prefer to discuss" },
+  ]
+
+  const consultingBudgetRanges = [
+    { value: "hourly-500-750-mzn", label: "MZN 500 – 750/hour (basic services)" },
+    { value: "hourly-750-1200-mzn", label: "MZN 750 – 1,200/hour" },
+    { value: "hourly-1200-2500-mzn", label: "MZN 1,200 – 2,500/hour (specialized)" },
+    { value: "hourly-2500-plus-mzn", label: "Above MZN 2,500/hour" },
+    { value: "hourly-discuss", label: "Prefer to discuss" },
+  ]
+
+  const budgetRanges = formData.projectType === "maintenance"
+    ? maintenanceBudgetRanges
+    : formData.projectType === "consulting"
+      ? consultingBudgetRanges
+      : projectBudgetRanges
+
   const handleInputChange = (field: string, value: string | boolean | string[]) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
+    setFormData((prev) => {
+      const next = { ...prev, [field]: value }
+      if (
+        field === "projectType" &&
+        typeof value === "string" &&
+        getBudgetPeriod(prev.projectType) !== getBudgetPeriod(value)
+      ) {
+        next.budget = ""
+      }
+      return next
+    })
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: "" }))
     }
@@ -89,7 +118,7 @@ export default function GetQuotePage() {
       if (formData.description.length < 50) newErrors.description = "Please provide more details (minimum 50 characters)"
     }
 
-    if (step === 4) {
+    if (step === 3) {
       if (!formData.agreeToTerms) newErrors.agreeToTerms = "You must agree to the terms and conditions"
     }
 
@@ -139,21 +168,21 @@ export default function GetQuotePage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 flex items-center justify-center px-6">
-        <Card className="max-w-md w-full border-slate-200 hover:border-blue-300 transition-colors shadow-2xl bg-card">
+      <div className="flex min-h-screen items-center justify-center bg-background px-6">
+        <Card className="w-full max-w-md border-border bg-card shadow-sm">
           <CardContent className="p-8 text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-400/20">
-              <CheckCircle className="w-8 h-8 text-white" />
+            <div className="mx-auto mb-5 flex size-16 items-center justify-center rounded-full bg-blue-500/10 text-blue-700">
+              <CheckCircle className="size-8" />
             </div>
-            <h1 className="text-2xl font-bold mb-3 text-foreground">Quote Request Received!</h1>
-            <p className="text-muted-foreground mb-6 text-sm">
+            <h1 className="mb-3 text-2xl font-semibold tracking-tight text-foreground">Quote Request Received!</h1>
+            <p className="mb-6 text-sm leading-7 text-muted-foreground">
               Thank you for your interest. We&apos;ll review your project details and get back to you within 24 hours.
             </p>
             <div className="space-y-3">
-              <Button asChild className="w-full bg-blue-700 hover:bg-blue-800 text-white shadow-lg shadow-blue-400/20">
+              <Button asChild className="w-full">
                 <Link href="/">Back to Homepage</Link>
               </Button>
-              <Button asChild variant="outline" className="w-full border-slate-200 hover:border-blue-300 hover:bg-blue-500/10 text-blue-700 hover:text-blue-800">
+              <Button asChild variant="outline" className="w-full">
                 <Link href="/portfolio">View Our Work</Link>
               </Button>
             </div>
@@ -169,7 +198,7 @@ export default function GetQuotePage() {
         return (
           <div className="space-y-6">
             <div>
-              <Label htmlFor="name" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
+              <Label htmlFor="name" className="mb-2 block font-medium text-foreground">
                 Full Name *
               </Label>
               <Input
@@ -177,14 +206,14 @@ export default function GetQuotePage() {
                 type="text"
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
-                className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
+                className="border-border bg-background focus-visible:border-blue-600 focus-visible:ring-blue-600/20"
                 placeholder="John Doe"
               />
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
 
             <div>
-              <Label htmlFor="email" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
+              <Label htmlFor="email" className="mb-2 block font-medium text-foreground">
                 Business Email *
               </Label>
               <Input
@@ -192,44 +221,14 @@ export default function GetQuotePage() {
                 type="email"
                 value={formData.email}
                 onChange={(e) => handleInputChange("email", e.target.value)}
-                className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
+                className="border-border bg-background focus-visible:border-blue-600 focus-visible:ring-blue-600/20"
                 placeholder="john@company.com"
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <Label htmlFor="phone" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
-                  Phone Number
-                </Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => handleInputChange("phone", e.target.value)}
-                  className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
-                  placeholder="+258 84 123 4567"
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="position" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
-                  Your Position
-                </Label>
-                <Input
-                  id="position"
-                  type="text"
-                  value={formData.position}
-                  onChange={(e) => handleInputChange("position", e.target.value)}
-                  className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
-                  placeholder="CEO, CTO, Manager..."
-                />
-              </div>
-            </div>
-
             <div>
-              <Label htmlFor="company" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
+              <Label htmlFor="company" className="mb-2 block font-medium text-foreground">
                 Company / Organization *
               </Label>
               <Input
@@ -237,23 +236,23 @@ export default function GetQuotePage() {
                 type="text"
                 value={formData.company}
                 onChange={(e) => handleInputChange("company", e.target.value)}
-                className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
+                className="border-border bg-background focus-visible:border-blue-600 focus-visible:ring-blue-600/20"
                 placeholder="Your company or organization"
               />
               {errors.company && <p className="text-red-500 text-sm mt-1">{errors.company}</p>}
             </div>
 
             <div>
-              <Label htmlFor="website" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
-                Current Website
+              <Label htmlFor="phone" className="mb-2 block font-medium text-foreground">
+                Phone Number <span className="font-normal text-muted-foreground">(optional)</span>
               </Label>
               <Input
-                id="website"
-                type="url"
-                value={formData.website}
-                onChange={(e) => handleInputChange("website", e.target.value)}
-                className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
-                placeholder="https://yourcompany.com"
+                id="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={(e) => handleInputChange("phone", e.target.value)}
+                className="border-border bg-background focus-visible:border-blue-600 focus-visible:ring-blue-600/20"
+                placeholder="+258 84 123 4567"
               />
             </div>
           </div>
@@ -263,11 +262,11 @@ export default function GetQuotePage() {
         return (
           <div className="space-y-6">
             <div>
-              <Label htmlFor="projectType" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
+              <Label htmlFor="projectType" className="mb-2 block font-medium text-foreground">
                 Primary Project Type *
               </Label>
               <Select value={formData.projectType} onValueChange={(value) => handleInputChange("projectType", value)}>
-                <SelectTrigger className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10">
+                <SelectTrigger className="border-border bg-background focus:border-blue-600 focus:ring-blue-600/20">
                   <SelectValue placeholder="Select your main project type" />
                 </SelectTrigger>
                 <SelectContent>
@@ -285,11 +284,11 @@ export default function GetQuotePage() {
               {errors.projectType && <p className="text-red-500 text-sm mt-1">{errors.projectType}</p>}
             </div>
 
-            <div>
-              <Label className="text-slate-700 dark:text-slate-300 font-medium mb-3 block">
-                Additional Services Needed
-              </Label>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <fieldset>
+              <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+                <legend className="text-sm font-medium text-foreground">Additional Services (optional)</legend>
+              </div>
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 sm:gap-3">
                 {[
                   "UI/UX Design",
                   "SEO Optimization",
@@ -304,36 +303,36 @@ export default function GetQuotePage() {
                   "Database Design",
                   "Cloud Hosting Setup",
                 ].map((service) => (
-                  <div
+                  <Label
                     key={service}
-                    className={`p-3 rounded-lg border-2 transition-all ${
+                    className={`flex min-h-14 cursor-pointer items-center gap-3 rounded-xl border px-3 py-3 text-sm transition-colors ${
                       formData.services.includes(service)
-                        ? "border-blue-500 bg-blue-50 dark:bg-blue-900/20 shadow-md shadow-blue-500/20"
-                        : "border-slate-200 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-600 hover:bg-blue-50/50 dark:hover:bg-blue-900/10"
+                        ? "border-blue-600/50 bg-blue-500/5"
+                        : "border-border bg-background hover:border-blue-500/40 hover:bg-muted/40"
                     }`}
                   >
-                    <div className="flex items-center space-x-2">
-                      <Checkbox
-                        id={service}
-                        checked={formData.services.includes(service)}
-                        onCheckedChange={() => handleServiceToggle(service)}
-                      />
-                      <Label htmlFor={service} className="text-sm cursor-pointer" onClick={() => handleServiceToggle(service)}>
-                        {service}
-                      </Label>
-                    </div>
-                  </div>
+                    <Checkbox
+                      id={`service-${service}`}
+                      checked={formData.services.includes(service)}
+                      onCheckedChange={() => handleServiceToggle(service)}
+                    />
+                    <span>{service}</span>
+                  </Label>
                 ))}
               </div>
-            </div>
+            </fieldset>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-5 rounded-2xl border border-border bg-muted/20 p-4 sm:grid-cols-2 sm:gap-6 sm:p-5">
               <div>
-                <Label htmlFor="budget" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
-                  Indicative Project Budget (MZN)
+                <Label htmlFor="budget" className="mb-2 block font-medium text-foreground">
+                  {formData.projectType === "maintenance"
+                    ? "What monthly budget do you expect? (MZN)"
+                    : formData.projectType === "consulting"
+                      ? "What hourly budget do you expect? (MZN)"
+                      : "What budget do you expect for this project? (MZN)"}
                 </Label>
                 <Select value={formData.budget} onValueChange={(value) => handleInputChange("budget", value)}>
-                  <SelectTrigger className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10">
+                  <SelectTrigger className="border-border bg-background focus:border-blue-600 focus:ring-blue-600/20">
                     <SelectValue placeholder="Select budget range" />
                   </SelectTrigger>
                   <SelectContent>
@@ -344,18 +343,14 @@ export default function GetQuotePage() {
                     ))}
                   </SelectContent>
                 </Select>
-                <p className="mt-2 text-xs text-muted-foreground">
-                  Approximate conversions of the previous USD ranges (about
-                  MZN 60 per USD). The final proposal depends on project scope.
-                </p>
               </div>
 
               <div>
-                <Label htmlFor="timeline" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
+                <Label htmlFor="timeline" className="mb-2 block font-medium text-foreground">
                   Desired Timeline
                 </Label>
                 <Select value={formData.timeline} onValueChange={(value) => handleInputChange("timeline", value)}>
-                  <SelectTrigger className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10">
+                  <SelectTrigger className="border-border bg-background focus:border-blue-600 focus:ring-blue-600/20">
                     <SelectValue placeholder="Select timeline" />
                   </SelectTrigger>
                   <SelectContent>
@@ -371,7 +366,7 @@ export default function GetQuotePage() {
             </div>
 
             <div>
-              <Label htmlFor="description" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
+              <Label htmlFor="description" className="mb-2 block font-medium text-foreground">
                 Project Description *
               </Label>
               <Textarea
@@ -380,134 +375,118 @@ export default function GetQuotePage() {
                 maxLength={500}
                 onChange={(e) => handleInputChange("description", e.target.value)}
                 placeholder="Please describe your project in detail..."
-                className="min-h-[150px] bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
+                className="min-h-[130px] border-border bg-background focus-visible:border-blue-600 focus-visible:ring-blue-600/20"
               />
               <div className="flex justify-between items-center mt-2">
                 {errors.description && <p className="text-red-500 text-sm">{errors.description}</p>}
                 <p className="text-xs text-slate-500 ml-auto">{formData.description.length}/500 characters</p>
               </div>
             </div>
+
+            <details className="group rounded-xl border border-border">
+              <summary className="cursor-pointer list-none px-4 py-3 text-sm font-medium text-foreground marker:hidden">
+                Add optional project context
+                <span className="float-right text-muted-foreground transition-transform group-open:rotate-180" aria-hidden="true">
+                  ↓
+                </span>
+              </summary>
+              <div className="space-y-5 border-t border-border p-4">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                  <div>
+                    <Label htmlFor="targetAudience" className="mb-2 block font-medium text-foreground">
+                      Target Audience
+                    </Label>
+                    <Textarea
+                      id="targetAudience"
+                      value={formData.targetAudience}
+                      onChange={(e) => handleInputChange("targetAudience", e.target.value)}
+                      maxLength={2000}
+                      placeholder="Who is your target audience?"
+                      className="min-h-[100px] border-border bg-background focus-visible:border-blue-600 focus-visible:ring-blue-600/20"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="goals" className="mb-2 block font-medium text-foreground">
+                      Business Goals
+                    </Label>
+                    <Textarea
+                      id="goals"
+                      value={formData.goals}
+                      onChange={(e) => handleInputChange("goals", e.target.value)}
+                      maxLength={2000}
+                      placeholder="What do you want to achieve?"
+                      className="min-h-[100px] border-border bg-background focus-visible:border-blue-600 focus-visible:ring-blue-600/20"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <Label htmlFor="preferredContact" className="mb-2 block font-medium text-foreground">
+                    Preferred Contact Method
+                  </Label>
+                  <Select
+                    value={formData.preferredContact}
+                    onValueChange={(value) => handleInputChange("preferredContact", value)}
+                  >
+                    <SelectTrigger className="border-border bg-background focus:border-blue-600 focus:ring-blue-600/20">
+                      <SelectValue placeholder="How should we contact you?" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="email">Email</SelectItem>
+                      <SelectItem value="phone">Phone Call</SelectItem>
+                      <SelectItem value="video">Video Call</SelectItem>
+                      <SelectItem value="meeting">In-person Meeting</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </details>
           </div>
         )
 
       case 3:
         return (
           <div className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4 rounded-xl border border-border bg-muted/40 p-6">
               <div>
-                <Label htmlFor="targetAudience" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
-                  Target Audience
-                </Label>
-                <Textarea
-                  id="targetAudience"
-                  value={formData.targetAudience}
-                  onChange={(e) => handleInputChange("targetAudience", e.target.value)}
-                  placeholder="Who is your target audience?"
-                  className="min-h-[100px] bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
-                />
-              </div>
-
-              <div>
-                <Label htmlFor="goals" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
-                  Business Goals
-                </Label>
-                <Textarea
-                  id="goals"
-                  value={formData.goals}
-                  onChange={(e) => handleInputChange("goals", e.target.value)}
-                  placeholder="What do you want to achieve?"
-                  className="min-h-[100px] bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
-                />
-              </div>
-            </div>
-
-            <div>
-              <Label htmlFor="competitorWebsites" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
-                Competitor/Inspiration Websites
-              </Label>
-              <Textarea
-                id="competitorWebsites"
-                value={formData.competitorWebsites}
-                onChange={(e) => handleInputChange("competitorWebsites", e.target.value)}
-                placeholder="Share URLs of websites you like..."
-                className="min-h-[80px] bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <Label htmlFor="preferredContact" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
-                  Preferred Contact Method
-                </Label>
-                <Select
-                  value={formData.preferredContact}
-                  onValueChange={(value) => handleInputChange("preferredContact", value)}
-                >
-                  <SelectTrigger className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10">
-                    <SelectValue placeholder="How should we contact you?" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="email">Email</SelectItem>
-                    <SelectItem value="phone">Phone Call</SelectItem>
-                    <SelectItem value="video">Video Call</SelectItem>
-                    <SelectItem value="meeting">In-person Meeting</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div>
-                <Label htmlFor="hearAboutUs" className="text-slate-700 dark:text-slate-300 font-medium mb-2 block">
-                  How did you hear about us?
-                </Label>
-                <Select value={formData.hearAboutUs} onValueChange={(value) => handleInputChange("hearAboutUs", value)}>
-                  <SelectTrigger className="bg-background/50 backdrop-blur-sm border-blue-500/10 focus:border-blue-400/20 focus:ring-blue-400/10">
-                    <SelectValue placeholder="Select source" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="google">Google Search</SelectItem>
-                    <SelectItem value="referral">Referral</SelectItem>
-                    <SelectItem value="social">Social Media</SelectItem>
-                    <SelectItem value="linkedin">LinkedIn</SelectItem>
-                    <SelectItem value="portfolio">Portfolio/Website</SelectItem>
-                    <SelectItem value="event">Event/Conference</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </div>
-          </div>
-        )
-
-      case 4:
-        return (
-          <div className="space-y-6">
-            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-6 space-y-4 border border-slate-200 dark:border-slate-800">
-              <div>
-                <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Contact Information</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <h3 className="mb-2 font-semibold text-foreground">Contact Information</h3>
+                <p className="text-sm text-muted-foreground">
                   {formData.name} • {formData.email}
                   <br />
                   {formData.company}
+                  {formData.phone && (
+                    <>
+                      <br />
+                      {formData.phone}
+                    </>
+                  )}
                 </p>
               </div>
 
-              <div className="border-t border-slate-200 dark:border-slate-800 pt-4">
-                <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Project Details</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+              <div className="border-t border-border pt-4">
+                <h3 className="mb-2 font-semibold text-foreground">Project Details</h3>
+                <p className="text-sm text-muted-foreground">
                   Type: {formData.projectType || "Not specified"}
                   <br />
                   Budget: {budgetRanges.find((range) => range.value === formData.budget)?.label || "Not specified"}
                   <br />
                   Timeline: {formData.timeline || "Not specified"}
+                  {formData.preferredContact && (
+                    <>
+                      <br />
+                      Contact preference: {formData.preferredContact}
+                    </>
+                  )}
                 </p>
               </div>
 
               {formData.services.length > 0 && (
-                <div className="border-t border-slate-200 dark:border-slate-800 pt-4">
-                  <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Additional Services</h3>
+                <div className="border-t border-border pt-4">
+                  <h3 className="mb-2 font-semibold text-foreground">Additional Services</h3>
                   <div className="flex flex-wrap gap-2">
                     {formData.services.map((service) => (
-                      <Badge key={service} variant="secondary" className="bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300 border-blue-200 dark:border-blue-700">
+                      <Badge key={service} variant="secondary" className="border-blue-500/20 bg-blue-500/5 text-blue-700">
                         {service}
                       </Badge>
                     ))}
@@ -523,7 +502,7 @@ export default function GetQuotePage() {
                   checked={formData.agreeToTerms}
                   onCheckedChange={(checked: boolean | "indeterminate") => handleInputChange("agreeToTerms", checked === true)}
                 />
-                <Label htmlFor="agreeToTerms" className="text-sm text-slate-600 dark:text-slate-400 cursor-pointer">
+                <Label htmlFor="agreeToTerms" className="cursor-pointer text-sm text-muted-foreground">
                   I agree to the{" "}
                   <Link href="/terms" className="text-blue-600 hover:underline">
                     Terms of Service
@@ -541,17 +520,19 @@ export default function GetQuotePage() {
                 <Checkbox
                   id="subscribeNewsletter"
                   checked={formData.subscribeNewsletter}
-                  onCheckedChange={(checked: boolean | "indeterminate") => handleInputChange("subscribeNewsletter", checked === true)}
+                  onCheckedChange={(checked: boolean | "indeterminate") =>
+                    handleInputChange("subscribeNewsletter", checked === true)
+                  }
                 />
-                <Label htmlFor="subscribeNewsletter" className="text-sm text-slate-600 dark:text-slate-400 cursor-pointer">
+                <Label htmlFor="subscribeNewsletter" className="cursor-pointer text-sm text-muted-foreground">
                   Subscribe to our newsletter for updates
                 </Label>
               </div>
             </div>
 
             {errors.submit && (
-              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
-                <p className="text-red-600 dark:text-red-400 text-sm">{errors.submit}</p>
+              <div className="rounded-lg border border-destructive/20 bg-destructive/5 p-4">
+                <p className="text-sm text-destructive">{errors.submit}</p>
               </div>
             )}
           </div>
@@ -563,32 +544,31 @@ export default function GetQuotePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.05] via-transparent to-blue-600/[0.03] blur-3xl" />
-      
-      <div className="relative z-10 container mx-auto px-6 py-12">
-        <div className="max-w-5xl mx-auto">
+    <main className="relative min-h-screen overflow-hidden bg-background">
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[linear-gradient(to_right,rgb(148_163_184/0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgb(148_163_184/0.1)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_top,black_25%,transparent_70%)]"
+      />
+      <div aria-hidden className="absolute -top-40 left-1/2 h-96 w-[48rem] -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" />
+
+      <div className="container relative z-10 mx-auto px-6 pb-16 pt-28 md:pb-24 md:pt-36">
+        <div className="mx-auto max-w-4xl">
           {/* Header */}
-          <div className="text-center mb-12 pt-12">
-            <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/5 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-blue-700">
-              <Sparkles className="h-3.5 w-3.5" />
+          <div className="mx-auto mb-10 max-w-3xl text-center md:mb-12">
+            <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-white/80 px-3 py-1 text-xs font-medium text-blue-700 backdrop-blur">
+              <Sparkles className="size-3.5" />
               Start a conversation
             </span>
-            <h1 className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-foreground">
+            <h1 className="mt-6 text-4xl font-semibold leading-[1.1] tracking-tight text-balance text-foreground sm:text-5xl lg:text-6xl">
               Let&apos;s solve your next{" "}
               <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 bg-clip-text text-transparent">
                 digital challenge.
               </span>
             </h1>
-            <p className="mt-5 text-base md:text-lg leading-7 text-muted-foreground max-w-2xl mx-auto">
-              Tell us what you&apos;re working toward. A clear brief helps us
-              understand the challenge and shape the right solution.
-            </p>
           </div>
 
           <div
-            className="mb-8 rounded-2xl border border-border/80 bg-card p-5 md:p-6"
+            className="mb-6 rounded-2xl border border-border bg-card p-4 shadow-sm sm:p-5 md:mb-8 md:p-6"
             aria-label={`Form progress: step ${currentStep} of ${totalSteps}`}
           >
             <div className="flex items-center justify-between gap-4">
@@ -612,7 +592,7 @@ export default function GetQuotePage() {
                 style={{ width: `${(currentStep / totalSteps) * 100}%` }}
               />
             </div>
-            <div className="mt-4 grid grid-cols-4 gap-2">
+            <div className="mt-4 grid grid-cols-3 gap-2">
               {steps.map((step) => (
                 <div
                   key={step.number}
@@ -629,123 +609,56 @@ export default function GetQuotePage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            {/* Left Sidebar - Steps */}
-            <div className="hidden lg:block lg:col-span-4">
-              <div className="bg-card/70 backdrop-blur-sm rounded-2xl border border-blue-500/15 p-6 sticky top-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
-                  A useful first brief
-                </p>
-                <h2 className="mt-4 text-xl font-semibold text-foreground">
-                  Start with the essentials.
-                </h2>
-                <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                  Your name, business email, company, project type, and a short
-                  description are enough to get the conversation started.
-                </p>
-                <div className="mt-6 rounded-xl border border-blue-500/10 bg-blue-500/5 p-4">
-                  <p className="text-sm font-medium text-foreground">
-                    The rest is optional.
-                  </p>
-                  <p className="mt-1 text-xs leading-5 text-muted-foreground">
-                    Budget, timing, and extra context help us tailor our
-                    response, but you can skip them.
-                  </p>
+          <div>
+            <Card className="rounded-2xl border-border bg-card shadow-sm">
+              <CardContent className="p-5 sm:p-8 lg:p-10">
+                <div className="mb-6">
+                  <h2 className="mb-2 text-2xl font-semibold tracking-tight text-foreground">
+                    {steps[currentStep - 1].title}
+                  </h2>
                 </div>
-                <p className="mt-5 text-xs leading-5 text-muted-foreground">
-                  Your information is handled according to our{" "}
-                  <Link
-                    href="/privacy"
-                    className="font-medium text-blue-700 hover:underline"
-                  >
-                    Privacy Policy
-                  </Link>
-                  .
-                </p>
-              </div>
-            </div>
 
-            {/* Right Content - Form */}
-            <div className="lg:col-span-8">
-              <Card className="border-blue-500/10 hover:border-blue-400/20 transition-colors shadow-xl bg-card/50 backdrop-blur-sm">
-                <CardContent className="p-8 md:p-12">
-                  <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-foreground mb-2">
-                      {steps[currentStep - 1].title}
-                    </h2>
-                    <p className="text-muted-foreground">
-                      {currentStep === 1 &&
-                        "Name, business email, and company are required. Phone, role, and website are optional."}
-                      {currentStep === 2 &&
-                        "Project type and a 50-character description are required. Services, budget, and timing are optional."}
-                      {currentStep === 3 &&
-                        "Everything on this step is optional. Share only what will help us understand your goals."}
-                      {currentStep === 4 &&
-                        "Check your details and confirm your request."}
-                    </p>
-                  </div>
+                <form onSubmit={handleSubmit}>
+                  {renderStepContent()}
 
-                  <form onSubmit={handleSubmit}>
-                    {renderStepContent()}
+                  <div className="mt-10 flex justify-between border-t border-border pt-6">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setCurrentStep((prev) => Math.max(prev - 1, 1))}
+                      disabled={currentStep === 1}
+                      className="border-border text-foreground hover:bg-muted"
+                    >
+                      Back
+                    </Button>
 
-                    <div className="flex justify-between mt-10 pt-8 border-t border-blue-500/10">
-                      <Button
-                        type="button"
-                        variant="outline"
-                        onClick={() => setCurrentStep((prev) => Math.max(prev - 1, 1))}
-                        disabled={currentStep === 1}
-                        className="border-blue-500/10 hover:border-blue-400/20 hover:bg-blue-500/5 text-blue-400 hover:text-blue-300"
-                      >
-                        Back
+                    {currentStep < totalSteps ? (
+                      <Button type="button" onClick={handleNext}>
+                        Continue
+                        <ArrowRight className="ml-2 size-4" />
                       </Button>
-
-                      {currentStep < totalSteps ? (
-                        <Button
-                          type="button"
-                          onClick={handleNext}
-                          className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40"
-                        >
-                          Continue
-                          <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
-                      ) : (
-                        <Button
-                          type="submit"
-                          disabled={isSubmitting}
-                          className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 disabled:opacity-50"
-                        >
-                          {isSubmitting ? (
-                            <>
-                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                              Submitting...
-                            </>
-                          ) : (
-                            <>
-                              Submit Quote Request
-                              <ArrowRight className="w-4 h-4 ml-2" />
-                            </>
-                          )}
-                        </Button>
-                      )}
-                    </div>
-                  </form>
-
-                  <p className="text-center text-sm text-muted-foreground mt-6">
-                    Questions? Contact us at{" "}
-                    <a href="mailto:digital@deluve.co" className="text-blue-600 hover:underline">
-                      digital@deluve.co
-                    </a>{" "}
-                    or call{" "}
-                    <a href="tel:+258841234567" className="text-blue-600 hover:underline">
-                      +258 84 123 4567
-                    </a>
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+                    ) : (
+                      <Button type="submit" disabled={isSubmitting}>
+                        {isSubmitting ? (
+                          <>
+                            <div className="mr-2 size-4 animate-spin rounded-full border-b-2 border-white"></div>
+                            Submitting...
+                          </>
+                        ) : (
+                          <>
+                            Submit Quote Request
+                            <ArrowRight className="ml-2 size-4" />
+                          </>
+                        )}
+                      </Button>
+                    )}
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   )
 }

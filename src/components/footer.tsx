@@ -9,7 +9,7 @@ import { servicePillars } from "@/content/services";
 
 export default function FooterSection() {
   const pathname = usePathname();
-  const compactFooterPaths = ["/get-quote", "/privacy", "/terms", "/cookies", "/sitemap"];
+  const compactFooterPaths = ["/privacy", "/terms", "/cookies", "/sitemap"];
   const isCompact = compactFooterPaths.includes(pathname);
 
   if (isCompact) {

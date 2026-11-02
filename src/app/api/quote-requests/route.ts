@@ -17,14 +17,34 @@ const projectTypes = {
   other: "Other",
 } as const
 
-const budgets = {
-  "300k-900k-mzn": "MZN 300,000 – 900,000 (approx.)",
-  "900k-1.8m-mzn": "MZN 900,000 – 1,800,000 (approx.)",
-  "1.8m-3m-mzn": "MZN 1,800,000 – 3,000,000 (approx.)",
-  "3m-6m-mzn": "MZN 3,000,000 – 6,000,000 (approx.)",
-  "6m+-mzn": "MZN 6,000,000+ (approx.)",
+const projectBudgets = {
+  "25k-50k-mzn": "MZN 25,000 – 50,000",
+  "50k-100k-mzn": "MZN 50,000 – 100,000",
+  "100k-250k-mzn": "MZN 100,000 – 250,000",
+  "250k-plus-mzn": "Above MZN 250,000",
   discuss: "Prefer to discuss",
 } as const
+
+const maintenanceBudgets = {
+  "monthly-up-to-10k-mzn": "Up to MZN 10,000/month",
+  "monthly-10k-25k-mzn": "MZN 10,000 – 25,000/month",
+  "monthly-25k-plus-mzn": "Above MZN 25,000/month",
+  "monthly-discuss": "Prefer to discuss",
+} as const
+
+const consultingBudgets = {
+  "hourly-500-750-mzn": "MZN 500 – 750/hour (basic services)",
+  "hourly-750-1200-mzn": "MZN 750 – 1,200/hour",
+  "hourly-1200-2500-mzn": "MZN 1,200 – 2,500/hour (specialized)",
+  "hourly-2500-plus-mzn": "Above MZN 2,500/hour",
+  "hourly-discuss": "Prefer to discuss",
+} as const
+
+function getBudgetOptions(projectType: QuoteRequest["projectType"]) {
+  if (projectType === "maintenance") return maintenanceBudgets
+  if (projectType === "consulting") return consultingBudgets
+  return projectBudgets
+}
 
 const timelines = {
   asap: "ASAP (Rush project)",
@@ -40,16 +60,6 @@ const contactMethods = {
   phone: "Phone Call",
   video: "Video Call",
   meeting: "In-person Meeting",
-} as const
-
-const referralSources = {
-  google: "Google Search",
-  referral: "Referral",
-  social: "Social Media",
-  linkedin: "LinkedIn",
-  portfolio: "Portfolio/Website",
-  event: "Event/Conference",
-  other: "Other",
 } as const
 
 const availableServices = [
@@ -72,18 +82,14 @@ type QuoteRequest = {
   email: string
   phone: string
   company: string
-  position: string
-  website: string
   projectType: keyof typeof projectTypes
   services: string[]
   budget: string
   timeline: string
   description: string
-  competitorWebsites: string
   targetAudience: string
   goals: string
   preferredContact: string
-  hearAboutUs: string
   agreeToTerms: boolean
   subscribeNewsletter: boolean
 }
@@ -107,22 +113,19 @@ function isQuoteRequest(value: unknown): value is QuoteRequest {
     "email",
     "phone",
     "company",
-    "position",
-    "website",
     "projectType",
     "budget",
     "timeline",
     "description",
-    "competitorWebsites",
     "targetAudience",
     "goals",
     "preferredContact",
-    "hearAboutUs",
   ] as const
 
   if (stringFields.some((field) => typeof value[field] !== "string")) return false
   if (!Array.isArray(value.services) || !value.services.every((service) => typeof service === "string")) return false
-  if (typeof value.agreeToTerms !== "boolean" || typeof value.subscribeNewsletter !== "boolean") return false
+  if (typeof value.agreeToTerms !== "boolean") return false
+  if (typeof value.subscribeNewsletter !== "boolean") return false
 
   const data = value as unknown as QuoteRequest
   return (
@@ -133,32 +136,18 @@ function isQuoteRequest(value: unknown): value is QuoteRequest {
     data.company.trim().length > 0 &&
     data.company.length <= 200 &&
     data.phone.length <= 100 &&
-    data.position.length <= 200 &&
-    data.website.length <= 2048 &&
-    (data.website === "" || isHttpUrl(data.website)) &&
     Object.hasOwn(projectTypes, data.projectType) &&
     data.services.length <= availableServices.length &&
     data.services.every((service) => availableServices.includes(service)) &&
-    isOptionalChoice(budgets, data.budget) &&
+    isOptionalChoice(getBudgetOptions(data.projectType), data.budget) &&
     isOptionalChoice(timelines, data.timeline) &&
     data.description.trim().length >= 50 &&
     data.description.length <= 500 &&
-    data.competitorWebsites.length <= 2000 &&
     data.targetAudience.length <= 2000 &&
     data.goals.length <= 2000 &&
     isOptionalChoice(contactMethods, data.preferredContact) &&
-    isOptionalChoice(referralSources, data.hearAboutUs) &&
     data.agreeToTerms
   )
-}
-
-function isHttpUrl(value: string) {
-  try {
-    const url = new URL(value)
-    return url.protocol === "http:" || url.protocol === "https:"
-  } catch {
-    return false
-  }
 }
 
 function displayChoice<T extends Record<string, string>>(options: T, value: string) {
@@ -174,13 +163,11 @@ function formatQuoteRequest(data: QuoteRequest) {
     `Email: ${data.email.trim()}`,
     `Phone: ${data.phone || "Not provided"}`,
     `Company: ${data.company.trim()}`,
-    `Position: ${data.position || "Not provided"}`,
-    `Website: ${data.website || "Not provided"}`,
     "",
     "PROJECT",
     `Type: ${projectTypes[data.projectType]}`,
     `Additional services: ${data.services.length ? data.services.join(", ") : "None selected"}`,
-    `Budget: ${displayChoice(budgets, data.budget)}`,
+    `Budget: ${displayChoice(getBudgetOptions(data.projectType), data.budget)}`,
     `Timeline: ${displayChoice(timelines, data.timeline)}`,
     "",
     "PROJECT DESCRIPTION",
@@ -189,9 +176,7 @@ function formatQuoteRequest(data: QuoteRequest) {
     "ADDITIONAL CONTEXT",
     `Target audience: ${data.targetAudience || "Not provided"}`,
     `Business goals: ${data.goals || "Not provided"}`,
-    `Competitor/inspiration websites: ${data.competitorWebsites || "Not provided"}`,
     `Preferred contact: ${displayChoice(contactMethods, data.preferredContact)}`,
-    `How they heard about us: ${displayChoice(referralSources, data.hearAboutUs)}`,
     `Newsletter requested: ${data.subscribeNewsletter ? "Yes" : "No"}`,
   ].join("\n")
 }
