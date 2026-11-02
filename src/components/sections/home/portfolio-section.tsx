@@ -99,9 +99,9 @@ export default function PortfolioSection() {
         />
       </div>
 
-      <div className="container mx-auto relative z-10 px-6">
+      <div className="site-container relative z-10">
         <motion.div
-          className="mb-16"
+          className="mx-auto mb-16 w-full max-w-7xl"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
             #Projects
@@ -114,7 +114,7 @@ export default function PortfolioSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
           <div className="lg:col-span-1">
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1 lg:gap-4">
               {cases.map((item, i) => {
@@ -230,7 +230,7 @@ export default function PortfolioSection() {
         </div>
 
         <motion.div
-          className="mt-12 flex justify-center"
+          className="mx-auto mt-12 flex w-full max-w-7xl justify-center"
         >
           <a
             href="/portfolio"

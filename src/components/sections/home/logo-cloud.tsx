@@ -3,7 +3,7 @@ import { InfiniteSlider } from "@/components/motion-primitives/infinite-slider";
 export default function LogoCloud() {
   return (
     <section className="py-8 md:py-16 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="site-container">
         <div className="flex flex-col items-center md:flex-row">
           <div className="mb-6 md:mb-0 md:max-w-44 md:border-r md:pr-6">
             <p className="text-center md:text-end text-sm ">

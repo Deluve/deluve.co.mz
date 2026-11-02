@@ -21,8 +21,8 @@ export default function PortfolioPage() {
         />
         <div aria-hidden className="absolute -top-40 left-1/2 h-96 w-[48rem] -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" />
 
-        <div className="container relative mx-auto px-6">
-          <div className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <div className="site-container relative">
+          <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-white/70 px-3 py-1 text-xs font-medium text-blue-700 backdrop-blur">
                 <span className="size-1.5 rounded-full bg-blue-600" />
@@ -42,8 +42,8 @@ export default function PortfolioPage() {
 
       {/* Projects */}
       <section className="pb-20 md:pb-28">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto max-w-6xl space-y-6">
+        <div className="site-container">
+          <div className="mx-auto w-full max-w-screen-2xl space-y-6">
             {featured && <FeaturedProject project={featured} />}
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -57,12 +57,12 @@ export default function PortfolioPage() {
 
       {/* CTA */}
       <section className="pb-20 md:pb-28">
-        <div className="container mx-auto px-6">
-          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-slate-950 px-8 py-14 text-center text-white md:px-16 md:py-20">
+        <div className="site-container">
+          <div className="relative mx-auto w-full max-w-[1728px] overflow-hidden rounded-3xl bg-slate-950 px-8 py-14 text-center text-white md:px-16 md:py-20">
             <div aria-hidden className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-blue-600/30 blur-3xl" />
             <div aria-hidden className="absolute -bottom-24 -right-10 h-72 w-72 rounded-full bg-blue-400/20 blur-3xl" />
             <div className="relative">
-              <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-tight text-balance md:text-5xl">
+              <h2 className="mx-auto max-w-none text-3xl font-semibold tracking-tight text-balance md:text-5xl">
                 Your project could be the next success story.
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-slate-300">
@@ -149,7 +149,7 @@ function FeaturedProject({ project }: { project: CaseStudy }) {
     <article className="group grid overflow-hidden rounded-3xl border border-border/80 bg-card shadow-sm transition-shadow hover:shadow-xl hover:shadow-slate-900/5 lg:grid-cols-[1.2fr_1fr]">
       <ProjectVisual
         project={project}
-        sizes="(min-width: 1024px) 55vw, 100vw"
+        sizes="(min-width: 1280px) 44rem, 100vw"
         className="aspect-[16/10] lg:aspect-auto lg:min-h-[28rem]"
       />
 
@@ -186,7 +186,7 @@ function ProjectCard({ project }: { project: CaseStudy }) {
     <article className="group flex flex-col overflow-hidden rounded-3xl border border-border/80 bg-card shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/5">
       <ProjectVisual
         project={project}
-        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+        sizes="(min-width: 1280px) 26rem, (min-width: 768px) 50vw, 100vw"
         className="aspect-[4/3]"
       />
 

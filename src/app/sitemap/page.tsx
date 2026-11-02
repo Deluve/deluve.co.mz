@@ -49,7 +49,7 @@ export default function SitemapPage() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <ScrollView>
-        <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+        <div className="site-container py-16 md:py-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

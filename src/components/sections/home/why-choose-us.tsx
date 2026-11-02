@@ -26,7 +26,7 @@ export default function WhyChooseUsAndProcess() {
 
   return (
     <section className="py-10 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background" id="why-choose-us">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="site-container">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-stretch mb-14">
           <div className="order-2 lg:order-1 lg:col-span-5">
             <ScrollView>

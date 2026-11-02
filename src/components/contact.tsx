@@ -48,7 +48,7 @@ export default function ContactSection() {
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background" id="contact">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="site-container">
         {/* Header */}
         <div className="text-center mb-16">
           <ScrollView>
@@ -71,7 +71,7 @@ export default function ContactSection() {
           </ScrollView>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="mx-auto grid w-full max-w-7xl items-start gap-16 lg:grid-cols-2">
           {/* Contact Form */}
           <ScrollView delay={0.2}>
             <div id="contact-form" className="scroll-mt-24 bg-card border border-border rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/20 hover:-translate-y-2 hover:scale-[1.02]">

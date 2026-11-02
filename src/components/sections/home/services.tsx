@@ -17,10 +17,8 @@ export default function ServicesSection2() {
         />
       </div>
 
-      <div className="container mx-auto relative px-6">
-        <motion.div
-          className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
-        >
+      <div className="site-container relative">
+        <motion.div className="mx-auto mb-16 flex w-full max-w-7xl flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700">
               Services
@@ -35,11 +33,9 @@ export default function ServicesSection2() {
               We help growing teams build better products, simplify operations and make smarter decisions.
             </p>
           </div>
-        </motion.div>
+          </motion.div>
 
-        <motion.div
-          className="mb-16 overflow-hidden rounded-[2rem] border border-blue-500/15 bg-card shadow-sm"
-        >
+        <motion.div className="mx-auto mb-16 w-full max-w-7xl overflow-hidden rounded-[2rem] border border-blue-500/15 bg-card shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-5">
             <div className="relative min-h-[320px] lg:col-span-3">
               <Image
@@ -69,9 +65,9 @@ export default function ServicesSection2() {
 
             </div>
           </div>
-        </motion.div>
+          </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-6">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-6">
           {servicePillars.map((service, i) => (
             <motion.a
               key={service.title}

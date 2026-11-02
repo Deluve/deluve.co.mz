@@ -20,8 +20,8 @@ export default function HeroSection() {
       />
       <div aria-hidden className="absolute -right-40 -top-32 h-[32rem] w-[32rem] rounded-full bg-blue-500/10 blur-3xl" />
 
-      <div className="container relative mx-auto px-6">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 md:gap-16 lg:grid-cols-[1fr_1fr] lg:gap-12">
+      <div className="site-container relative">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-12 md:gap-16 lg:grid-cols-[1fr_1fr] lg:gap-12">
           {/* Copy */}
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/80 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur">

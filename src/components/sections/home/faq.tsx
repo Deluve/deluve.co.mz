@@ -46,7 +46,7 @@ const faqs = [
 export default function FAQSection() {
   return (
     <section id="faq" className="section-padding bg-background">
-      <div className="container mx-auto">
+      <div className="site-container">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <div className="lg:col-span-5">
             <motion.div

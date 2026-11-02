@@ -80,8 +80,8 @@ export default function AboutPage() {
           className="absolute inset-0 bg-[linear-gradient(to_right,rgb(148_163_184/0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgb(148_163_184/0.1)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_top_left,black_25%,transparent_65%)]"
         />
 
-        <div className="container relative mx-auto px-6">
-          <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="site-container relative">
+          <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <SectionLabel>About Deluve</SectionLabel>
               <h1 className="mt-5 text-4xl font-semibold tracking-tight text-balance md:text-6xl">
@@ -128,8 +128,8 @@ export default function AboutPage() {
 
       {/* Story, mission & vision */}
       <section className="border-t border-border py-20 md:py-28">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div className="site-container">
+          <div className="mx-auto grid w-full max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
             <div>
               <SectionLabel>Our story</SectionLabel>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
@@ -149,7 +149,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-6xl gap-5 md:grid-cols-2">
+          <div className="mx-auto mt-16 grid w-full max-w-6xl gap-5 md:grid-cols-2">
             <div className="rounded-3xl border border-border p-8 md:p-10">
               <SectionLabel>Mission</SectionLabel>
               <p className="mt-4 text-xl font-medium leading-snug tracking-tight md:text-2xl">
@@ -170,8 +170,8 @@ export default function AboutPage() {
 
       {/* Values */}
       <section className="border-t border-border py-20 md:py-28">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto max-w-6xl">
+        <div className="site-container">
+          <div className="mx-auto w-full max-w-6xl">
             <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
                 <SectionLabel>Our values</SectionLabel>
@@ -200,8 +200,8 @@ export default function AboutPage() {
 
       {/* How we work */}
       <section id="approach" className="border-t border-border py-20 md:py-28">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto max-w-6xl">
+        <div className="site-container">
+          <div className="mx-auto w-full max-w-6xl">
             <div className="grid gap-6 md:grid-cols-2 md:items-end md:gap-12">
               <div>
                 <SectionLabel>How we work</SectionLabel>
@@ -236,8 +236,8 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="pb-20 md:pb-28">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto flex max-w-6xl flex-col gap-8 rounded-3xl border border-border bg-slate-50 px-8 py-12 md:flex-row md:items-center md:justify-between md:px-12 md:py-14">
+        <div className="site-container">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 rounded-3xl border border-border bg-slate-50 px-8 py-12 md:flex-row md:items-center md:justify-between md:px-12 md:py-14">
             <div className="max-w-xl">
               <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Have a challenge to solve?</h2>
               <p className="mt-3 text-base leading-7 text-muted-foreground">

@@ -8,7 +8,6 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { NAV_LINKS, NAV_CTA, type NavLink } from "@/content/nav";
 import { useLanguage } from "@/contexts/language-context";
-import LanguageSelector from "./language-selector";
 
 export const HeroHeader = () => {
   const [menuState, setMenuState] = React.useState(false);
@@ -42,7 +41,7 @@ export const HeroHeader = () => {
             "border-slate-200/80 bg-white/90 shadow-sm backdrop-blur-xl"
         )}
       >
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="site-container">
           <div className="flex items-center justify-between gap-6 py-3 lg:py-4">
             <Link
               href="/"
@@ -76,7 +75,6 @@ export const HeroHeader = () => {
 
             {/* Desktop actions */}
             <div className="hidden items-center gap-3 lg:flex">
-              <LanguageSelector />
               <Button asChild size="sm" className="group">
                 <Link href={NAV_CTA.href} className="flex items-center gap-2">
                   {t(`nav.${NAV_CTA.key}`)}
@@ -139,7 +137,6 @@ export const HeroHeader = () => {
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
-                <LanguageSelector />
               </div>
             </div>
           )}

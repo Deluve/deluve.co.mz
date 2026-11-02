@@ -80,7 +80,7 @@ export default function ServicesPageContent() {
         />
         <div aria-hidden className="absolute -top-40 left-1/2 h-96 w-[48rem] -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" />
 
-        <div className="container relative mx-auto px-6">
+        <div className="site-container relative">
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-white/70 px-3 py-1 text-xs font-medium text-blue-700 backdrop-blur">
               <span className="size-1.5 rounded-full bg-blue-600" />
@@ -107,7 +107,7 @@ export default function ServicesPageContent() {
           </div>
 
           {/* Quick links to each service */}
-          <div className="mx-auto mt-14 grid max-w-5xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto mt-14 grid w-full max-w-6xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {servicePillars.map((service) => {
               const Icon = service.icon;
               return (
@@ -129,15 +129,15 @@ export default function ServicesPageContent() {
 
       {/* Service details */}
       <section className="py-20 md:py-28">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
+        <div className="site-container">
+          <div className="mb-14 max-w-2xl">
             <SectionLabel>What we do</SectionLabel>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
               Four ways we create value.
             </h2>
           </div>
 
-          <div className="mx-auto max-w-6xl space-y-6">
+          <div className="mx-auto w-full max-w-7xl space-y-6">
             {servicePillars.map((service, index) => {
               const Icon = service.icon;
               return (
@@ -210,15 +210,15 @@ export default function ServicesPageContent() {
       {/* Process */}
       <section id="process" className="relative overflow-hidden bg-slate-950 py-20 text-white md:py-28">
         <div aria-hidden className="absolute -right-40 top-0 h-96 w-96 rounded-full bg-blue-600/20 blur-3xl" />
-        <div className="container relative mx-auto px-6">
-          <div className="mx-auto mb-16 max-w-2xl text-center">
+        <div className="site-container relative">
+          <div className="mb-16 max-w-2xl">
             <SectionLabel dark>How we work</SectionLabel>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
               A clear process, from first call to launch.
             </h2>
           </div>
 
-          <ol className="relative mx-auto grid max-w-6xl gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <ol className="relative mx-auto grid w-full max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {/* Connecting line on large screens */}
             <div aria-hidden className="absolute left-0 right-0 top-6 hidden h-px bg-gradient-to-r from-transparent via-white/20 to-transparent lg:block" />
             {process.map((step, index) => {
@@ -242,8 +242,8 @@ export default function ServicesPageContent() {
 
       {/* Engagement models */}
       <section className="py-20 md:py-28">
-        <div className="container mx-auto px-6">
-          <div className="mx-auto mb-14 max-w-2xl text-center">
+        <div className="site-container">
+          <div className="mb-14 max-w-2xl">
             <SectionLabel>Ways to work together</SectionLabel>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-5xl">
               Flexible engagement models.
@@ -253,7 +253,7 @@ export default function ServicesPageContent() {
             </p>
           </div>
 
-          <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-3">
+          <div className="mx-auto grid w-full max-w-7xl gap-5 md:grid-cols-3">
             {engagementModels.map((model) => {
               const Icon = model.icon;
               return (

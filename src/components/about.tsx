@@ -6,9 +6,9 @@ import { Badge } from "@/components/ui/badge"
 export default function AboutSection() {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-background via-muted/20 to-background" id="about">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="site-container">
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div className="mx-auto mb-16 w-full max-w-7xl text-center">
           <ScrollView>
             <Badge variant="secondary" className="mb-4 text-sm font-medium bg-blue-500/10 text-blue-600 border-blue-500/20">
               Est. 2024
@@ -26,9 +26,8 @@ export default function AboutSection() {
             </p>
           </ScrollView>
         </div>
-
         {/* Core Values Grid */}
-        <div className="mb-16">
+        <div className="mx-auto mb-16 w-full max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <ScrollView delay={0.1}>
               <div className="group">
@@ -79,7 +78,6 @@ export default function AboutSection() {
             </ScrollView>
           </div>
         </div>
-
       </div>
     </section>
   )

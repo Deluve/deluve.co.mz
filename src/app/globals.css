@@ -147,6 +147,13 @@
   }
 }
 
+@utility site-container {
+  width: 100%;
+  max-width: 160rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 4vw, 4.5rem);
+}
+
 @layer utilities {
   .section-padding {
     @apply py-16 md:py-24;

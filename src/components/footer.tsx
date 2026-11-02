@@ -15,7 +15,7 @@ export default function FooterSection() {
   if (isCompact) {
     return (
       <footer className="border-t border-slate-200 bg-slate-50/95 backdrop-blur supports-[backdrop-filter]:bg-slate-50/80">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-8 md:flex-row md:items-center md:justify-between md:py-10">
+        <div className="site-container flex flex-col gap-5 py-8 md:flex-row md:items-center md:justify-between md:py-10">
           <div className="flex flex-col items-center gap-3 text-center md:items-start md:text-left">
             <Link href="/" aria-label="go home" className="inline-block">
               <Logo />
@@ -34,10 +34,10 @@ export default function FooterSection() {
                 digital@deluve.co
               </Link>
               <Link
-                href="tel:+258841234567"
+                href="tel:+258866442192"
                 className="text-muted-foreground transition-colors hover:text-blue-400"
               >
-                +258 84 123 4567
+                +258 86 644 2192
               </Link>
             </div>
             <nav aria-label="Legal links" className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs md:justify-end">
@@ -59,7 +59,7 @@ export default function FooterSection() {
 
   return (
     <footer className="bg-slate-50/95 backdrop-blur supports-[backdrop-filter]:bg-slate-50/80 border-t border-slate-200">
-      <div className="mx-auto max-w-7xl px-6 py-10 md:py-20">
+      <div className="site-container py-10 md:py-20">
         {/* Main Footer Content */}
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:gap-8 lg:grid-cols-4 lg:gap-12">
           {/* Company Info */}
@@ -87,10 +87,10 @@ export default function FooterSection() {
                    <div className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/40 via-blue-300/60 to-blue-400/40 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
                  </Link>
                                  <Link
-                   href="tel:+258841234567"
+                   href="tel:+258866442192"
                    className="text-muted-foreground hover:text-blue-400 transition-colors text-sm relative group"
                  >
-                   <span>+258 84 123 4567</span>
+                   <span>+258 86 644 2192</span>
                    <div className="absolute -bottom-0.5 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400/40 via-blue-300/60 to-blue-400/40 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
                  </Link>
               </div>

@@ -58,7 +58,7 @@ export default function Testimonials() {
         />
       </div>
 
-      <div className="container mx-auto relative px-6">
+      <div className="site-container relative">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
             <ScrollView>
