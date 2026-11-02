@@ -92,9 +92,12 @@ export default function AboutPage() {
                 with a focused team and a practical, results-first approach.
               </p>
 
-              <dl className="mt-10 grid max-w-lg grid-cols-3 divide-x divide-border border-y border-border py-5">
+              <dl className="mt-10 grid max-w-lg grid-cols-1 divide-y divide-border border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:py-5">
                 {facts.map((fact) => (
-                  <div key={fact.label} className="px-4 first:pl-0">
+                  <div
+                    key={fact.label}
+                    className="flex items-center justify-between gap-4 py-3 first:pt-0 last:pb-0 sm:block sm:px-4 sm:py-0 sm:first:pl-0 sm:first:pt-0 sm:last:pb-0"
+                  >
                     <dt className="text-xs text-muted-foreground">{fact.label}</dt>
                     <dd className="mt-1 text-lg font-semibold tracking-tight md:text-xl">{fact.value}</dd>
                   </div>
