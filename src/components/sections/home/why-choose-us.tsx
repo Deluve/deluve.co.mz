@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { blurProps } from "@/content/image-blur"
 import { Users, TrendingUp, Award } from "lucide-react"
 import { ScrollView } from "@/components/scroll-view"
 import { Badge } from "@/components/ui/badge"
@@ -69,7 +70,8 @@ export default function WhyChooseUsAndProcess() {
               <div className="relative min-h-[540px] overflow-hidden rounded-[2.25rem] border border-border bg-card shadow-xl">
                 <div className="absolute inset-0">
                   <Image
-                    src="/images/get_together.png"
+                    src="/images/get_together.webp"
+                    {...blurProps("/images/get_together.webp")}
                     alt="Team celebrating a project milestone"
                     fill
                     sizes="(min-width: 1280px) 720px, (min-width: 1024px) 58vw, calc(100vw - 3rem)"

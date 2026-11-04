@@ -24,7 +24,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     service: "automation-systems",
     sector: "Enterprise",
     technologies: ["Next.js", "TypeScript", "PostgreSQL"],
-    image: "/images/portfolio/erp.jpg",
+    image: "/images/portfolio/erp.webp",
   },
   {
     id: "eventsnap",
@@ -37,7 +37,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     service: "product-development",
     sector: "Events",
     technologies: ["Next.js", "TypeScript", "Cloudinary"],
-    image: "/images/portfolio/eventsnap.png",
+    image: "/images/portfolio/eventsnap.webp",
   },
   {
     id: "cvflow",
@@ -50,7 +50,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     service: "product-development",
     sector: "HR Tech",
     technologies: ["Next.js", "TypeScript", "OpenAI API"],
-    image: "/images/portfolio/cvflow.png",
+    image: "/images/portfolio/cvflow.webp",
   },
   {
     id: "appointment-booking",
@@ -63,7 +63,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     service: "product-development",
     sector: "Services",
     technologies: ["Next.js", "Node.js", "Stripe"],
-    image: "/images/portfolio/myturn.png",
+    image: "/images/portfolio/myturn.webp",
 
   },
 ];
@@ -73,28 +73,28 @@ export const PORTFOLIO_CONTENT = [
     name: "Enterprise ERP Suite",
     description:
       "Integrated enterprise resource planning platform consolidating finance, HR and supply chain into a single real-time system.",
-    img: "/images/portfolio/erp.jpg",
+    img: "/images/portfolio/erp.webp",
     url: "#",
   },
   {
     name: "EventSnap",
     description:
       "Instant photo-sharing app for events where guests scan a QR Code to upload photos in real time—no app or login needed.",
-    img: "/images/portfolio/eventsnap.png",
+    img: "/images/portfolio/eventsnap.webp",
     url: "#",
   },
   {
     name: "CVFlow",
     description:
       "AI-powered platform that transforms your skills and experience into ATS-friendly, professionally styled resumes in minutes.",
-    img: "/images/portfolio/cvflow.png",
+    img: "/images/portfolio/cvflow.webp",
     url: "#",
   },
   {
     name: "Appointment Booking Platform",
     description:
       "Seamless appointment scheduling platform with real-time booking, rescheduling, automated reminders and calendar sync.",
-    img: "/images/portfolio/myturn.png",
+    img: "/images/portfolio/myturn.webp",
     url: "#",
   },
 ];

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { blurProps } from "@/content/image-blur";
 import { ArrowRight, ArrowUpRight, CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -98,6 +99,7 @@ function ProjectVisual({ project, className, sizes }: { project: CaseStudy; clas
       {project.image ? (
         <Image
           src={project.image}
+          {...blurProps(project.image)}
           alt={project.title}
           fill
           sizes={sizes}

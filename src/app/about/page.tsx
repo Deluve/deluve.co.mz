@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { blurProps } from "@/content/image-blur";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -108,7 +109,8 @@ export default function AboutPage() {
             <div className="relative pb-10 pl-10 lg:pb-14">
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-border shadow-xl shadow-slate-900/5">
                 <Image
-                  src="/images/team-work.png"
+                  src="/images/team-work.webp"
+                  {...blurProps("/images/team-work.webp")}
                   alt="Deluve team working together"
                   fill
                   priority
@@ -118,7 +120,7 @@ export default function AboutPage() {
               </div>
               <div className="absolute bottom-0 left-0 hidden w-2/5 overflow-hidden rounded-2xl border-4 border-background shadow-lg sm:block">
                 <div className="relative aspect-square">
-                  <Image src="/images/office.png" alt="Deluve office" fill sizes="20vw" className="object-cover" />
+                  <Image src="/images/office.webp" alt="Deluve office" fill sizes="20vw" className="object-cover" {...blurProps("/images/office.webp")} />
                 </div>
               </div>
             </div>
