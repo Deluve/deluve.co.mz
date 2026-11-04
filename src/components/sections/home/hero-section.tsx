@@ -1,16 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Check, LayoutDashboard, RefreshCw, TrendingUp, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  LayoutDashboard,
+  Loader2,
+  RefreshCw,
+  TrendingDown,
+  TrendingUp,
+  Zap,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/language-context";
+import { useLiveDashboard } from "@/hooks/useLiveDashboard";
 
-// Illustrative bar heights (%) for the mock chart.
-const BARS = [38, 52, 45, 68, 60, 82, 74];
+const DAY_MS = 86_400_000;
+const PLACEHOLDER_BARS = [38, 52, 45, 68, 60, 82, 74];
 
 export default function HeroSection() {
-  const { t } = useLanguage();
-  const days = t("hero.mock.days").split(",");
+  const { t, language } = useLanguage();
+  const live = useLiveDashboard();
+  const locale = language === "pt" ? "pt-PT" : "en-GB";
+
+  const clock = live
+    ? new Intl.DateTimeFormat(locale, {
+        timeZone: "Africa/Maputo",
+        day: "numeric",
+        month: "short",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }).format(live.now)
+    : "";
+  const weekdayFormat = new Intl.DateTimeFormat(locale, { weekday: "narrow", timeZone: "UTC" });
+  const trendUp = (live?.trendPct ?? 0) >= 0;
+  const TrendIcon = trendUp ? TrendingUp : TrendingDown;
 
   return (
     <section className="relative overflow-hidden pb-20 pt-28 md:pb-24 md:pt-40">
@@ -60,9 +85,17 @@ export default function HeroSection() {
                 <span className="size-2.5 rounded-full bg-slate-300" />
                 <span className="size-2.5 rounded-full bg-slate-300" />
                 <span className="size-2.5 rounded-full bg-slate-300" />
-                <span className="ml-3 flex items-center gap-1.5 text-xs font-medium text-slate-600">
-                  <LayoutDashboard className="size-3.5 text-blue-600" />
+                <span className="ml-3 flex min-w-0 items-center gap-1.5 truncate text-xs font-medium text-slate-600">
+                  <LayoutDashboard className="size-3.5 shrink-0 text-blue-600" />
                   {t("hero.mock.title")}
+                </span>
+                <span className="ml-auto flex shrink-0 items-center gap-1.5 text-[11px] font-medium tabular-nums text-slate-500">
+                  <span className="relative flex size-1.5">
+                    <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
+                  </span>
+                  <span className="text-emerald-600">{t("hero.mock.live")}</span>
+                  <span className="hidden sm:inline">· {clock}</span>
                 </span>
               </div>
 
@@ -71,14 +104,29 @@ export default function HeroSection() {
                 <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
                   <div className="rounded-xl border border-border p-3 sm:p-4">
                     <p className="text-xs text-muted-foreground">{t("hero.mock.kpi1")}</p>
-                    <p className="mt-1 text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">1,284</p>
-                    <p className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-emerald-600">
-                      <TrendingUp className="size-3" /> +18%
+                    <p className="mt-1 text-xl font-semibold tracking-tight tabular-nums text-slate-900 sm:text-2xl">
+                      {live ? live.ordersToday.toLocaleString(locale) : "—"}
+                    </p>
+                    <p
+                      className={`mt-1 inline-flex items-center gap-1 text-xs font-medium ${
+                        trendUp ? "text-emerald-600" : "text-rose-600"
+                      }`}
+                    >
+                      <TrendIcon className="size-3" />
+                      {live ? `${trendUp ? "+" : ""}${live.trendPct}%` : "—"}
+                      <span className="font-normal text-muted-foreground">{t("hero.mock.vsYesterday")}</span>
                     </p>
                   </div>
                   <div className="rounded-xl border border-border p-3 sm:p-4">
                     <p className="text-xs text-muted-foreground">{t("hero.mock.kpi2")}</p>
-                    <p className="mt-1 text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">32h</p>
+                    <p className="mt-1 text-xl font-semibold tracking-tight tabular-nums text-slate-900 sm:text-2xl">
+                      {live
+                        ? `${live.hoursSavedWeek.toLocaleString(locale, {
+                            minimumFractionDigits: 1,
+                            maximumFractionDigits: 1,
+                          })}h`
+                        : "—"}
+                    </p>
                     <p className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-blue-600">
                       <Zap className="size-3" /> {t("hero.mock.perWeek")}
                     </p>
@@ -89,28 +137,48 @@ export default function HeroSection() {
                 <div className="rounded-xl border border-border p-3 sm:p-4">
                   <p className="text-xs font-medium text-slate-700">{t("hero.mock.chart")}</p>
                   <div className="mt-3 flex h-20 items-end gap-2 sm:mt-4 sm:h-28 sm:gap-2.5">
-                    {BARS.map((h, i) => (
-                      <div key={i} className="flex flex-1 flex-col items-center gap-1.5">
-                        <div
-                          className={i === BARS.length - 2 ? "w-full rounded-md bg-blue-600" : "w-full rounded-md bg-blue-100"}
-                          style={{ height: `${h}%` }}
-                        />
-                        <span className="text-[10px] text-muted-foreground">{days[i]}</span>
-                      </div>
-                    ))}
+                    {(live?.week ?? PLACEHOLDER_BARS.map((h) => ({ day: 0, value: 0, isToday: false, heightPct: h }))).map(
+                      (bar, i) => (
+                        <div key={i} className="flex h-full flex-1 flex-col items-center justify-end gap-1.5">
+                          <div
+                            title={live ? bar.value.toLocaleString(locale) : undefined}
+                            className={`w-full rounded-md transition-[height] duration-700 ease-out ${
+                              bar.isToday ? "bg-blue-600" : "bg-blue-100"
+                            }`}
+                            style={{ height: `${bar.heightPct}%` }}
+                          />
+                          <span
+                            className={`text-[10px] ${bar.isToday ? "font-semibold text-blue-700" : "text-muted-foreground"}`}
+                          >
+                            {live ? weekdayFormat.format(bar.day * DAY_MS) : " "}
+                          </span>
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
 
                 {/* Workflow */}
                 <div className="rounded-xl border border-border p-3 sm:p-4">
-                  <p className="text-xs font-medium text-slate-700">{t("hero.mock.flow")}</p>
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-xs font-medium text-slate-700">{t("hero.mock.flow")}</p>
+                    {live && (
+                      <span className="font-mono text-[10px] text-muted-foreground">{live.orderId}</span>
+                    )}
+                  </div>
                   <ol className="mt-3 flex flex-col gap-1.5 text-[11px] font-medium text-slate-700 sm:flex-row sm:items-center sm:gap-2">
                     {["hero.mock.step1", "hero.mock.step2", "hero.mock.step3"].map((key, i) => (
                       <li key={key} className="flex min-w-0 flex-1 items-center gap-2">
                         <span className="flex min-w-0 flex-1 items-center gap-1.5 rounded-lg bg-slate-50 px-2 py-2">
-                          <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white">
-                            <Check className="size-2.5" strokeWidth={3} />
-                          </span>
+                          {live?.steps[i] === "running" ? (
+                            <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+                              <Loader2 className="size-2.5 animate-spin" strokeWidth={3} />
+                            </span>
+                          ) : (
+                            <span className="flex size-4 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white">
+                              <Check className="size-2.5" strokeWidth={3} />
+                            </span>
+                          )}
                           <span className="truncate">{t(key)}</span>
                         </span>
                         {i < 2 && <span className="hidden h-px w-2 shrink-0 bg-slate-300 sm:block" />}
@@ -124,11 +192,15 @@ export default function HeroSection() {
             {/* Floating notification */}
             <div className="absolute -bottom-6 left-3 flex items-center gap-3 rounded-xl border border-border bg-white px-3.5 py-2.5 sm:-left-8 sm:px-4 sm:py-3 shadow-xl shadow-slate-900/10">
               <span className="flex size-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
-                <RefreshCw className="size-4" />
+                <RefreshCw className={`size-4 ${live?.syncing ? "animate-spin" : ""}`} />
               </span>
               <span>
                 <span className="block text-xs font-semibold text-slate-900">{t("hero.mock.toast")}</span>
-                <span className="block text-[11px] text-muted-foreground">{t("hero.mock.now")}</span>
+                <span className="block text-[11px] tabular-nums text-muted-foreground">
+                  {!live || live.syncSecondsAgo < 3
+                    ? t("hero.mock.now")
+                    : t("hero.mock.ago").replace("{s}", String(live.syncSecondsAgo))}
+                </span>
               </span>
             </div>
           </div>
